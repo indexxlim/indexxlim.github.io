@@ -1,120 +1,4 @@
-<<<<<<< HEAD
-theme: minimal-mistakes-jekyll
-remote_theme: null
-minimal_mistakes_skin: air
-locale: en-US
-title: Site Title
-title_separator: '-'
-subtitle: null
-name: Your Name
-description: An amazing website.
-url: 'https://indexxlim.github.io'
-baseurl: ''
-repository: null
-teaser: null
-logo: null
-masthead_title: null
-words_per_minute: 200
-comments:
-  provider: 
-  disqus:
-    shortname: indexxlim
-  discourse:
-    server: null
-  facebook:
-    appid: null
-    num_posts: null
-    colorscheme: null
-  utterances:
-    theme: null
-    issue_term: null
-staticman:
-  allowedFields: null
-  branch: null
-  commitMessage: null
-  filename: null
-  format: null
-  moderation: null
-  path: null
-  requiredFields: null
-  transforms:
-    email: null
-  generatedFields:
-    date:
-      type: null
-      options:
-        format: null
-  endpoint: null
-reCaptcha:
-  siteKey: null
-  secret: null
-atom_feed:
-  path: null
-search: true
-search_full_content: null
-search_provider: null
-algolia:
-  application_id: null
-  index_name: null
-  search_only_api_key: null
-  powered_by: null
-google:
-  search_engine_id: null
-  instant_search: null
-google_site_verification: null
-bing_site_verification: null
-yandex_site_verification: null
-naver_site_verification: null
-twitter:
-  username: null
-facebook:
-  username: null
-  app_id: null
-  publisher: null
-og_image: null
-social:
-  type: null
-  name: null
-  links: null
-analytics:
-  provider: false
-  google:
-    tracking_id: null
-    anonymize_ip: null
-author:
-  name: Your Name
-  avatar: null
-  bio: I am an **amazing** person.
-  location: Somewhere
-  email: null
-  links:
-    - label: Email
-      icon: fas fa-fw fa-envelope-square
-    - label: Website
-      icon: fas fa-fw fa-link
-    - label: Twitter
-      icon: fab fa-fw fa-twitter-square
-    - label: Facebook
-      icon: fab fa-fw fa-facebook-square
-    - label: GitHub
-      icon: fab fa-fw fa-github
-    - label: Instagram
-      icon: fab fa-fw fa-instagram
-footer:
-  links:
-    - label: Twitter
-      icon: fab fa-fw fa-twitter-square
-    - label: Facebook
-      icon: fab fa-fw fa-facebook-square
-    - label: GitHub
-      icon: fab fa-fw fa-github
-    - label: GitLab
-      icon: fab fa-fw fa-gitlab
-    - label: Bitbucket
-      icon: fab fa-fw fa-bitbucket
-    - label: Instagram
-      icon: fab fa-fw fa-instagram
-=======
+
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your entire site, values
@@ -273,18 +157,12 @@ footer:
 
 
 # Reading Files
->>>>>>> b10d34e675d4dc4ea43de22aed5dd774d861e63a
 include:
   - .htaccess
   - _pages
 exclude:
-<<<<<<< HEAD
-  - '*.sublime-project'
-  - '*.sublime-workspace'
-=======
   - "*.sublime-project"
   - "*.sublime-workspace"
->>>>>>> b10d34e675d4dc4ea43de22aed5dd774d861e63a
   - vendor
   - .asset-cache
   - .bundle
@@ -306,22 +184,6 @@ exclude:
   - Rakefile
   - README
   - tmp
-<<<<<<< HEAD
-  - /docs
-  - /test
-keep_files:
-  - .git
-  - .svn
-encoding: utf-8
-markdown_ext: 'markdown,mkdown,mkdn,mkd,md'
-markdown: kramdown
-highlighter: rouge
-lsi: false
-excerpt_separator: |+
-
-
-incremental: false
-=======
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
 keep_files:
@@ -340,7 +202,6 @@ incremental: false
 
 
 # Markdown Processing
->>>>>>> b10d34e675d4dc4ea43de22aed5dd774d861e63a
 kramdown:
   input: GFM
   hard_wrap: false
@@ -348,17 +209,6 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-<<<<<<< HEAD
-  smart_quotes: 'lsquo,rsquo,ldquo,rdquo'
-  enable_coderay: false
-sass:
-  sass_dir: _sass
-  style: compressed
-permalink: '/:categories/:title/'
-paginate: 5
-paginate_path: '/page:num/'
-timezone: null
-=======
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
@@ -377,7 +227,6 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)
->>>>>>> b10d34e675d4dc4ea43de22aed5dd774d861e63a
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -385,11 +234,9 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
-<<<<<<< HEAD
-=======
+
 
 # mimic GitHub Pages with --safe
->>>>>>> b10d34e675d4dc4ea43de22aed5dd774d861e63a
 whitelist:
   - jekyll-paginate
   - jekyll-sitemap
@@ -397,8 +244,6 @@ whitelist:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
-<<<<<<< HEAD
-=======
 
 
 # Archives
@@ -411,15 +256,12 @@ whitelist:
 #  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
 #  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path/my-awesome-category/index.html ~> path: /
->>>>>>> b10d34e675d4dc4ea43de22aed5dd774d861e63a
 category_archive:
   type: liquid
   path: /categories/
 tag_archive:
   type: liquid
   path: /tags/
-<<<<<<< HEAD
-=======
 # https://github.com/jekyll/jekyll-archives
 # jekyll-archives:
 #   enabled:
@@ -435,16 +277,11 @@ tag_archive:
 
 # HTML Compression
 # - http://jch.penibelst.de/
->>>>>>> b10d34e675d4dc4ea43de22aed5dd774d861e63a
 compress_html:
   clippings: all
   ignore:
     envs: development
-<<<<<<< HEAD
-defaults:
-  - scope:
-      path: ''
-=======
+
 
 
 # Defaults
@@ -452,16 +289,11 @@ defaults:
   # _posts
   - scope:
       path: ""
->>>>>>> b10d34e675d4dc4ea43de22aed5dd774d861e63a
       type: posts
     values:
       layout: single
       author_profile: true
       read_time: true
-<<<<<<< HEAD
       comments: true
-=======
-      comments: # true
->>>>>>> b10d34e675d4dc4ea43de22aed5dd774d861e63a
       share: true
       related: true
