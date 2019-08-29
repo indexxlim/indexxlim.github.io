@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-29T14:22:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Site Title</title><subtitle>An amazing website.</subtitle><author><name>Your Name</name></author><entry><title type="html">Git Upload</title><link href="http://localhost:4000/git-upload/" rel="alternate" type="text/html" title="Git Upload" /><published>2019-07-30T00:00:00+09:00</published><updated>2019-07-30T00:00:00+09:00</updated><id>http://localhost:4000/git-upload</id><content type="html" xml:base="http://localhost:4000/git-upload/">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git add .&lt;/code&gt;
+Adds the files in the local repository and stages them for commit. To unstage a file, use ‘git reset HEAD YOUR-FILE’.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git commit -m &quot;First commit&quot;&lt;/code&gt;
+Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use ‘git reset –soft HEAD~1’ and commit and add the file again.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git remote add origin remote repository URL&lt;/code&gt;
+Sets the new remote&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git remote -v&lt;/code&gt;
+Verifies the new remote URL&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git push origin master&lt;/code&gt;
+Pushes the changes in your local repository up to the remote repository you specified as the origin&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">$ git add . Adds the files in the local repository and stages them for commit. To unstage a file, use ‘git reset HEAD YOUR-FILE’.</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/first-post/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-07-26T21:26:28+09:00</published><updated>2019-07-26T21:26:28+09:00</updated><id>http://localhost:4000/jekyll/update/first-post</id><content type="html" xml:base="http://localhost:4000/jekyll/update/first-post/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
