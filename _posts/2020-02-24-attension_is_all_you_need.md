@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Attention is All you need"
 tags: [Attention, Transformer]
 use_math: true
