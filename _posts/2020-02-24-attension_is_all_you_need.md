@@ -5,7 +5,6 @@ tags: [Attention, Transformer]
 use_math: true
 comments: true
 ---
-
 # Attension is All you need
 ### Abstract
 전반적인 시퀀스 전달 모델은 인코더와 디코더를 포함하는 복잡한 순환(recurrent) 또는 합성곱(convolution)을 기반으로 합니다. 최고의 성능의 모델들은 또한 어텐션 메커니즘 (attention mechanism) 을 통해 인코더와 디코더를 연결합니다. 우리는 새로운 단순한 네트워크 아키텍처인 트랜스포머를 오로지 어텐션 메커니즘에 기초하고, 순환과 합성곱을 완전히 배제하는 것을 제안합니다. 두 가지 기계 번역 작업에 대한 실험에서 이러한 모델은 보다 병렬적이고 상당히 필요한 동시에 품질이 우수하다는 것을 보여줍니다.
@@ -30,7 +29,6 @@ Recurrent model은 순차적인 특성이 유지되는 뛰어난 장점이 있�
 어텐션은  RNN과 같이 딥러닝 관련 레이어가 아니라 매커니즘으로, 특정 시퀀스를 출력하기 위해 입력 시퀀스의 어떠한 부분을 강조해야 될는지 학습을 할 수 있는 개념을 의미합니다. 물론 입출력 시퀀스가 자기 자신이 되는 셀프  어텐션 등 다양한 방식이 존재합니다.
 
 이 그림은 어텐션이 인코더 디코더  사이에서 학습되는 방식을 도식화 한 것입니다. 입력 시퀀스 중에서 “방”이라는 단어가 “room”이라는 단어가 시퀀스에서 출현시 강조되는 것이며, 그러한 강조 정보가 입력 시퀀스에 적용되어서 디코더에  입력됩니다. 매 디코더 시퀀스마다 이러한 계산이 진행되며 수많은 문장이 학습되면서 인코더 디코더에 입력되는 단어들의 상호간의 컨텍스트가  학습됩니다.
-
 $$score(s_t, h_i )= s_t^T h_i 
 \\e^t=[s_t^T h_1,…,s_t^T h_N]
 \\a^t=softmax(e^t)
@@ -38,7 +36,27 @@ $$score(s_t, h_i )= s_t^T h_i
 
 원 논문에서는 t를 현재시점이라고 할 때, 인코더 출력벡터(s)와 은닉 상태 벡터(h)를 내적한 후에 소프트맥스(softmax)를 한다면 이를 어텐션 분포(attention distribution), 각각의 값을 어텐션 가중치(attention weight)라고 합니다. 이 가중치를 모두 더한다면 최종 출력 어텐션 값(attention value)이자 문맥 벡터(context vector)라고 정의 합니다. 그 후 실제 예측을 위해 어텐션 벡터와 인코더 출력벡터를 결합(concatenate)시켜 예측합니다.
 
-*https://arxiv.org/abs/1409.0473
+## Introduction  –  RC, LN
+### RC(residual connection)
+
+residual connection을 수식으로 나타낸다면
+$y_l=h(x_l )+F(x_l,W_l )$
+여기서 $f(y_l )$는 ${x}_{l+1}$의 항등함수고  $h(x_l )$는 $x_l$ 로 맵핑됩니다.
+
+이 때,  $x_(l+1)$  ≡  $y_l$ 라고한다면,
+$x_{(l+1)} = x_l+ F(x_l,W_l )$
+재귀적으로 $(x_{(l+2)}=x_{(l+1)}+F(x_{(l+1)},W_{(l+1)}) =x_l+ F(x_l, W_l)+F(x_{(l+1)},W_{(l+1)}), etc.)$
+
+-->$x_L "=" x_l + \sum\limits^{L-1}_{i=1}  F(x_i,W_i)$
+이 식을 미분하면 $\frac{∂ε}{∂x_l}=\frac{∂ε}{∂x_L} \frac{∂x_L}{∂x_l}  = \frac{∂ε}{∂x_L}  (1+\frac{∂}{∂x_l} \sum\limits^{L-1}_{i=1}  F(x_i,W_i))$
+
+여기서 $\frac{∂ε}{∂x_L}$ 는 모든 레이어에 적용 되고,  F가 0이 되는 경우는 희박하기 때문에 가중치 $ε$ 가 매우 작더라도 vanishing gradient되는 경우는 거의 없습니다.
+
+##  LN(Layer Normalization)
+
+각 레이어의 출력을 평균과 표준편차를 이용해서 표준화(standardization)합니다.
+
+
 
 ## Model Architecture
 ### Encoder & Decoder
@@ -88,18 +106,37 @@ $${PE}_{(pos,2i)}=sin⁡(pos/10000^{2i/d_{model}})
 
 ## Why Self-Attention
 
-이 모델에서 recurrent 나 convolution을 사용하지 않고 self-attention만을 사용한 이유에 대해서 알아보자. 3가지 이유로 self-attention을 선택했다.
+이 모델에서 순환나  합성곱을 사용하지 않고 자가 어탠션(self-attention)만을 사용한 이유에 대해서 알아보면, 3가지 이유로 자가 어탠션을 선택합니다.
 
-레이어당 전체 연산량이 줄어든다.
+1. 레이어당 전체 연산량이 줄어든다(시간복잡도).
 
-병렬화가 가능한 연산이 늘어난다.
+2. 병렬화가 가능한 연산량이 늘어난다.
 
-long-range의 term들의 dependency도 잘 학습할 수 있게 된다.
+3. 거리가 먼 단어들의 종속성(long-range 또는 long-term dependency)때문
 
-그리고 위의 3가지 외에 또 다른 이유는 attention을 사용하면 모델 자체의 동작을 해석하기 쉬워진다는(interpretable) 장점 때문이다. attention 하나의 동작 뿐만 아니라 multi-head의 동작 또한 어떻게 동작하는지 이해하기 쉽다는 장점이 있다. 아래의 그림을 보면 어떻게 attention mechanism이 적용되는지 쉽게 이해할 수 있다.
+그리고 위의 3가지 외에 또 다른 이유는 어탠션을 사용하면 모델 자체의 동작을 해석하기 쉬워진다는(interpretable) 장점 때문입니다. 어탠션 하나의 동작 뿐만 아니라 multi-head의 동작 또한 어떻게 동작하는지 이해하기 쉽다는 장점이 있습니다.
 
 # 결론
 
-본 연구에서는, 전적으로 주의를 기반으로 한 최초의 시퀀스 전달 모델인 Transformer를 제시하여, 인코더-디코더 아키텍처에서 가장 일반적으로 사용되는 순환 레이어를  multi-headed self-attention로 대체하였다.  
-번역 작업의 경우, Transformer는 순환 또는 합성곱  계층에 기반한 구조보다 훨씬 더 빠르게 훈련될 수 있다. WMT 2014 영어-독일어 및 WMT 2014 영어-프랑스어 번역 과제 모두에서 SOTA를 달성했다. 이전의 과제에서 우리의 최고의 모델이 이전에 보고된 모든 앙상블보다 더 성능이 좋다.  
-우리는 관심 기반 모델의 미래에 대해 흥분하고 있으며 다른 과제에 적용할 계획이다. 우리는 Transformer를 텍스트 이외의 입력 및 출력으로 확장하고 영상, 오디오, 비디오 등에서 대용량 입력과 출력을 효율적으로 처리하기 위한 국부적이고 제한된 어탠션  메커니즘을 조사할 계획이다.  우리의 또 다른 연구 목표는 덜 순차적으로 발전하는 것이다.
+본 연구에서는, 전적으로 주의를 기반으로 한 최초의 시퀀스 전달 모델인 Transformer를 제시하여, 인코더-디코더 아키텍처에서 가장 일반적으로 사용되는 순환 레이어를  multi-headed self-attention로 대체하였습니다.  
+번역 작업의 경우, Transformer는 순환 또는 합성곱  레이어에 기반한 구조보다 훨씬 더 빠르게 훈련될 수 있습니다. WMT 2014 영어-독일어 및 WMT 2014 영어-프랑스어 번역 과제 모두에서 SOTA를 달성했습니다. 이전의 과제에서 우리의 최고의 모델이 이전에 보고된 모든 앙상블보다 더 성능이 좋습니다. 우리는 관심 기반 모델의 미래에 대해 흥분하고 있으며 다른 과제에 적용할 계획입니다. Transformer를 텍스트 이외의 입력 및 출력으로 확장하고 영상, 오디오, 비디오 등에서 대용량 입력과 출력을 효율적으로 처리하기 위한 국부적이고 제한된 어탠션 메커니즘을 조사할 계획입니다. 우리의 또 다른 연구 목표는 덜 순차적으로 발전하는 것입니다.
+
+#참조
+•[https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762) (Transformer)
+
+•[https://arxiv.org/abs/1409.0473](https://arxiv.org/abs/1409.0473) (Attention)
+
+•[https://arxiv.org/abs/1603.05027](https://arxiv.org/abs/1603.05027)  (Residual Connection)
+
+•[https://arxiv.org/abs/1607.06450](https://arxiv.org/abs/1607.06450) (Layer Normalization)
+
+•[https://](https://arxiv.org/pdf/1512.00567.pdf)[arxiv.org/pdf/1512.00567.pdf](https://arxiv.org/pdf/1512.00567.pdf) (Label Smoothing)
+
+
+•[https://jalammar.github.io/illustrated-transformer/](https://jalammar.github.io/illustrated-transformer/)
+
+•[https://pozalabs.github.io/transformer/](https://pozalabs.github.io/transformer/)
+
+•[http://freesearch.pe.kr/archives/4876#easy-footnote-bottom-2-4876](http://freesearch.pe.kr/archives/4876)
+
+•[https://wikidocs.net/22893](https://wikidocs.net/22893)
