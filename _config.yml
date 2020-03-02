@@ -109,7 +109,7 @@ analytics:
 # Site Author
 author:
   name             : "indexxlim"
-  avatar           : /assets/images/indexxlim.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : " **Person**"
   location         : "Somewhere"
   email            :
@@ -131,7 +131,7 @@ author:
       url: "https://github.com/indexxlim"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/indexxlim"
+     # url: "https://instagram.com/indexxlim"
 
 # Site Footer
 footer:
