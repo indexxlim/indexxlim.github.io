@@ -1,43 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-02T13:41:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Site Title</title><subtitle>Just website.</subtitle><author><name>indexxlim</name></author><entry><title type="html">Attention is All you need</title><link href="http://localhost:4000/attension_is_all_you_need/" rel="alternate" type="text/html" title="Attention is All you need" /><published>2020-02-24T00:00:00+09:00</published><updated>2020-02-24T00:00:00+09:00</updated><id>http://localhost:4000/attension_is_all_you_need</id><content type="html" xml:base="http://localhost:4000/attension_is_all_you_need/">&lt;h1 id=&quot;attension-is-all-you-need&quot;&gt;Attension is All you need&lt;/h1&gt;
-&lt;h3 id=&quot;abstract&quot;&gt;Abstract&lt;/h3&gt;
-&lt;p&gt;전반적인 시퀀스 전달 모델은 인코더와 디코더를 포함하는 복잡한 순환(recurrent) 또는 합성곱(convolution)을 기반으로 합니다. 최고의 성능의 모델들은 또한 어텐션 메커니즘 (attention mechanism) 을 통해 인코더와 디코더를 연결합니다. 우리는 새로운 단순한 네트워크 아키텍처인 트랜스포머를 오로지 어텐션 메커니즘에 기초하고, 순환과 합성곱을 완전히 배제하는 것을 제안합니다. 두 가지 기계 번역 작업에 대한 실험에서 이러한 모델은 보다 병렬적이고 상당히 필요한 동시에 품질이 우수하다는 것을 보여줍니다.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-26T11:31:01+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Site Title</title><subtitle>Just website.</subtitle><author><name>indexxlim</name></author><entry><title type="html">text summarization</title><link href="http://localhost:4000/text-summarization/" rel="alternate" type="text/html" title="text summarization" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/text-summarization</id><content type="html" xml:base="http://localhost:4000/text-summarization/">&lt;p&gt;파이썬에서의 텍스트 요약 : 추출 대 추상 기법 재검토&lt;/p&gt;
+
+&lt;p&gt;이 블로그는 텍스트 요약에 대한 간단한 소개이며 현재 환경에 대한 실질적인 요약으로 사용될 수 있습니다. RaRe Incubator 프로그램 의 3 명의 학생으로 구성된 팀 이이 도메인의 기존 알고리즘 및 Python 도구를 실험 한 방법을 설명 합니다.&lt;/p&gt;
+
+&lt;p&gt;LexRank, LSA, Luhn 및 Gensim의 기존 TextRank 요약 모듈 과 같은 최신 추출 방법 을 51 개의 기사 요약 쌍 의 오 피노 시스 데이터 세트 에서 비교 합니다. 또한 Tensorflow의 Text Summarization 알고리즘을 사용 하는 추상 기술을 사용해 보았지만 하드웨어 요구가 매우 높기 때문에 (7000 GPU 시간, ~ 3 천만 달러의 클라우드 크레딧) 좋은 결과를 얻지 못했습니다 .&lt;/p&gt;
+
+&lt;p&gt;왜 텍스트 요약입니까?
+푸시 알림과 기사 요약이 점점 더 많은 관심을 끌고 있기 때문에 긴 텍스트에 대한 지능적이고 정확한 요약 을 생성하는 작업은 업계의 문제 일뿐만 아니라 대중적인 연구가되었습니다.&lt;/p&gt;
+
+&lt;p&gt;텍스트 요약에는 추출 및 추상 이라는 두 가지 기본 접근 방식이 있습니다 . 전자는 원본 텍스트에서 단어와 단어 문구를 추출하여 요약을 만듭니다. 후자는 더 많은 사람과 유사한 요약을 생성하기 위해 내부 언어 표현을 배우고 원본 텍스트의 의도를 설명합니다.&lt;/p&gt;
+
+&lt;p&gt;텍스트 요약에는 추출 및 추상 이라는 두 가지 기본 접근 방식이 있습니다 .&lt;/p&gt;
+
+&lt;p&gt;추출 텍스트 요약
+먼저, 오늘날 존재하는 텍스트 요약을위한 인기있는 알고리즘 및 구현에 대한 간단한 설명 :&lt;/p&gt;
+
+&lt;p&gt;Gensim의 텍스트 요약
+gensim.summarization이 모듈 은 Mihalcea 등 의 논문 에서 가중치 그래프를 기반으로하는 감독되지 않은 알고리즘 인 TextRank를 구현 합니다. 다른 인큐베이터 학생 인 Olavur Mortensen이 추가했습니다 .이 블로그의 이전 게시물 을 참조하십시오 . Google이 웹 페이지 순위를 지정하는 데 사용 하는 인기있는 PageRank 알고리즘 위에 구축되었습니다 . TextRank는 다음과 같이 작동합니다.&lt;/p&gt;
+
+&lt;p&gt;텍스트를 사전 처리하십시오. 중지 단어를 제거하고 나머지 단어를 제거하십시오.
+정점이 문장 인 그래프를 만듭니다.
+모든 문장을 다른 모든 문장에 연결하십시오. 가장자리의 무게는 두 문장이 얼마나 비슷한 지입니다.
+그래프에서 PageRank 알고리즘을 실행하십시오.
+PageRank 점수가 가장 높은 정점 (문장)을 선택하십시오.
+원본 TextRank에서 두 문장 사이의 모서리 가중치는 두 문장 모두에 나타나는 단어의 백분율입니다. Gensim의 TextRank는 Okapi BM25 함수를 사용 하여 문장이 얼마나 유사한 지 확인합니다. Barrios et al. 의 논문 에서 개선되었습니다 . .&lt;/p&gt;
+
+&lt;p&gt;파이 티저
+PyTeaser 는 추출 텍스트 요약을위한 휴리스틱 접근 방식 인 Scala 프로젝트 TextTeaser 의 Python 구현입니다 .&lt;/p&gt;
+
+&lt;p&gt;TextTeaser는 모든 문장에 점수를 연결합니다. 이 점수는 해당 문장에서 추출 된 기능의 선형 조합입니다. TextTeaser가 보는 기능은 다음과 같습니다.&lt;/p&gt;
+
+&lt;p&gt;titleFeature : 문서의 제목과 문장에 공통적 인 단어 수.
+sentenceLength : TextTeaser의 저자는 단어의 개수로 요약의 이상적인 길이를 나타내는 상수 “이상적”(값 20)을 정의했습니다. sentenceLength 는이 값으로부터 정규화 된 거리로 계산됩니다.
+sentencePosition : 정규화 된 문장 번호 (문 목록의 위치).
+keywordFrequency : bag-of-words 모델의 용어 빈도 (중지 단어 제거 후).
+요약을위한 문장 기능에 대한 자세한 내용 은 Jagadeesh et al .의 문장 추출 기반 단일 문서 요약을 참조하십시오 .&lt;/p&gt;
+
+&lt;p&gt;PyTextRank
+PyTextRank 는 원본 TextRank 알고리즘을 파이썬으로 구현하여 형태소 분석 대신 lemmatization 사용, 품사 태그 지정 및 명명 된 엔티티 해상도 통합, 기사에서 주요 문구를 추출하고이를 기반으로 요약 문장을 추출하는 등 몇 가지 기능이 향상되었습니다. 기사의 요약과 함께 PyTextRank는 기사에서 의미있는 주요 문구를 추출합니다. PyTextRank는 네 단계로 작동하며 각 단계는 다음 단계로 출력됩니다.&lt;/p&gt;
+
+&lt;p&gt;첫 번째 단계에서는 품사 태그 및 lemmatization이 문서의 모든 문장에 대해 수행됩니다.
+두 번째 단계에서는 주요 문구가 개수와 함께 추출되어 정규화됩니다.
+문장과 주요 문구 사이의 자카드 거리를 근사하여 각 문장에 대한 점수를 계산합니다.
+가장 중요한 문장과 주요 문구를 기반으로 문서를 요약합니다.
+룬 알고리즘
+1958 년에 출판 된이 알고리즘 [ PDF ]은 문서에서 자주 발생하는 “유의 한”단어와 중요하지 않은 단어로 인한이 단어들 사이의 선형 거리를 고려하여 요약 추출에 대한 문장 순위를 매 깁니다.&lt;/p&gt;
+
+&lt;p&gt;LexRank
+LexRank 는 TextRank 와 유사한 비 감독 그래프 기반 접근 방식입니다. LexRank는 두 문장 사이의 유사성 측정법으로 IDF 수정 코사인을 사용합니다. 이 유사성은 두 문장 사이의 그래프 가장자리의 가중치로 사용됩니다. LexRank는 또한 지능적인 사후 처리 단계를 통합하여 요약을 위해 선택된 상위 문장이 서로 너무 유사하지 않도록합니다.&lt;/p&gt;
+
+&lt;p&gt;LexRank Vs에 대한 추가 정보. TextRank는 여기 에서 찾을 수 있습니다 .&lt;/p&gt;
+
+&lt;p&gt;텍스트 요약의 LSA (잠재적 의미 분석)
+LSA는 중요한 정보 손실없이 데이터를보다 낮은 차원의 공간으로 투사합니다. 이 공간 분해 연산을 해석하는 한 가지 방법은 단일 벡터가 말뭉치에서 반복되는 단어 조합 패턴을 캡처하고 나타낼 수 있다는 것입니다. 특이 값의 크기는 문서에서 패턴의 중요성을 나타냅니다.&lt;/p&gt;
+
+&lt;p&gt;특이 벡터 및 특이 값과 같은 용어가 익숙하지 않은 경우이 자습서를 사용하는 것이 좋습니다. 이 자습서에서는 유익하고 순진한 Python 구현을 포함하여 LSA 이론을 다룹니다 (강건하고 빠른 구현을 위해서는 gensim 에서 LSA 사용 ).&lt;/p&gt;
+
+&lt;p&gt;텍스트 요약 품질을 평가하는 방법은 무엇입니까?
+ROUGE-N 측정 항목
+LexRank, Luhn 및 LSA 방법의 경우  이러한 알고리즘을 구현 하는 Sumy 요약 라이브러리를 사용했습니다. ROUGE-1 메트릭을 사용하여 논의 된 기술을 비교했습니다.&lt;/p&gt;
+
+&lt;p&gt;루즈 -N 은 모델과 금 요약 사이의 단어 N- 그램 측정 값입니다.&lt;/p&gt;
+
+&lt;p&gt;구체적으로, 이는 모델 및 금 요약에서 발생하는 N- 그램 문구 수와 금 요약에 존재하는 모든 N- 그램 문구 수의 비율입니다.&lt;/p&gt;
+
+&lt;p&gt;이것을 해석하는 또 다른 방법은 모델 요약에 금 요약에서 몇 개의 N- 그램이 나타나는지를 측정하는 리콜 값입니다.&lt;/p&gt;
+
+&lt;p&gt;일반적으로 요약 평가의 경우 ROUGE-1 및 ROUGE-2 (때로는 금과 모델 요약이 실제로 긴 경우 ROUGE-3) 메트릭 만 사용됩니다. 이론적으로 N을 늘리면 N- 그램의 길이가 증가합니다. 금과 모델 요약에서 완전히 일치해야하는 단어 구.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, 의미 적으로 유사한 두 개의 문구“ 사과 바나나 ”와“ 사과 사과 ”를 고려하십시오. ROUGE-1을 사용하는 경우 유니 그램 만 고려하며 두 구 모두 동일합니다. 그러나 ROUGE-2를 사용하는 경우 2 워드 문구를 사용하므로 “ 사과 바나나 “는 “ 사과 사과 “와 다른 단일 엔티티 가되어 “미스”및 낮은 평가 점수로 이어집니다.&lt;/p&gt;
+
+&lt;p&gt;예:&lt;/p&gt;
+
+&lt;p&gt;금 요약 : 좋은 식단에는 사과와 바나나가 있어야합니다.
+모델 사과와 바나나는 좋은 식단을 유지해야합니다.&lt;/p&gt;
+
+&lt;p&gt;ROUGE-1을 사용하면 점수는 7/8 = 0.875입니다.&lt;/p&gt;
+
+&lt;p&gt;ROUGE-2의 경우 4/7 = ~ 0.57입니다.&lt;/p&gt;
+
+&lt;p&gt;위의 비율은 알고리즘이 모든 관련 정보 세트에서 추출 할 수있는 관련 정보의 양으로 해석 될 수 있으며, 이는 정확하게 리콜의 정의이므로 루즈는 리콜 기반입니다.&lt;/p&gt;
+
+&lt;p&gt;점수 계산 방법의 더 많은 예는이 요지에 있습니다.&lt;/p&gt;
+
+&lt;p&gt;BLEU 측정 항목
+BLEU 메트릭은 기계 번역 평가에 광범위하게 사용되는 수정 된 정밀도 형식입니다.&lt;/p&gt;
+
+&lt;p&gt;정밀도는 금과 모델 번역 / 요약에서 동시에 발생하는 단어 수와 모델 요약의 단어 수의 비율입니다. ROUGE와 달리 BLEU는 가중 평균을 취하여 가변 길이 구 (Unigram, Bigram, Trigram 등)를 직접 처리합니다.&lt;/p&gt;
+
+&lt;p&gt;실제 메트릭은 모델의 변환 / 요약에 반복되는 관련 정보가 포함되어있을 때 문제를 피하기 위해 수정 된 정밀도입니다.&lt;/p&gt;
+
+&lt;p&gt;예:&lt;/p&gt;
+
+&lt;p&gt;금 요약 : 좋은 식단에는 사과와 바나나가 있어야합니다.
+모델 요약 : 사과와 바나나는 좋은 식단을 유지해야합니다.&lt;/p&gt;
+
+&lt;p&gt;유니 그램만을 고려하여 BLEU 점수를 사용하는 경우, 즉 다른 모든 N- 그램에 대해 유니 그램의 무게가 1과 0 인 경우 BLEU에 대한 비율은 7/9 = 0.778로 계산됩니다.&lt;/p&gt;
+
+&lt;p&gt;유니 그램 및 빅 그램에 대한 가중치 [0.6, 0.4]의 경우 비율은 0.6 * (7/9) + 0.4 * (4/8) = 0.667이됩니다.&lt;/p&gt;
+
+&lt;p&gt;수정 된 N- 그램 정밀도의 BLEU
+수정 된 N- 그램 정밀도의 주요 직관은 참조 문구 / 단어가 모델 요약에서 식별되면 소진 된 것으로 간주해야한다는 것입니다. 이 아이디어는 모델 요약에서 반복 / 과잉 생성 된 단어의 문제를 해결합니다.&lt;/p&gt;
+
+&lt;p&gt;수정 된 N- 그램 정밀도는 단일 참조에서 단어 / 문구가 발생하는 최대 횟수를 먼저 찾아서 계산합니다. 이 카운트는 해당 단어 / 구문 의 최대 참조 카운트가됩니다 . 그런 다음 각 모델 단어 / 문구의 총 개수를 최대 참조 횟수로 자르고 모델 변환 / 요약에서 각 단어에 대해 잘린 개수를 더한 다음 모델 변환 / 요약에서 총 단어 / 구문 수로 합계를 나눕니다.&lt;/p&gt;
+
+&lt;p&gt;BLEU에 대한 논문 링크 (위 참조)에는 수정 된 N-gram 정밀도에 대한 좋은 예가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;TL; DR : ROUGE 및 BLEU 점수가 클수록 요약이 더 좋습니다.&lt;/p&gt;
+
+&lt;p&gt;데이터 세트
+51 기사 의 오 피노 시스 데이터 세트 를 사용하여 비교를 수행 하였다 . 각 기사는 iPod의 배터리 수명 등과 같은 제품 기능에 관한 것이며 해당 제품을 구입 한 고객의 리뷰 모음입니다. 데이터 세트의 각 기사에는 5 개의 수동으로 작성된 “골드”요약이 있습니다. 일반적으로 5 개의 금 요약은 다르지만 5 번 반복 된 동일한 텍스트 일 ​​수도 있습니다.&lt;/p&gt;
+
+&lt;p&gt;모델 파라미터
+Gensim TextRank의 경우 출력 요약의 단어 수, word_count는 75로 설정되었습니다.
+Sumy-LSA 및 Sumy-Lex_rank의 경우 출력 요약 (sentence_count)의 문장 수는 2로 설정되었습니다.&lt;/p&gt;</content><author><name>indexxlim</name></author><summary type="html">파이썬에서의 텍스트 요약 : 추출 대 추상 기법 재검토</summary></entry><entry><title type="html">Attention is All you need</title><link href="http://localhost:4000/attension_is_all_you_need-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="alternate" type="text/html" title="Attention is All you need" /><published>2020-02-24T00:00:00+09:00</published><updated>2020-02-24T00:00:00+09:00</updated><id>http://localhost:4000/attension_is_all_you_need%20-%20%EB%B3%B5%EC%82%AC%EB%B3%B8</id><content type="html" xml:base="http://localhost:4000/attension_is_all_you_need-%EB%B3%B5%EC%82%AC%EB%B3%B8/">&lt;h1 id=&quot;attension-is-all-you-need&quot;&gt;Attension is All you need&lt;/h1&gt;
+
+&lt;p&gt;2018년 BERT라는 모델이 등장하면서 state-of-the-art를 차지했습니다.
+이 BERT모델의 기반이 되는 &lt;a href=&quot;https://arxiv.org/abs/1706.03762&quot;&gt;Transformer&lt;/a&gt; 를 설명 하려고 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.nytimes.com/2018/11/18/technology/artificial-intelligence-language.html&quot;&gt;뉴옥 타임지&lt;/a&gt;에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Oren Etzioni, chief executive of the Allen Institute for Artificial Intelligence&lt;/code&gt;가 말하길,&lt;br /&gt;
+기계가 아직 인간의 보통 감각을 표현할 수는 없지만, Bert는 &lt;code class=&quot;highlighter-rouge&quot;&gt;폭발적인 발전&lt;/code&gt;의 순간이라고 합니다.&lt;/p&gt;
+
+&lt;p&gt;이 Bert 모델에 기초가 된 &lt;a href=&quot;https://arxiv.org/abs/1706.03762&quot;&gt;Transformer&lt;/a&gt;는 어텐션 매커니즘을 사용하여 Encoder-Decoder로 구성되는데,
+여기서 어텐션 매커니즘이 어떻게 단어의 위치정보를 이용하여 어떤 단어를 주목하는지 살펴보겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-abstract&quot;&gt;1. Abstract&lt;/h2&gt;
+&lt;p&gt;전반적인 시퀀스 전달 모델은 인코더와 디코더를 포함하는 복잡한 순환(recurrent) 또는 합성곱(convolution)을 기반으로 합니다. 최고의 성능의 모델들은 또한 어텐션(&lt;a href=&quot;https://arxiv.org/abs/1409.0473&quot;&gt;attention&lt;/a&gt;) 을 통해 인코더와 디코더를 연결합니다. 우리는 새로운 단순한 네트워크 아키텍처인 트랜스포머를 오로지 &lt;code class=&quot;highlighter-rouge&quot;&gt;어텐션 메커니즘&lt;/code&gt;에 기초하고, 순환과 합성곱을 완전히 배제하는 것을 제안합니다. 두 가지 기계 번역 작업에 대한 실험에서 이러한 모델은 보다 병렬적이고 상당히 필요한 동시에 품질이 우수하다는 것을 보여줍니다.
 &lt;img src=&quot;/assets/images/1_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;h2 id=&quot;2-introduction&quot;&gt;2. Introduction&lt;/h2&gt;
 &lt;h3 id=&quot;recurrent&quot;&gt;Recurrent&lt;/h3&gt;
 &lt;p&gt;연속전인 데이터를 처리하기 위해 이전까지 많이 쓰이던 모델은 순환(recurrent) 모델이었습니다. 순환 모델은 ht  번째에 대한 출력을 만들기 위해, t번째 입력과 ht-1번째 은닉 상태(hidden state)를 이용했습니다. 이를 이용해  데이터의 순차적인 특성을 모델에 유지시켜 왔습니다.&lt;/p&gt;
 
-&lt;p&gt;하지만 순환 모델의 경우 long-term dependency를 처리하는데 한계가 있습니다. Vanish gradient 문제는 LSTM과 GRU에서 어느 정도 해결해왔지만, 고정된 크기의 벡터에는 데이터의 특성을 고려하여 모든 정보를 압축할 수 없기 때문에 완전히 해결될 수 없었습니다. 예를 들어, “저는 언어학을 좋아하고, 인공지능 중에서도 딥러닝을 배우고 있고 자연어 처리에 관심이 많습니다.”라는 문장에서 ‘자연어’라는 단어를 만드는데 ‘언어학’이라는 단어는 중요한 단서입니다. 그러나, 두 단어 사이의 거리가 가깝지 않으므로 모델은 앞의 ‘언어학’이라는 단어를 이용해 자연어’라는 단어를 만들지 못하고, 언어학 보다 가까운 단어인 ‘딥러닝’을 보고 ‘이미지’를 만들 수도 있습니다. 이처럼, 어떤 정보와 다른 정보 사이의 거리가 멀 때 해당 정보를 이용하지 못하는 것이 long-term dependency problem입니다.&lt;/p&gt;
+&lt;p&gt;하지만 순환 모델의 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;long-term dependency&lt;/code&gt;를 처리하는데 한계가 있습니다. Vanish gradient 문제는 LSTM과 GRU에서 어느 정도 해결해왔지만, 고정된 크기의 벡터에는 데이터의 특성을 고려하여 모든 정보를 압축할 수 없기 때문에 완전히 해결될 수 없었습니다. 예를 들어, “저는 언어학을 좋아하고, 인공지능 중에서도 딥러닝을 배우고 있고 자연어 처리에 관심이 많습니다.”라는 문장에서 ‘자연어’라는 단어를 만드는데 ‘언어학’이라는 단어는 중요한 단서입니다. 그러나, 두 단어 사이의 거리가 가깝지 않으므로 모델은 앞의 ‘언어학’이라는 단어를 이용해 자연어’라는 단어를 만들지 못하고, 언어학 보다 가까운 단어인 ‘딥러닝’을 보고 ‘이미지’를 만들 수도 있습니다. 이처럼, 어떤 정보와 다른 정보 사이의 거리가 멀 때 해당 정보를 이용하지 못하는 것이 long-term dependency problem입니다.&lt;/p&gt;
 
 &lt;p&gt;Recurrent model은 순차적인 특성이 유지되는 뛰어난 장점이 있었음에도, long-term dependency problem이라는 단점을 가지고 있습니다. 이와 달리 transformer는 순환이나 합성곱을 사용하지 않고 전적으로 어텐션 메커니즘만을 사용해 입력과 출력의 표현상태(representations)를 포착해냈습니다.
-&lt;img src=&quot;/assets/images/2_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/2_transformer.png&quot; itemprop=&quot;image&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;introduction--seq2seq&quot;&gt;Introduction – Seq2Seq&lt;/h2&gt;
+&lt;h2 id=&quot;2-introduction--seq2seq&quot;&gt;2. Introduction – Seq2Seq&lt;/h2&gt;
 &lt;h3 id=&quot;encoder-and-decoder-stacks&quot;&gt;Encoder and Decoder Stacks&lt;/h3&gt;
 &lt;p&gt;대부분의 시퀀스를 다루는 모델들은 인코더-디코더 구조로 되어있습니다. 여기서 인코더는 입력 시퀀스를 연속적인 표현형태로 바꾸고 디코더는  이 표현형태을 통해 출력을 만들어 냅니다.
 &lt;img src=&quot;/assets/images/3_transformer.png&quot; itemprop=&quot;image&quot; /&gt;
 인코더 정보를 디코더에 전달할 수 있는 방식은 고정된 길이의 짧은 은닉 상태 벡터입니다. 이 은닉 상태 벡터는 디코더의  은닉 상태 입력으로 활용됩니다. 학습이 잘 되었다면 이 벡터에는 입력 문장에 대한 요약 정보를 포함하고 있을 것입니다. 초기 신경망 번역기는 이러한 방식으로 구현되었는데, 입력 문장이 길어지면서 심각한 성능저하가 일어나기 시작했습니다. 이 짧은 은닉 상태 벡터에 긴 시퀀스의 정보를 모두 저장하기엔 한계가 있었으며, 이러한 문제의 해결을 위해 어텐션 개념이 만들어졌습니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;introduction---attension&quot;&gt;Introduction - Attension&lt;/h2&gt;
+&lt;h2 id=&quot;2-introduction---attension&quot;&gt;2. Introduction - Attension&lt;/h2&gt;
 &lt;h3 id=&quot;attension-mechanism&quot;&gt;Attension Mechanism&lt;/h3&gt;
 
 &lt;p&gt;어텐션은  RNN과 같이 딥러닝 관련 레이어가 아니라 매커니즘으로, 특정 시퀀스를 출력하기 위해 입력 시퀀스의 어떠한 부분을 강조해야 될는지 학습을 할 수 있는 개념을 의미합니다. 물론 입출력 시퀀스가 자기 자신이 되는 셀프  어텐션 등 다양한 방식이 존재합니다.
-&lt;img src=&quot;/assets/images/4_1_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/4_1_transformer.png&quot; itemprop=&quot;image&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;이 그림은 어텐션이 인코더 디코더  사이에서 학습되는 방식을 도식화 한 것입니다. 입력 시퀀스 중에서 “방”이라는 단어가 “room”이라는 단어가 시퀀스에서 출현시 강조되는 것이며, 그러한 강조 정보가 입력 시퀀스에 적용되어서 디코더에  입력됩니다. 매 디코더 시퀀스마다 이러한 계산이 진행되며 수많은 문장이 학습되면서 인코더 디코더에 입력되는 단어들의 상호간의 컨텍스트가  학습됩니다.&lt;/p&gt;
+&lt;p&gt;어탠션 메커니즘은 간단히 말해서 특정 단어를 강조하는 것입니다. 입력 시퀀스 중에서 특정 단어와 다른 단어가 시퀀스에서 출현시 강조되는 것이며, 그러한 강조 정보가 입력 시퀀스에 적용되어서 디코더에 입력됩니다. 매 디코더 시퀀스마다 이러한 계산이 진행되며 수많은 문장이 학습되면서 인코더 디코더에 입력되는 단어들의 상호간의 컨텍스트가  학습됩니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/4_2_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/4_2_transformer.png&quot; itemprop=&quot;image&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;score(s_t, h_i )= s_t^T h_i 
 \\e^t=[s_t^T h_1,…,s_t^T h_N]
 \\a^t=softmax(e^t)
 \\c_t = \sum_{i=1}^{N}a_i^t  h_i&lt;/script&gt;
 
-&lt;p&gt;원 논문에서는 t를 현재시점이라고 할 때, 인코더 출력벡터(s)와 은닉 상태 벡터(h)를 내적한 후에 소프트맥스(softmax)를 한다면 이를 어텐션 분포(attention distribution), 각각의 값을 어텐션 가중치(attention weight)라고 합니다. 이 가중치를 모두 더한다면 최종 출력 어텐션 값(attention value)이자 문맥 벡터(context vector)라고 정의 합니다. 그 후 실제 예측을 위해 어텐션 벡터와 인코더 출력벡터를 결합(concatenate)시켜 예측합니다.&lt;/p&gt;
+&lt;p&gt;원 논문에서는 t를 현재시점이라고 할 때, 인코더 출력벡터(s)와 은닉 상태 벡터(h)를 내적한 후에 소프트맥스(softmax)를 한다면 이를 어텐션 분포(attention distribution), 각각의 값을 어텐션 가중치(attention weight)라고 합니다. 이 가중치를 모두 더한다면 최종 출력 어텐션 값(attention value)이자 &lt;code class=&quot;highlighter-rouge&quot;&gt;문맥 벡터(context vector)&lt;/code&gt;라고 정의 합니다. 그 후 실제 예측을 위해 어텐션 벡터와 인코더 출력벡터를 결합(concatenate)시켜 예측합니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;introduction----rc-ln&quot;&gt;Introduction  –  RC, LN&lt;/h2&gt;
-&lt;h3 id=&quot;rcresidual-connection&quot;&gt;RC(residual connection)&lt;/h3&gt;
+&lt;h2 id=&quot;2-introduction----rc-ln&quot;&gt;2. Introduction  –  RC, LN&lt;/h2&gt;
+&lt;h3 id=&quot;rcresidual-connection&quot;&gt;RC(&lt;a href=&quot;https://arxiv.org/abs/1603.05027&quot;&gt;Residual Connection&lt;/a&gt;)&lt;/h3&gt;
 
-&lt;p&gt;residual connection을 수식으로 나타낸다면 
+&lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/1603.05027&quot;&gt;residual connection&lt;/a&gt;을 수식으로 나타낸다면 
 $y_l=h(x_l )+F(x_l,W_l )$&lt;br /&gt;
 여기서 $f(y_l )$는 ${x}_{l+1}$의 항등함수고 $h(x_l )$는 $x_l$ 로 맵핑됩니다.&lt;/p&gt;
 
@@ -48,42 +172,51 @@ $x_{(l+1)}=x_l+F(x_l,W_l )$ 이고&lt;br /&gt;
 &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;x_L=x_l+\sum\limits^{L-1}_{i=1}F(x_i,W_i)&lt;/script&gt;
 이 식을 미분하면 $\frac{∂ε}{∂x_l}=\frac{∂ε}{∂x_L} \frac{∂x_L}{∂x_l}  = \frac{∂ε}{∂x_L}  (1+\frac{∂}{∂x_l} \sum\limits^{L-1}_{i=1}  F(x_i,W_i))$&lt;/p&gt;
 
-&lt;p&gt;여기서 $\frac{∂ε}{∂x_L}$ 는 모든 레이어에 적용 되고,  F가 0이 되는 경우는 희박하기 때문에 가중치 $ε$ 가 매우 작더라도 vanishing gradient되는 경우는 거의 없습니다.&lt;/p&gt;
+&lt;p&gt;여기서 $\frac{∂ε}{∂x_L}$ 는 모든 레이어에 적용 되고,  F가 0이 되는 경우는 희박하기 때문에 가중치 $ε$ 가 매우 작더라도 &lt;code class=&quot;highlighter-rouge&quot;&gt;Vanishing Gradient&lt;/code&gt;되는 경우는 거의 없습니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;lnlayer-normalization&quot;&gt;LN(Layer Normalization)&lt;/h2&gt;
+&lt;h3 id=&quot;lnlayer-normalization&quot;&gt;LN(&lt;a href=&quot;https://arxiv.org/abs/1607.06450&quot;&gt;Layer Normalization&lt;/a&gt;)&lt;/h3&gt;
 
-&lt;p&gt;각 레이어의 출력을 평균과 표준편차를 이용해서 표준화(standardization)합니다.&lt;/p&gt;
+&lt;p&gt;각 레이어의 출력을 평균과 표준편차를 이용해서 &lt;code class=&quot;highlighter-rouge&quot;&gt;표준화(standardization)&lt;/code&gt;합니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;model-architecture&quot;&gt;Model Architecture&lt;/h2&gt;
+&lt;h2 id=&quot;3-model-architecture&quot;&gt;3. Model Architecture&lt;/h2&gt;
 &lt;h3 id=&quot;encoder--decoder&quot;&gt;Encoder &amp;amp; Decoder&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/5_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/5_1_transformer.png&quot; itemprop=&quot;image&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Encoder&lt;/p&gt;
 
-&lt;p&gt;인코더는 동일한 계층(layer)가 N개 반복되는 형태입니다. 이 논문에서는 6번 반복 했습니다. 그리고 각 계층은 두개의  하위 계층(sub-layer)로 구성됩니다. 첫 하위 계층은 멀티헤드(multi-head) 자가 어텐션 메커니즘(self-attention mechanism)이고 두번째는 간단하게 점별수렴(point-wise)하는 완전연결층(fc-layer)입니다. 그리고 모델 전체적으로 각 하위 계층에 RC(residual connection)가 전달됩니다. 즉 역전파가 계산되어 경사 하강이 될 때 원본 값을  더한후에 오차(Loss)가 계산됩니다. 그 후 계층  값을 레이어 정규화(Layer Normalization)합니다. 즉 각 하위 계층은 결과에 대해 잔차  값을 더하고 그 값을 레이어 정규화 한 값이 출력으로 나오게 된다. 그리고 모델 전체적으로 잔차 계산을 쉽게 하기 위해서 출력의 차원은 모두 512로 맞췄다.&lt;/p&gt;
+&lt;p&gt;인코더는 동일한 계층(layer)가 N개 반복되는 형태입니다. 이 논문에서는 6번 반복 했습니다. 그리고 각 계층은 두개의  하위 계층(sub-layer)로 구성됩니다. 첫 하위 계층은 멀티헤드(multi-head) 자가 어텐션 메커니즘(self-attention mechanism)이고 두번째는 간단하게 점별수렴(point-wise)하는 완전연결층(fc-layer)입니다. 그리고 모델 전체적으로 각 하위 계층에 RC(&lt;a href=&quot;https://arxiv.org/abs/1603.05027&quot;&gt;residual connection&lt;/a&gt;)가 전달됩니다. 즉 역전파가 계산되어 경사 하강이 될 때 원본 값을  더한후에 오차(Loss)가 계산됩니다. 그 후 계층  값을 레이어 정규화(&lt;a href=&quot;https://arxiv.org/abs/1607.06450&quot;&gt;Layer Normalization&lt;/a&gt;)합니다. 즉 각 하위 계층은 결과에 대해 잔차  값을 더하고 그 값을 레이어 정규화 한 값이 출력으로 나오게 됩니다. 그리고 모델 전체적으로 잔차 계산을 쉽게 하기 위해서 출력의 차원은 모두 512로 맞췄습니다.&lt;/p&gt;
 
 &lt;p&gt;Decoder&lt;/p&gt;
 
-&lt;p&gt;디코더도 인코더와 마찬가지로 동일한 계층이 N개 반복되는 형태입니다. 그리고 디코더도  6번 반복합니다. 그러나 반복되는 계층이 인코더와는 다르게  총 3개의 하위 계층으로 구성되어 있는데, 2개는 기존의 인코더의 하위 계층과 동일하고 나머지 하나는 인코더의 출력에 대해 멀티헤드 어텐션을  계산하는 하위 계층이 추가되었습니다. 디코더에서도  RC가 사용되었는데, 잔차 값을 더한 후 동일하게 계층들을 레이어 정규화 해줍니다. 그리고 자가 어텐션을 인코더와는 약간 다르게 수정을 했는데, 마스킹(masking)을 추가했습니다. 자가 어텐션을 할 때 현재 위치보다 뒤에 있는 단어는 변하지 못하도록 마스킹을  추가해준 것입니다. 다른위치의 단어는 auto-regressive한 특성을 이용해 알고 있는 정보로만 계산합니다.&lt;/p&gt;
+&lt;p&gt;디코더도 인코더와 마찬가지로 동일한 계층이 N개 반복되는 형태입니다. 그리고 디코더도  6번 반복합니다. 그러나 반복되는 계층이 인코더와는 다르게  총 3개의 하위 계층으로 구성되어 있는데, 2개는 기존의 인코더의 하위 계층과 동일하고 나머지 하나는 인코더의 출력에 대해 멀티헤드 어텐션을  계산하는 하위 계층이 추가되었습니다. 디코더에서도  RC가 사용되었는데, 잔차 값을 더한 후 동일하게 계층들을 레이어 정규화 해줍니다. 그리고 자가 어텐션을 인코더와는 약간 다르게 수정을 했는데, 마스킹(masking)을 추가했습니다. 자가 어텐션을 할 때 현재 위치보다 뒤에 있는 단어는 변하지 못하도록 마스킹을  추가해준 것입니다. 다른위치의 단어는 auto-regressive한 특성을 이용해 알고 있는 정보로만 계산합니다.
+&lt;img src=&quot;/assets/images/5_2_transformer.png&quot; itemprop=&quot;image&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;scaled-dot-product-attention&quot;&gt;Scaled Dot-Product Attention&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/6_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/6_1_transformer.png&quot; itemprop=&quot;image&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;해당 어텐션의 입력은 3가지입니다. D개  차원을 가지는 queries(Q)와 keys(K), values(V)로 구성됩니다. 먼저 Q는 주로 디코더의 은닉 상태 벡터, K는 인코더의 은닉 상태 벡터, V는 K에 정렬 모델(alignment model)로 계산된 어텐션 가중치입니다.&lt;/p&gt;
-
-&lt;p&gt;계산 과정은 우선 하나의 query에 대해 모든 key들과 내적을 한 뒤 각 값을 $\sqrt{d}_{k}$로 나눠주면서 스케일링  해줍니다. 그리고 소프트맥스 함수를 씌운 후 마지막으로 값을 곱하면 어텐션  연산이 끝납니다.
-$\  Attension(Q, K, V)=softmax(\frac{(QK^T)}{√(d_k)})V$&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Query: query는 다른 모든 단어에 대해 점수를 매기기 위해 사용되는 현재 단어의 표현이다(키 사용). 우리는 현재 진행중인 프로세스 토큰의 질의에만 신경을 쓴다.&lt;/li&gt;
+  &lt;li&gt;Key: key 벡터는 세그먼트에 있는 모든 단어에 대한 라벨과 같다. 관련된 단어들을 찾을 때 매칭된다.&lt;/li&gt;
+  &lt;li&gt;Value: value 벡터는 실제 단어 표현이다. 각 단어가 얼마나 관련이 있는지 계산되었을 떄, value를 이용해서 현재 단어의 가중치를 계산한다.
+&lt;img src=&quot;/assets/images/6_2_transformer.png&quot; itemprop=&quot;image&quot; /&gt;
+비유를 하자면, query는 연구하고 있는 주제를 가지고 있는 메모라고 한다면, key는 캐비닛 안에 있는 폴더의 태그과 같습니다. 태그를 스티커 메모와 일치시키면, 폴더의 내용은 value 입니다. 이 떄, 하나의 값만 찾는 것이 아니라 폴더의 혼합된 값의 조합을 찾습니다. 그래서 이 query 벡터와 각 키 vector를 곱한 값이 각 폴더의 점수입니다.&lt;br /&gt;
+즉, 하나의 query에 대해 모든 key들과 내적을 한 뒤 각 값을 k의 차원수인 $\sqrt{d}_{k}$로 나눠주면서 스케일링  해줍니다. 그리고 소프트맥스 함수를 씌운 후 마지막으로 값을 곱합니다.
+$\  Attension(Q, K, V)=softmax(\frac{(QK^T)}{√(d_k)})V$
+&lt;img src=&quot;/assets/images/6_3_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;multi-head-attention&quot;&gt;Multi-Head Attention&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/7_1_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/7_1_transformer.png&quot; itemprop=&quot;image&quot; width=&quot;60%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Query, key, value 들에 각각 다른 학습된 선형  투영(linear projection)을 h번 수행합니다. 즉, 동일한 Q,K,V에 각각 다른 weight matrix W를 곱합니다. 그 후 각각 어텐션을 병합(concatenate)합니다.&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;MultiHead(Q,K,V)=Concat(head_1,…,head_h)W^o
 \\ where head_i=Attention(QW_i^Q,KW_i^K,VW_i^V)&lt;/script&gt;
 
-&lt;p&gt;어텐션  레이어가  h개 씩으로 나눠짐에 따라 모델은 여러 개의 표현 공간(representation subspaces)들을 가지게 해줍니다. Query, key, value weight 행렬들은 학습이 된 후 각각의 입력벡터들에게 곱해져 벡터들을단어의 정보에 맞추어 투영시키게 됩니다.
-&lt;img src=&quot;/assets/images/7_2_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;어텐션  레이어가  h개 씩으로 나눠짐에 따라 모델은 여러 개의 표현 공간(representation subspaces)들을 가지게 해줍니다. Query, key, Value weight 행렬들은 학습이 된 후 각각의 입력벡터들에게 곱해져 벡터들을단어의 정보에 맞추어 투영시키게 됩니다.
+&lt;img src=&quot;/assets/images/7_3_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;position-wise-feed-forward-networks&quot;&gt;Position-wise Feed-Forward Networks&lt;/h3&gt;
 
@@ -95,7 +228,8 @@ $\  Attension(Q, K, V)=softmax(\frac{(QK^T)}{√(d_k)})V$&lt;/p&gt;
 
 &lt;h3 id=&quot;positional-encoding&quot;&gt;Positional Encoding&lt;/h3&gt;
 
-&lt;p&gt;해당 모델에서는 순환(recurrence)이나  합성곱(convolution)을 전혀 사용하지 않았기 때문에, 반드시 위치 정보를 넣어줘야 합니다.  따라서 positional encoding을 사용해서 입력 임베딩에 위치 정보를 넣어줍니다. 각 위치에 대해서 임베딩과  동일한 차원을 가지도록 인코딩을  해준 뒤 그 값을 임베딩값과  더해서 사용합니다.&lt;/p&gt;
+&lt;p&gt;해당 모델에서는 순환(recurrence)이나  합성곱(convolution)을 전혀 사용하지 않았기 때문에, 반드시 위치 정보를 넣어줘야 합니다.  따라서 positional encoding을 사용해서 입력 임베딩에 위치 정보를 넣어줍니다. 각 위치에 대해서 임베딩과  동일한 차원을 가지도록 인코딩을  해준 뒤 그 값을 임베딩값과  더해서 사용합니다.
+&lt;img src=&quot;/assets/images/8_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;positional encoding에는 여러 방법이 있지만 여기서는 sin, cos 함수를 사용해서 정형파로  구현해서 입력 문장길이에 대한 제약사항이 줄어듭니다.&lt;/p&gt;
 
@@ -104,7 +238,7 @@ $\  Attension(Q, K, V)=softmax(\frac{(QK^T)}{√(d_k)})V$&lt;/p&gt;
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;{PE}_{(pos,2i)}=sin⁡(pos/10000^{2i/d_{model}})
 \\{PE}_{(pos,2i+1)}=cos⁡(pos/10000^{2i/{d}_{model} })&lt;/script&gt;
 
-&lt;h2 id=&quot;why-self-attention&quot;&gt;Why Self-Attention&lt;/h2&gt;
+&lt;h2 id=&quot;4-why-self-attention&quot;&gt;4. Why Self-Attention&lt;/h2&gt;
 
 &lt;p&gt;이 모델에서 순환나  합성곱을 사용하지 않고 자가 어탠션(self-attention)만을 사용한 이유에 대해서 알아보면, 3가지 이유로 자가 어탠션을 선택합니다.&lt;/p&gt;
 
@@ -121,25 +255,26 @@ $\  Attension(Q, K, V)=softmax(\frac{(QK^T)}{√(d_k)})V$&lt;/p&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;그리고 위의 3가지 외에 또 다른 이유는 어탠션을 사용하면 모델 자체의 동작을 해석하기 쉬워진다는(interpretable) 장점 때문입니다. 어탠션 하나의 동작 뿐만 아니라 multi-head의 동작 또한 어떻게 동작하는지 이해하기 쉽다는 장점이 있습니다.
-&lt;img src=&quot;/assets/images/8_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/9_transformer.png&quot; itemprop=&quot;image&quot; /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;결론&quot;&gt;결론&lt;/h1&gt;
+&lt;h2 id=&quot;5-결론&quot;&gt;5. 결론&lt;/h2&gt;
 
 &lt;p&gt;본 연구에서는, 전적으로 주의를 기반으로 한 최초의 시퀀스 전달 모델인 Transformer를 제시하여, 인코더-디코더 아키텍처에서 가장 일반적으로 사용되는 순환 레이어를  multi-headed self-attention로 대체하였습니다.&lt;br /&gt;
 번역 작업의 경우, Transformer는 순환 또는 합성곱  레이어에 기반한 구조보다 훨씬 더 빠르게 훈련될 수 있습니다. WMT 2014 영어-독일어 및 WMT 2014 영어-프랑스어 번역 과제 모두에서 SOTA를 달성했습니다. 이전의 과제에서 우리의 최고의 모델이 이전에 보고된 모든 앙상블보다 더 성능이 좋습니다. 우리는 관심 기반 모델의 미래에 대해 흥분하고 있으며 다른 과제에 적용할 계획입니다. Transformer를 텍스트 이외의 입력 및 출력으로 확장하고 영상, 오디오, 비디오 등에서 대용량 입력과 출력을 효율적으로 처리하기 위한 국부적이고 제한된 어탠션 메커니즘을 조사할 계획입니다. 우리의 또 다른 연구 목표는 덜 순차적으로 발전하는 것입니다.&lt;/p&gt;
 
-&lt;p&gt;#참조&lt;/p&gt;
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
 
 &lt;p&gt;•&lt;a href=&quot;https://arxiv.org/abs/1706.03762&quot;&gt;Transformer&lt;/a&gt;&lt;br /&gt;
 •&lt;a href=&quot;https://arxiv.org/abs/1409.0473&quot;&gt;Attention&lt;/a&gt;&lt;br /&gt;
 •&lt;a href=&quot;https://arxiv.org/abs/1603.05027&quot;&gt;Residual Connection&lt;/a&gt;&lt;br /&gt;
 •&lt;a href=&quot;https://arxiv.org/abs/1607.06450&quot;&gt;Layer Normalization&lt;/a&gt;&lt;br /&gt;
-•&lt;a href=&quot;https://arxiv.org/pdf/1512.00567.pdf&quot;&gt;Label Smoothing&lt;/a&gt;&lt;/p&gt;
+•&lt;a href=&quot;(https://arxiv.org/pdf/1512.00567.pdf)&quot;&gt;Label Smoothing&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;•&lt;a href=&quot;https://jalammar.github.io/illustrated-transformer/&quot;&gt;https://jalammar.github.io/illustrated-transformer/&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;•&lt;a href=&quot;https://jalammar.github.io/illustrated-transformer/&quot;&gt;The Illustrated Transformer&lt;/a&gt;&lt;br /&gt;
+•&lt;a href=&quot;http://jalammar.github.io/illustrated-gpt2/#part-2-illustrated-self-attention&quot;&gt;The Illustrated GPT-2 (Visualizing Transformer Language Models)&lt;/a&gt;
 •&lt;a href=&quot;https://pozalabs.github.io/transformer/&quot;&gt;https://pozalabs.github.io/transformer/&lt;/a&gt;&lt;br /&gt;
 •&lt;a href=&quot;http://freesearch.pe.kr/archives/4876&quot;&gt;http://freesearch.pe.kr/archives/4876#easy-footnote-bottom-2-4876&lt;/a&gt;&lt;br /&gt;
-•&lt;a href=&quot;https://wikidocs.net/22893&quot;&gt;https://wikidocs.net/22893&lt;/a&gt;&lt;/p&gt;</content><author><name>indexxlim</name></author><category term="Attention" /><category term="Transformer" /><summary type="html">Attension is All you need Abstract 전반적인 시퀀스 전달 모델은 인코더와 디코더를 포함하는 복잡한 순환(recurrent) 또는 합성곱(convolution)을 기반으로 합니다. 최고의 성능의 모델들은 또한 어텐션 메커니즘 (attention mechanism) 을 통해 인코더와 디코더를 연결합니다. 우리는 새로운 단순한 네트워크 아키텍처인 트랜스포머를 오로지 어텐션 메커니즘에 기초하고, 순환과 합성곱을 완전히 배제하는 것을 제안합니다. 두 가지 기계 번역 작업에 대한 실험에서 이러한 모델은 보다 병렬적이고 상당히 필요한 동시에 품질이 우수하다는 것을 보여줍니다. Introduction Recurrent 연속전인 데이터를 처리하기 위해 이전까지 많이 쓰이던 모델은 순환(recurrent) 모델이었습니다. 순환 모델은 ht 번째에 대한 출력을 만들기 위해, t번째 입력과 ht-1번째 은닉 상태(hidden state)를 이용했습니다. 이를 이용해 데이터의 순차적인 특성을 모델에 유지시켜 왔습니다.</summary></entry><entry><title type="html">jekyll serve for the Korean</title><link href="http://localhost:4000/jekyll-serve-for-the-korean/" rel="alternate" type="text/html" title="jekyll serve for the Korean" /><published>2019-11-05T00:00:00+09:00</published><updated>2019-11-05T00:00:00+09:00</updated><id>http://localhost:4000/jekyll-serve-for-the-korean</id><content type="html" xml:base="http://localhost:4000/jekyll-serve-for-the-korean/">&lt;p&gt;chcp 65001
+•&lt;a href=&quot;https://wikidocs.net/22893&quot;&gt;https://wikidocs.net/22893&lt;/a&gt;&lt;/p&gt;</content><author><name>indexxlim</name></author><category term="Attention" /><category term="Transformer" /><summary type="html">Attension is All you need</summary></entry><entry><title type="html">jekyll serve for the Korean</title><link href="http://localhost:4000/jekyll-serve-for-the-korean/" rel="alternate" type="text/html" title="jekyll serve for the Korean" /><published>2019-11-05T00:00:00+09:00</published><updated>2019-11-05T00:00:00+09:00</updated><id>http://localhost:4000/jekyll-serve-for-the-korean</id><content type="html" xml:base="http://localhost:4000/jekyll-serve-for-the-korean/">&lt;p&gt;chcp 65001
 bundle exec jekyll serve&lt;/p&gt;</content><author><name>indexxlim</name></author><summary type="html">chcp 65001 bundle exec jekyll serve</summary></entry><entry><title type="html">Git Upload</title><link href="http://localhost:4000/git-upload/" rel="alternate" type="text/html" title="Git Upload" /><published>2019-07-30T00:00:00+09:00</published><updated>2019-07-30T00:00:00+09:00</updated><id>http://localhost:4000/git-upload</id><content type="html" xml:base="http://localhost:4000/git-upload/">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git add .&lt;/code&gt;
 Adds the files in the local repository and stages them for commit. To unstage a file, use ‘git reset HEAD YOUR-FILE’.&lt;/p&gt;
 

@@ -15,7 +15,12 @@ var store = [{
         "url": "http://localhost:4000/jekyll-serve-for-the-korean/",
         "teaser":null},{
         "title": "Attention is All you need",
-        "excerpt":"Attension is All you need Abstract 전반적인 시퀀스 전달 모델은 인코더와 디코더를 포함하는 복잡한 순환(recurrent) 또는 합성곱(convolution)을 기반으로 합니다. 최고의 성능의 모델들은 또한 어텐션 메커니즘 (attention mechanism) 을 통해 인코더와 디코더를 연결합니다. 우리는 새로운 단순한 네트워크 아키텍처인 트랜스포머를 오로지 어텐션 메커니즘에 기초하고, 순환과 합성곱을 완전히 배제하는 것을 제안합니다. 두 가지...","categories": [],
+        "excerpt":"Attension is All you need 2018년 BERT라는 모델이 등장하면서 state-of-the-art를 차지했습니다. 이 BERT모델의 기반이 되는 Transformer 를 설명 하려고 합니다. 뉴옥 타임지에서 Oren Etzioni, chief executive of the Allen Institute for Artificial Intelligence가 말하길, 기계가 아직 인간의 보통 감각을 표현할 수는 없지만, Bert는 폭발적인 발전의 순간이라고 합니다. 이 Bert 모델에...","categories": [],
         "tags": ["Attention","Transformer"],
-        "url": "http://localhost:4000/attension_is_all_you_need/",
+        "url": "http://localhost:4000/attension_is_all_you_need-%EB%B3%B5%EC%82%AC%EB%B3%B8/",
+        "teaser":null},{
+        "title": "text summarization",
+        "excerpt":"파이썬에서의 텍스트 요약 : 추출 대 추상 기법 재검토 이 블로그는 텍스트 요약에 대한 간단한 소개이며 현재 환경에 대한 실질적인 요약으로 사용될 수 있습니다. RaRe Incubator 프로그램 의 3 명의 학생으로 구성된 팀 이이 도메인의 기존 알고리즘 및 Python 도구를 실험 한 방법을 설명 합니다. LexRank, LSA, Luhn 및 Gensim의...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/text-summarization/",
         "teaser":null}]
