@@ -14,5 +14,6 @@ bundle exec jekyll serve
 
 
 경로가 안맞을 경우 재설치  
-pip3 install --upgrade pip setuptools wheel
+pip3 install --upgrade pip setuptools wheel  
+https://discourse.brew.sh/t/pip3-upgrade-overwrites-usr-local-bin-pip/3258/2
 
