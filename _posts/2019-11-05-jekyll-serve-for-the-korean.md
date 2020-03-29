@@ -13,6 +13,6 @@ bundle exec jekyll serve
 
 
 
-경로가 안맞을 경우 재설치
+경로가 안맞을 경우 재설치  
 pip3 install --upgrade pip setuptools wheel
 
