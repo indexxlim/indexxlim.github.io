@@ -11,6 +11,8 @@ title: jekyll serve for the Korean
 chcp 65001  
 bundle exec jekyll serve
 
+celery worker실행  
+celery -A task_analysis worker --loglevel=info --concurrency=10 -n worker1@%h   
 
 
 경로가 안맞을 경우 재설치  
