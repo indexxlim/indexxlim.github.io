@@ -19,3 +19,6 @@ celery -A task_analysis worker --loglevel=info --concurrency=10 -n worker1@%h
 pip3 install --upgrade pip setuptools wheel  
 https://discourse.brew.sh/t/pip3-upgrade-overwrites-usr-local-bin-pip/3258/2
 
+user mode로 설치한 pip 패키지 PATH에 등록하기
+https://beomi.github.io/2018/02/12/Add-packages-installed-with-pip-usermode/
+echo 'export PATH="/Users/$(whoami)/Library/Python/3.6/bin:$PATH"' >> .zshrc
