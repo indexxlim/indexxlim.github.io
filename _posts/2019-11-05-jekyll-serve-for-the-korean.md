@@ -11,6 +11,29 @@ title: jekyll serve for the Korean
 chcp 65001  
 bundle exec jekyll serve
 
+'''
+$ nohup python -u flask_app.py &
+$ tail -f nohup.out
+$ lsof -i :5000
+
+COMMAND   PID  USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+python3 32258 user    3u  IPv4 5575349      0t0  TCP *:5000 (LISTEN)
+python3 32260 user    3u  IPv4 5575349      0t0  TCP *:5000 (LISTEN)
+python3 32260 user    4u  IPv4 5575349      0t0  TCP *:5000 (LISTEN)
+$ sudo kill -9 32258
+
+
+
+
+
+
+
+
+ kill -9 32258
+
+
+
+'''
 celery worker실행  
 celery -A task_analysis worker --loglevel=info --concurrency=10 -n worker1@%h   
 celery -A task_analysis worker -l info -c 10 -n worker1@%h 
@@ -46,3 +69,6 @@ type 'all'
 
 spacy -->
 !python3 -m spacy download en_core_web_sm
+
+
+
