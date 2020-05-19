@@ -17,6 +17,8 @@ celery -A task_analysis worker -l info -c 10 -n worker1@%h
 
 celery multi start -A task_analysis worker -l info -c 10 -n worker1@%h 
 
+celery multi start -A task_analysis  -l info 10 -c 10 -n --pidfile=logs/%n.pid --logfile=logs/%n%I.log
+celery multi start -A task_anal-n --pidfile=logs/%n.pid --logfile=logs/%n%I.log
 
 
 경로가 안맞을 경우 재설치  
