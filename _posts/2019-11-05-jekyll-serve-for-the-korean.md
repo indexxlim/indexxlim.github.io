@@ -15,7 +15,9 @@ celery worker실행
 celery -A task_analysis worker --loglevel=info --concurrency=10 -n worker1@%h   
 celery -A task_analysis worker -l info -c 10 -n worker1@%h 
 
-celery multi start tasks -A app -l info
+celery multi start -A task_analysis worker -l info -c 10 -n worker1@%h 
+
+
 
 경로가 안맞을 경우 재설치  
 pip3 install --upgrade pip setuptools wheel  
