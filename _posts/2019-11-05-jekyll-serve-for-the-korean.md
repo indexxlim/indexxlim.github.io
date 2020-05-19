@@ -13,6 +13,7 @@ bundle exec jekyll serve
 
 celery worker실행  
 celery -A task_analysis worker --loglevel=info --concurrency=10 -n worker1@%h   
+celery -A task_analysis worker -l info -c 10 -n worker1@%h 
 
 celery multi start tasks -A app -l info
 
