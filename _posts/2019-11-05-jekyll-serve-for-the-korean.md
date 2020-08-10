@@ -56,3 +56,5 @@ nltk.download()
 type ‘all’
 
 spacy –> !python3 -m spacy download en_core_web_sm
+
+tensorboard --logdir=runs --port=6006 --bind_all 
