@@ -1,5 +1,5 @@
 title: ""
-author: hyunwoongko  
+author: indexxlim  
 copyright: "2020"
 only_build_toc_files: true
 
@@ -13,7 +13,7 @@ html:
   comments:
     hypothesis: true
     utterances:
-      repo: "hyunwoongko/hyunwoongko.github.io"
+      repo: "indexxlim/indexxlim.github.io"
 
 execute:
   execute_notebooks: 'off'
@@ -32,7 +32,7 @@ launch_buttons:
   thebe: true
 
 repository:
-  url: https://github.com/hyunwoongko/hyunwoongko.github.io
+  url: https://github.com/indexxlim/indexxlim.github.io
   branch: main
   path_to_book: blog
 
