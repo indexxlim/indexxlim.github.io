@@ -41,7 +41,7 @@ launch_buttons:
 
 repository:
   url: https://github.com/indexxlim/indexxlim.github.io
-  branch: main
+  branch: master
   path_to_book: blog
 
 
