@@ -6,5 +6,4 @@
   - file: machine_learning/paper
     numbered: true
     sections:
-    - file: machine_learning/paper/content
     - file: machine_learning/paper/notebooks
