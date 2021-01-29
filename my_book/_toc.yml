@@ -1,6 +1,6 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
-- file: index
+- file: intro
 - part: Machine Learning
   chapters:
   - file: machine_learning/paper
