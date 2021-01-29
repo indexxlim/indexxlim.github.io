@@ -1,7 +1,10 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
-- file: intro
-- file: content
-  sections:
-    - file: markdown
-    - file: notebooks
+- file: index
+- part: Machine Learning
+  chapters:
+  - file: machine_learning/paper
+    numbered: true
+    sections:
+    - file: machine_learning/paper/markdown
+    - file: machine_learning/paper/notebooks
