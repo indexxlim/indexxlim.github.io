@@ -333,6 +333,13 @@ commentsRunWhenDOMLoaded(addUtterances);
     <a class="reference internal nav-link" href="#why-self-attention">
      1.4. Why Self-Attention
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reference">
+       1.4.1. reference
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -342,8 +349,23 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reference">
-     2.1. reference
+    <a class="reference internal nav-link" href="#bidirectional">
+     2.1. Bidirectional
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#masked-language-model">
+     2.2. Masked Language Model
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#next-sentence-prediction-nsp">
+     2.3. Next Sentence Prediction(NSP)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#effect-of-model-size">
+     2.4. Effect of Model Size
     </a>
    </li>
   </ul>
@@ -589,12 +611,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ol>
 <p>그리고 위의 3가지 외에 또 다른 이유는 어탠션을 사용하면 모델 자체의 동작을 해석하기 쉬워진다(interpretable). 어탠션 하나의 동작 뿐만 아니라 multi-head의 동작 또한 어떻게 동작하는지 이해하기 쉽다는 장점이 있다.</p>
 <img alt="../../_images/9_transformer.png" src="../../_images/9_transformer.png" />
-</div>
-</div>
-<div class="section" id="bert-extention">
-<h1><span class="section-number">2. </span>BERT extention<a class="headerlink" href="#bert-extention" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="reference">
-<h2><span class="section-number">2.1. </span>reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.4.1. </span>reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
 <p>•<a class="reference external" href="https://arxiv.org/abs/1706.03762">Transformer</a><br />
 •<a class="reference external" href="https://arxiv.org/abs/1810.04805">Bert</a><br />
 •<a class="reference external" href="https://arxiv.org/abs/1409.0473">Attention</a><br />
@@ -607,6 +625,29 @@ commentsRunWhenDOMLoaded(addUtterances);
 •<a class="reference external" href="http://freesearch.pe.kr/archives/4876">http://freesearch.pe.kr/archives/4876#easy-footnote-bottom-2-4876</a><br />
 •<a class="reference external" href="https://wikidocs.net/22893">https://wikidocs.net/22893</a><br />
 •http://docs.likejazz.com/bert/</p>
+</div>
+</div>
+</div>
+<div class="section" id="bert-extention">
+<h1><span class="section-number">2. </span>BERT extention<a class="headerlink" href="#bert-extention" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="bidirectional">
+<h2><span class="section-number">2.1. </span>Bidirectional<a class="headerlink" href="#bidirectional" title="Permalink to this headline">¶</a></h2>
+<p>저자는 unidirectional은 token-level에서 단점이 된다고 한다. GPT 같은 unidirectional 한 모델, 즉 모든 토큰은 이전 토큰만 참고할 수 있는 auto-regressive 모델과는 달리 BERT의 경우 이전과 이후의 정보를 모두 활용한다. 계산량도 물론 2배.</p>
+</div>
+<div class="section" id="masked-language-model">
+<h2><span class="section-number">2.2. </span>Masked Language Model<a class="headerlink" href="#masked-language-model" title="Permalink to this headline">¶</a></h2>
+<p>은 문장의 다음 단어를 예측하는 것이 아니라 문장내 랜덤한 단어를 마스킹하고 이를 예측하도록 하는 방식으로 Word2Vec의 CBOW 모델과 유사하다. 하지만 MLM은 Context 토큰을 Center 토큰이 되도록 학습하고 Weights를 벡터로 갖는 CBOW와 달리, 마스킹된 토큰을 맞추도록 학습한 결과를 직접 벡터로 갖기 때문에 보다 직관적인 방식으로 볼 수 있다. 마스킹은 전체 단어의 15% 정도만 진행하며, 그 중에서도 모든 토큰을 마스킹 하는게 아니라 80% 정도만 <MASK>로 처리하고 10%는 랜덤한 단어, 나머지 10%는 정상적인 단어를 그대로 둔다.</p>
+</div>
+<div class="section" id="next-sentence-prediction-nsp">
+<h2><span class="section-number">2.3. </span>Next Sentence Prediction(NSP)<a class="headerlink" href="#next-sentence-prediction-nsp" title="Permalink to this headline">¶</a></h2>
+<p>Bert는 2문장을 입력으로 넣을 때, <code class="docutils literal notranslate"><span class="pre">[cls]</span> <span class="pre">문장</span> <span class="pre">[sep]</span> <span class="pre">문장</span></code> 형식을 입력으로 사용한다. 원저자 no NSP라면 Accuracy가 0.5정도 떨어진다고 하는데, 반론을 펼치는 논문도 많으므로 넘어간다.</p>
+</div>
+<div class="section" id="effect-of-model-size">
+<h2><span class="section-number">2.4. </span>Effect of Model Size<a class="headerlink" href="#effect-of-model-size" title="Permalink to this headline">¶</a></h2>
+<p>Bert Base의 모델은 L=12, H=768, A=12 110M parameter<br />
+Large 모델은 L=24, H=1024, A,16      340M parameter</p>
+<p>다른 bi-LSTM(<a class="reference external" href="https://www.aclweb.org/anthology/K16-1006.pdf">context2vec</a>) 같은 경우 히든벡터의 차원수를 200에서 600까지 올리는것은 유의미했지만 1000까지 올리는 것은 도움이 되지 않았다.<br />
+반면 transformer는 대용량 모델의 학습을 가능케 한다.</p>
 </div>
 </div>
 
