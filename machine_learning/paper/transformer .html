@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Transformer and Bert</title>
+    <title>Transformer and Bert</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -92,7 +92,6 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../../_static/header_image.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Paper" href="../paper.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -132,22 +131,12 @@ commentsRunWhenDOMLoaded(addUtterances);
   Machine Learning
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../paper.html">
    Paper
   </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     1. Transformer and Bert
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#bert-extention">
-     2. BERT extention
-    </a>
-   </li>
+  <ul class="simple collapse-ul">
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -192,7 +181,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/machine_learning/paper/notebooks.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/machine_learning/paper/transformer .ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -212,10 +201,10 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/notebooks.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/transformer .html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/notebooks.ipynb"><button
+        <a class="edit-button" href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/transformer .ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -235,7 +224,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/notebooks.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/transformer .ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -243,7 +232,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/notebooks.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/transformer .ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -267,76 +256,76 @@ commentsRunWhenDOMLoaded(addUtterances);
             <ul class="nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   1. Transformer and Bert
+   Transformer and Bert
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#attension-mechanism">
-     1.1. Attension Mechanism
+     Attension Mechanism
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#transformer">
-     1.2. Transformer
+     Transformer
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#positional-encoding">
-       1.2.1. Positional Encoding
+       Positional Encoding
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#positional-encoding-bert">
-       1.2.2. Positional Encoding Bert
+       Positional Encoding Bert
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#encoder-decoder">
-     1.3. Encoder &amp; Decoder
+     Encoder &amp; Decoder
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#encoder">
-       1.3.1. Encoder
+       Encoder
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#decoder">
-       1.3.2. Decoder
+       Decoder
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#rc-residual-connection">
-       1.3.3. RC(Residual Connection)
+       RC(Residual Connection)
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#scaled-dot-product-attention">
-       1.3.4. Scaled Dot-Product Attention
+       Scaled Dot-Product Attention
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#multi-head-attention">
-       1.3.5. Multi-Head Attention
+       Multi-Head Attention
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#position-wise-feed-forward-networks">
-       1.3.6. Position-wise Feed-Forward Networks
+       Position-wise Feed-Forward Networks
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#why-self-attention">
-     1.4. Why Self-Attention
+     Why Self-Attention
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#reference">
-       1.4.1. reference
+       reference
       </a>
      </li>
     </ul>
@@ -345,27 +334,27 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bert-extention">
-   2. BERT extention
+   BERT extention
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bidirectional">
-     2.1. Bidirectional
+     Bidirectional
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#masked-language-model">
-     2.2. Masked Language Model
+     Masked Language Model
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#next-sentence-prediction-nsp">
-     2.3. Next Sentence Prediction(NSP)
+     Next Sentence Prediction(NSP)
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#effect-of-model-size">
-     2.4. Effect of Model Size
+     Effect of Model Size
     </a>
    </li>
   </ul>
@@ -382,18 +371,18 @@ commentsRunWhenDOMLoaded(addUtterances);
               <div>
                 
   <div class="section" id="transformer-and-bert">
-<h1><span class="section-number">1. </span>Transformer and Bert<a class="headerlink" href="#transformer-and-bert" title="Permalink to this headline">¶</a></h1>
+<h1>Transformer and Bert<a class="headerlink" href="#transformer-and-bert" title="Permalink to this headline">¶</a></h1>
 <p>2018년 당시에 <a class="reference external" href="https://www.nytimes.com/2018/11/18/technology/artificial-intelligence-language.html">뉴옥 타임지</a>에서 <code class="docutils literal notranslate"><span class="pre">Oren</span> <span class="pre">Etzioni,</span> <span class="pre">chief</span> <span class="pre">executive</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">Allen</span> <span class="pre">Institute</span> <span class="pre">for</span> <span class="pre">Artificial</span> <span class="pre">Intelligence</span></code>가 말하길,<br />
 기계가 아직 인간의 보통 감각을 표현할 수는 없지만, Bert는 <code class="docutils literal notranslate"><span class="pre">폭발적인</span> <span class="pre">발전</span></code>의 순간이라고 했습니다.
 이 Bert 모델에 기초가 된 <a class="reference external" href="https://arxiv.org/abs/1706.03762">Transformer</a>는 어텐션 매커니즘을 사용하여 Encoder-Decoder로 구성되는 구조를 보려고 합니다.</p>
-<a class="reference internal image-reference" href="../../_images/1_1_bert_transformer.png"><img alt="../../_images/1_1_bert_transformer.png" src="../../_images/1_1_bert_transformer.png" style="width: 30%;" /></a>
+<img src="./images/transformers/1_1_bert_transformer.png" itemprop="image" width="30%">
 <p>또한 Bert구현의 바탕이 됬다고 직접 논문에서 언급한 <a class="reference external" href="https://nlp.seas.harvard.edu/2018/04/03/attention.html">The Annotated Transformer</a>도 봅니다</p>
 <div class="section" id="attension-mechanism">
-<h2><span class="section-number">1.1. </span>Attension Mechanism<a class="headerlink" href="#attension-mechanism" title="Permalink to this headline">¶</a></h2>
+<h2>Attension Mechanism<a class="headerlink" href="#attension-mechanism" title="Permalink to this headline">¶</a></h2>
 <p>어텐션은 특정 시퀀스를 출력하기 위해 입력 시퀀스의 어떠한 부분을 강조해야 될는지 학습을 할 수 있는 매커니즘이다.</p>
-<a class="reference internal image-reference" href="../../_images/4_1_transformer.png"><img alt="../../_images/4_1_transformer.png" src="../../_images/4_1_transformer.png" style="width: 60%;" /></a>
+<img src="./images/transformers/4_1_transformer.png" itemprop="image" width="60%">
 <p>어탠션 메커니즘은 간단히 말해서 특정 단어를 강조하는 것이다. 입력 시퀀스 중에서 특정 단어와 다른 단어가 시퀀스에서 출현시 강조되는 것이며, 그러한 강조 정보가 입력 시퀀스에 적용되어서 디코더에 입력되고, 매 디코더 시퀀스마다 이러한 계산이 진행되며 수많은 문장이 학습되면서 인코더 디코더에 입력되는 단어들의 상호간의 컨텍스트가 학습이 되는 구조이다.</p>
-<a class="reference internal image-reference" href="../../_images/4_2_transformer.png"><img alt="../../_images/4_2_transformer.png" src="../../_images/4_2_transformer.png" style="width: 50%;" /></a>
+<img src="./images/transformers/4_2_transformer.png" itemprop="image" width="50%">
 <div class="math notranslate nohighlight">
 \[\begin{split}score(s_t, h_i )= s_t^T h_i 
 \\e^t=[s_t^T h_1,…,s_t^T h_N]
@@ -418,13 +407,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="section" id="transformer">
-<h2><span class="section-number">1.2. </span>Transformer<a class="headerlink" href="#transformer" title="Permalink to this headline">¶</a></h2>
+<h2>Transformer<a class="headerlink" href="#transformer" title="Permalink to this headline">¶</a></h2>
 <p>트랜스포머는 전반적인 시퀀스 전달 모델은 인코더와 디코더를 포함하는 복잡한 순환(recurrent) 또는 합성곱(convolution)을 기반으로 한다. 최고의 성능의 모델들은 또한 어텐션(<a class="reference external" href="https://arxiv.org/abs/1409.0473">attention</a>) 을 통해 인코더와 디코더를 연결하는데, 새로운 단순한 네트워크 아키텍처인 트랜스포머를 오로지 <code class="docutils literal notranslate"><span class="pre">어텐션</span> <span class="pre">메커니즘</span></code>에 기초하고, recurrent와 convolution를 사용하지 않는다. 논문에서는 2가지 번역 작업 실험에서 모델은 병렬적이고 동시에 품질이 우수하다는 것을 보여줬다.</p>
-<a class="reference internal image-reference" href="../../_images/1_transformer.png"><img alt="../../_images/1_transformer.png" src="../../_images/1_transformer.png" style="width: 50%;" /></a>
+<img src="./images/transformers/1_transformer.png" itemprop="image" width="50%">
 <div class="section" id="positional-encoding">
-<h3><span class="section-number">1.2.1. </span>Positional Encoding<a class="headerlink" href="#positional-encoding" title="Permalink to this headline">¶</a></h3>
+<h3>Positional Encoding<a class="headerlink" href="#positional-encoding" title="Permalink to this headline">¶</a></h3>
 <p>해당 모델에서는 순환(recurrence)이나  합성곱(convolution)을 전혀 사용하지 않았기 때문에, 반드시 위치 정보를 넣어줘야 한다.  따라서 positional encoding을 사용해서 입력 임베딩에 위치 정보를 넣어준다. 각 위치에 대해서 임베딩과 동일한 차원을 가지도록 인코딩을  해준 뒤 그 값을 임베딩값과 더해서 사용한다.</p>
-<a class="reference internal image-reference" href="../../_images/8_transformer.png"><img alt="../../_images/8_transformer.png" src="../../_images/8_transformer.png" style="width: 40%;" /></a>
+<img src="./images/transformers/8_transformer.png" itemprop="image" width="40%">
 <p>positional encoding에는 여러 방법이 있지만 여기서는 입력 문장길이에 대한 제약사항을 줄이리 위해 sin, cos 함수를 사용해서 정형파로 구현해서 사용했다.
 각 위치 pos와 dimension i에 대한 positional encoding값은 다음과 같이 구한다.</p>
 <div class="math notranslate nohighlight">
@@ -468,27 +457,28 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/notebooks_7_0.png" src="../../_images/notebooks_7_0.png" />
+<img alt="../../_images/transformer _7_0.png" src="../../_images/transformer _7_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="positional-encoding-bert">
-<h3><span class="section-number">1.2.2. </span>Positional Encoding Bert<a class="headerlink" href="#positional-encoding-bert" title="Permalink to this headline">¶</a></h3>
+<h3>Positional Encoding Bert<a class="headerlink" href="#positional-encoding-bert" title="Permalink to this headline">¶</a></h3>
 <p>이에 반해 bert에서는 입력 token embedding과 Position Embeddings, Segment Embeddings, 추가해 각각의 임베딩, 즉 3개의 임베딩을 합산하여 입력으로 사용한다. 여기서 Segment는 Bert의 특성상 2개의 문장을 사용하는데 그 문장을 구분하는 벡터이다.</p>
-<a class="reference internal image-reference" href="../../_images/bert_Embedding.png"><img alt="../../_images/bert_Embedding.png" src="../../_images/bert_Embedding.png" style="width: 70%;" /></a>
+<img src="./images/transformers/bert_Embedding.png" itemprop="image" width="70%">
 </div>
 </div>
 <div class="section" id="encoder-decoder">
-<h2><span class="section-number">1.3. </span>Encoder &amp; Decoder<a class="headerlink" href="#encoder-decoder" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="../../_images/5_1_transformer.png"><img alt="../../_images/5_1_transformer.png" src="../../_images/5_1_transformer.png" style="width: 50%;" /></a>
+<h2>Encoder &amp; Decoder<a class="headerlink" href="#encoder-decoder" title="Permalink to this headline">¶</a></h2>
+<img src="./images/transformers/5_1_transformer.png" itemprop="image" width="50%">
+출력은 모두 512차원
 <div class="section" id="encoder">
-<h3><span class="section-number">1.3.1. </span>Encoder<a class="headerlink" href="#encoder" title="Permalink to this headline">¶</a></h3>
+<h3>Encoder<a class="headerlink" href="#encoder" title="Permalink to this headline">¶</a></h3>
 <p>인코더는 동일한 계층(layer)가 N개 반복되는 형태인데, 원 논문에서는 6번 반복했다. Encoder는 계층은 두개의  하위 계층(sub-layer)로 구성된다. 첫 하위 계층은 멀티헤드(multi-head) 자가 어텐션 메커니즘(self-attention mechanism)이고 두번째는 간단하게 점별수렴(point-wise)하는 완전연결층(fc-layer)이. 그리고 모델 전체적으로 각 하위 계층에 RC(<a class="reference external" href="https://arxiv.org/abs/1603.05027">residual connection</a>)가 전달되고, 이는 역전파가 계산되어 경사 하강이 될 때 원본 값을  더한후에 오차(Loss)가 계산된다. 그 후 계층  값을 레이어 정규화(<a class="reference external" href="https://arxiv.org/abs/1607.06450">Layer Normalization</a>)한다. 즉 각 하위 계층은 결과에 대해 잔차  값을 더하고 그 값을 레이어 정규화 한 값이 출력으로 나오게 된다.</p>
 </div>
 <div class="section" id="decoder">
-<h3><span class="section-number">1.3.2. </span>Decoder<a class="headerlink" href="#decoder" title="Permalink to this headline">¶</a></h3>
+<h3>Decoder<a class="headerlink" href="#decoder" title="Permalink to this headline">¶</a></h3>
 <p>디코더도 인코더와 마찬가지로 동일한 계층이 N개 반복되는 형태이고 6번 반복한다. 그러나 반복되는 계층은 인코더와는 다르게 3개의 하위 계층으로 구성되어 있는데, 2개는 기존의 인코더의 하위 계층과 동일하고 나머지 하나는 인코더의 출력에 대해 멀티헤드 어텐션을  계산하는 하위 계층이 추가됬고 RC와 정규화가 이루어진다. 그리고 자가 어텐션은 인코더와는 약간 다르게 마스킹(masking)을 추가했는데, 자가 어텐션을 할 때 현재 위치보다 뒤에 있는 단어는 변하지 못하도록 마스킹을 추가해줬다. 다른위치의 단어는 auto-regressive한 특성을 이용해 알고 있는 정보로만 계산한다.</p>
-<a class="reference internal image-reference" href="../../_images/5_2_transformer.png"><img alt="../../_images/5_2_transformer.png" src="../../_images/5_2_transformer.png" style="width: 50%;" /></a>
+<img src="./images/transformers/5_2_transformer.png" itemprop="image" width="50%">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EncoderLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -527,7 +517,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="section" id="rc-residual-connection">
-<h3><span class="section-number">1.3.3. </span>RC(<a class="reference external" href="https://arxiv.org/abs/1603.05027">Residual Connection</a>)<a class="headerlink" href="#rc-residual-connection" title="Permalink to this headline">¶</a></h3>
+<h3>RC(<a class="reference external" href="https://arxiv.org/abs/1603.05027">Residual Connection</a>)<a class="headerlink" href="#rc-residual-connection" title="Permalink to this headline">¶</a></h3>
 <p>각 인코더와 디코더는 <a class="reference external" href="https://arxiv.org/abs/1603.05027">residual connection</a></p>
 <p><a class="reference external" href="https://arxiv.org/abs/1603.05027">residual connection</a>을 수식으로 나타낸다면
 <span class="math notranslate nohighlight">\(y_l=h(x_l)+F(x_l,W_l )\)</span><br />
@@ -560,8 +550,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="section" id="scaled-dot-product-attention">
-<h3><span class="section-number">1.3.4. </span>Scaled Dot-Product Attention<a class="headerlink" href="#scaled-dot-product-attention" title="Permalink to this headline">¶</a></h3>
-<a class="reference internal image-reference" href="../../_images/6_1_transformer.png"><img alt="../../_images/6_1_transformer.png" src="../../_images/6_1_transformer.png" style="width: 20%;" /></a>
+<h3>Scaled Dot-Product Attention<a class="headerlink" href="#scaled-dot-product-attention" title="Permalink to this headline">¶</a></h3>
+<img src="./images/transformers/6_1_transformer.png" itemprop="image" width="20%">
 <p>해당 어텐션의 입력은 3가지이다. D개  차원을 가지는 queries(Q)와 keys(K), values(V)로 구성된다. 먼저 Q는 주로 디코더의 은닉 상태 벡터, K는 인코더의 은닉 상태 벡터, V는 K에 정렬 모델(alignment model)로 계산된 어텐션 가중치이다.</p>
 <ul class="simple">
 <li><p>Query: query는 다른 모든 단어에 대해 점수를 매기기 위해 사용되는 현재 단어의 표현이다(키 사용). 우리는 현재 진행중인 프로세스 토큰의 질의에만 신경을 쓴다.</p></li>
@@ -572,24 +562,24 @@ commentsRunWhenDOMLoaded(addUtterances);
 태그를 스티커 메모와 일치시키면, 폴더의 내용은 value. 이 떄, 하나의 값만 찾는 것이 아니라 폴더의 혼합된 값의 조합을 찾은 후 query 벡터와 각 키 vector를 곱한 값이 각 폴더의 점수이다.<br />
 즉, 하나의 query에 대해 모든 key들과 내적을 한 뒤 각 값을 k의 차원수인 <span class="math notranslate nohighlight">\(\sqrt{d}_{k}\)</span>로 나눠주면서 스케일링한다. 그리고 소프트맥스 함수를 씌운 후 마지막으로 값을 곱합다.
 <span class="math notranslate nohighlight">\(\  Attension(Q, K, V)=softmax(\frac{(QK^T)}{√(d_k)})V\)</span></p>
-<a class="reference internal image-reference" href="../../_images/6_3_transformer.png"><img alt="../../_images/6_3_transformer.png" src="../../_images/6_3_transformer.png" style="width: 50%;" /></a>
+<img src="./images/transformers/6_3_transformer.png" itemprop="image"  width="50%">
 </div>
 <div class="section" id="multi-head-attention">
-<h3><span class="section-number">1.3.5. </span>Multi-Head Attention<a class="headerlink" href="#multi-head-attention" title="Permalink to this headline">¶</a></h3>
-<a class="reference internal image-reference" href="../../_images/7_1_transformer.png"><img alt="../../_images/7_1_transformer.png" src="../../_images/7_1_transformer.png" style="width: 40%;" /></a>
+<h3>Multi-Head Attention<a class="headerlink" href="#multi-head-attention" title="Permalink to this headline">¶</a></h3>
+<img src="./images/transformers/7_1_transformer.png" itemprop="image" width="40%">
 <p>Query, key, value 들에 각각 다른 학습된 선형  투영(linear projection)을 h번 수행한다. 즉, 동일한 Q,K,V에 각각 다른 weight matrix W를 곱합니다. 그 후 각각 어텐션을 병합(concatenate)한다.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}MultiHead(Q,K,V)=Concat(head_1,…,head_h)W^o
 \\ where head_i=Attention(QW_i^Q,KW_i^K,VW_i^V)  \end{split}\]</div>
 <p>어텐션  레이어가  h개 씩으로 나눠짐에 따라 모델은 여러 개의 표현 공간(representation subspaces)들을 가지게 해주는데, Query, key, Value weight 행렬들은 학습이 된 후 각각의 입력벡터들에게 곱해져 벡터들을단어의 정보에 맞추어 투영시키게 된다.</p>
-<img alt="../../_images/7_3_transformer.png" src="../../_images/7_3_transformer.png" />
+<img src="./images/transformers/7_3_transformer.png" itemprop="image">
 </div>
 <div class="section" id="position-wise-feed-forward-networks">
-<h3><span class="section-number">1.3.6. </span>Position-wise Feed-Forward Networks<a class="headerlink" href="#position-wise-feed-forward-networks" title="Permalink to this headline">¶</a></h3>
+<h3>Position-wise Feed-Forward Networks<a class="headerlink" href="#position-wise-feed-forward-networks" title="Permalink to this headline">¶</a></h3>
 <p>어텐션 하위 계층에서 fully connected feed-forward network로 진행하는 과정이고 두개의 선형 회귀으로 구성되어 있다.</p>
 <p><span class="math notranslate nohighlight">\(\ FFN(x)=max⁡(0,xW1+b1)W2+b2FFN(x)=max⁡(0,xW1+b1)W2+b2\)</span></p>
 <p>두 레이어 사이에 Trasformer는 ReLU 함수를 Bert는 erf off <a class="reference external" href="https://arxiv.org/abs/1606.08415">GELU</a>를 사용한다.</p>
-<img alt="../../_images/gelu_relu.png" src="../../_images/gelu_relu.png" />
+<img src="./images/transformers/gelu_relu.png" itemprop="image">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gelu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -602,7 +592,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="section" id="why-self-attention">
-<h2><span class="section-number">1.4. </span>Why Self-Attention<a class="headerlink" href="#why-self-attention" title="Permalink to this headline">¶</a></h2>
+<h2>Why Self-Attention<a class="headerlink" href="#why-self-attention" title="Permalink to this headline">¶</a></h2>
 <p>원 논문에서는 이 모델에서 순환나  합성곱을 사용하지 않고 자가 어탠션(self-attention)만을 사용한 이유에 대해서 알아보면, 3가지 이유로 자가 어탠션을 선택했다</p>
 <ol class="simple">
 <li><p>레이어당 전체 연산량이 줄어든다(시간복잡도).</p></li>
@@ -610,9 +600,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>거리가 먼 단어들의 종속성(long-range 또는 long-term dependency)때문</p></li>
 </ol>
 <p>그리고 위의 3가지 외에 또 다른 이유는 어탠션을 사용하면 모델 자체의 동작을 해석하기 쉬워진다(interpretable). 어탠션 하나의 동작 뿐만 아니라 multi-head의 동작 또한 어떻게 동작하는지 이해하기 쉽다는 장점이 있다.</p>
-<img alt="../../_images/9_transformer.png" src="../../_images/9_transformer.png" />
+<img src="./images/transformers/9_transformer.png" itemprop="image">
 <div class="section" id="reference">
-<h3><span class="section-number">1.4.1. </span>reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<h3>reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
 <p>•<a class="reference external" href="https://arxiv.org/abs/1706.03762">Transformer</a><br />
 •<a class="reference external" href="https://arxiv.org/abs/1810.04805">Bert</a><br />
 •<a class="reference external" href="https://arxiv.org/abs/1409.0473">Attention</a><br />
@@ -629,21 +619,21 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="section" id="bert-extention">
-<h1><span class="section-number">2. </span>BERT extention<a class="headerlink" href="#bert-extention" title="Permalink to this headline">¶</a></h1>
+<h1>BERT extention<a class="headerlink" href="#bert-extention" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="bidirectional">
-<h2><span class="section-number">2.1. </span>Bidirectional<a class="headerlink" href="#bidirectional" title="Permalink to this headline">¶</a></h2>
+<h2>Bidirectional<a class="headerlink" href="#bidirectional" title="Permalink to this headline">¶</a></h2>
 <p>저자는 unidirectional은 token-level에서 단점이 된다고 한다. GPT 같은 unidirectional 한 모델, 즉 모든 토큰은 이전 토큰만 참고할 수 있는 auto-regressive 모델과는 달리 BERT의 경우 이전과 이후의 정보를 모두 활용한다. 계산량도 물론 2배.</p>
 </div>
 <div class="section" id="masked-language-model">
-<h2><span class="section-number">2.2. </span>Masked Language Model<a class="headerlink" href="#masked-language-model" title="Permalink to this headline">¶</a></h2>
+<h2>Masked Language Model<a class="headerlink" href="#masked-language-model" title="Permalink to this headline">¶</a></h2>
 <p>은 문장의 다음 단어를 예측하는 것이 아니라 문장내 랜덤한 단어를 마스킹하고 이를 예측하도록 하는 방식으로 Word2Vec의 CBOW 모델과 유사하다. 하지만 MLM은 Context 토큰을 Center 토큰이 되도록 학습하고 Weights를 벡터로 갖는 CBOW와 달리, 마스킹된 토큰을 맞추도록 학습한 결과를 직접 벡터로 갖기 때문에 보다 직관적인 방식으로 볼 수 있다. 마스킹은 전체 단어의 15% 정도만 진행하며, 그 중에서도 모든 토큰을 마스킹 하는게 아니라 80% 정도만 <MASK>로 처리하고 10%는 랜덤한 단어, 나머지 10%는 정상적인 단어를 그대로 둔다.</p>
 </div>
 <div class="section" id="next-sentence-prediction-nsp">
-<h2><span class="section-number">2.3. </span>Next Sentence Prediction(NSP)<a class="headerlink" href="#next-sentence-prediction-nsp" title="Permalink to this headline">¶</a></h2>
+<h2>Next Sentence Prediction(NSP)<a class="headerlink" href="#next-sentence-prediction-nsp" title="Permalink to this headline">¶</a></h2>
 <p>Bert는 2문장을 입력으로 넣을 때, <code class="docutils literal notranslate"><span class="pre">[cls]</span> <span class="pre">문장</span> <span class="pre">[sep]</span> <span class="pre">문장</span></code> 형식을 입력으로 사용한다. 원저자 no NSP라면 Accuracy가 0.5정도 떨어진다고 하는데, 반론을 펼치는 논문도 많으므로 넘어간다.</p>
 </div>
 <div class="section" id="effect-of-model-size">
-<h2><span class="section-number">2.4. </span>Effect of Model Size<a class="headerlink" href="#effect-of-model-size" title="Permalink to this headline">¶</a></h2>
+<h2>Effect of Model Size<a class="headerlink" href="#effect-of-model-size" title="Permalink to this headline">¶</a></h2>
 <p>Bert Base의 모델은 L=12, H=768, A=12 110M parameter<br />
 Large 모델은 L=24, H=1024, A,16      340M parameter</p>
 <p>다른 bi-LSTM(<a class="reference external" href="https://www.aclweb.org/anthology/K16-1006.pdf">context2vec</a>) 같은 경우 히든벡터의 차원수를 200에서 600까지 올리는것은 유의미했지만 1000까지 올리는 것은 도움이 되지 않았다.<br />
@@ -679,7 +669,6 @@ Large 모델은 L=24, H=1024, A,16      340M parameter</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../paper.html" title="previous page">Paper</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
