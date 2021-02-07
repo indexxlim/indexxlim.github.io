@@ -384,7 +384,7 @@ and (2) learning a model to reconstruct the original text.</p>
 <p>BART uses a standard Tranformer-based neural machine translation architecture which, despite its simplicity, can be seen as generalizing BERT (due to the bidirectional encoder), GPT (with the left-to-right decoder), and many other more recent pretraining schemes.</p>
 <p>랜덤한 단어가 mask되어 있는 문장을 다시 복원하는 Masked language model과 denoising auto-encoder가 좋은 성능을 보인다. 그 중에서는 분포에 기반하여 span을 정하거나 auto-regressive 하거나 앙상블하는 방법들이 있다.
 Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom text infiiling하는 것이 가장 성능이 좋았다.</p>
-<img src="./images/bart/1_bart.png" itemprop="image" width="80%">
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/1_bart.png?raw=true" itemprop="image" width="80%">
 <p>모델은 generalizing BERT (due to the bidirectional encoder), GPT (with the left-to-right decoder)사용</p>
 </div>
 <div class="section" id="model">
@@ -398,7 +398,8 @@ Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom t
 <h3><span class="section-number">3.2.2. </span>Pretraining BART<a class="headerlink" href="#pretraining-bart" title="Permalink to this headline">¶</a></h3>
 <p>specific noising schemes
 구체적인 노이즈 방법은 다음과 같다.</p>
-<img src="./images/bart/2_bart_mask.png" itemprop="image" width="60%">
+<p><img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/2_bart_mask.png?raw=true
+" itemprop="image" width="60%"></p>
 <ul class="simple">
 <li><p>Token Masking: BERT처럼 랜덤 토큰을 [MASK]로 masking</p></li>
 <li><p>Token Deletion: 랜덤 토큰을 삭제. 삭제된 문장을 찾는다.</p></li>
@@ -412,7 +413,7 @@ Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom t
 <h2><span class="section-number">3.3. </span>Fine-tuning BART<a class="headerlink" href="#fine-tuning-bart" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="sequence-classification-tasks">
 <h3><span class="section-number">3.3.1. </span>Sequence Classification Tasks<a class="headerlink" href="#sequence-classification-tasks" title="Permalink to this headline">¶</a></h3>
-<img src="./images/bart/3_bart_model_by_task.png" itemprop="image" width="60%">
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/3_bart_model_by_task.png?raw=true" itemprop="image" width="60%">
 <p>디코더의 마지막 hidden state vector를 사용하여 linear classifier. 이 때 디코더에 완전한 문장을 표시하기 위하여 end 토큰 추가했다.</p>
 </div>
 <div class="section" id="token-classification-tasks">
@@ -459,7 +460,8 @@ combination of books and Wikipedia data 를 사용해 1M steps 으로 Base모델
 </div>
 <div class="section" id="results">
 <h2><span class="section-number">3.5. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<img src="./images/bart/4_result.png" itemprop="image" width="80%">
+<p><img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/4_result.png?raw=true
+" itemprop="image" width="80%"></p>
 <ul class="simple">
 <li><p>Performance of pre-training methods varies significantly across tasks</p></li>
 <li><p>Token masking is crucial</p></li>
@@ -482,15 +484,19 @@ such as relative-position embeddings or segment-level recurrence 학습방법만
 <li><p>마지막 10%의 training step에서는 dropout을 적용하지 않음.</p></li>
 <li><p>RoBERTa와 같은 160Gb 데이터 사용</p></li>
 </ul>
-<img src="./images/bart/5_result.png" itemprop="image" width="80%">
+<p><img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/5_result.png?raw=true
+" itemprop="image" width="80%"></p>
 <ul class="simple">
 <li><p>Generation에서 빔사이즈는 5, 이 때, 중복된 trigram은 삭제</p></li>
 <li><p>번역쓰이는 첫번째 encoder는 6-layer transformer source encoder to map Romanian into a representation</p></li>
 <li><p>Xsum에서 첫번째 문장 삭제</p></li>
 </ul>
-<img src="./images/bart/6_result.png" itemprop="image" width="60%">
-<img src="./images/bart/7_result.png" itemprop="image" width="40%">
-<img src="./images/bart/8_result.png" itemprop="image" width="40%">
+<p><img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/6_result.png?raw=true
+" itemprop="image" width="60%">
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/7_result.png?raw=true
+" itemprop="image" width="40%">
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/8_result.png?raw=true
+" itemprop="image" width="40%"></p>
 </div>
 </div>
 
