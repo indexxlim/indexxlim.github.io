@@ -6,4 +6,6 @@
   - file: machine_learning/paper
     numbered: true
     sections:
-    - file: machine_learning/paper/notebooks
+    - file: machine_learning/paper/transformer
+    - file: machine_learning/paper/bart
+
