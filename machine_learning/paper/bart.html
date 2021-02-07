@@ -342,8 +342,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#large-scale-pre-training-experimentspermalink">
-   3.6. Large-scale Pre-training ExperimentsPermalink
+  <a class="reference internal nav-link" href="#large-scale-pre-training-experiments">
+   3.6. Large-scale Pre-training Experiments
   </a>
  </li>
 </ul>
@@ -370,6 +370,12 @@ and (2) learning a model to reconstruct the original text.</p>
 <li><p>The order in which masked tokens are predicted (XLNet)</p></li>
 <li><p>the available context for replacing masked tokens (UniLM - unidirectional LM, Bidirect LM, sequence LM을 앙상블)</p></li>
 </ul>
+<p>Finding the best performance by both randomly shuffling the order of the original sentences and using a novel in-filling scheme(including zero length)</p>
+<p>BART uses a standard Tranformer-based neural machine translation architecture which, despite its simplicity, can be seen as generalizing BERT (due to the bidirectional encoder), GPT (with the left-to-right decoder), and many other more recent pretraining schemes.</p>
+<p>랜덤한 단어가 mask되어 있는 문장을 다시 복원하는 Masked language model과 denoising auto-encoder가 좋은 성능을 보인다. 그 중에서는 분포에 기반하여 span을 정하거나 auto-regressive 하거나 앙상블하는 방법들이 있다.
+Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom text infiiling하는 것이 가장 성능이 좋았다.</p>
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/1_bart.png?raw=true" itemprop="image" width="80%">
+<p>모델은 generalizing BERT (due to the bidirectional encoder), GPT (with the left-to-right decoder)사용</p>
 <p>논문뒤에 related work가 나오는데 앞으로 가져왔습니다.</p>
 <ul class="simple">
 <li><p>GPT는 leftward context만 다루기 때문에 몇몇 task에서는 문제가 생긴다.</p></li>
@@ -380,12 +386,6 @@ and (2) learning a model to reconstruct the original text.</p>
 <li><p>MASS는 BART와 가장 유사한 모델이다. 연속된 span이 masking된 문장을 인코더 입력으로 주고, 디코더에서 masking 되었던 토큰들을 예측한다.</p></li>
 <li><p>XL-Net은 mask된 토큰을 섞인 순서로 auto-regressive하게 예측하도록 BERT를 확장했다.</p></li>
 </ul>
-<p>Finding the best performance by both randomly shuffling the order of the original sentences and using a novel in-filling scheme(including zero length)</p>
-<p>BART uses a standard Tranformer-based neural machine translation architecture which, despite its simplicity, can be seen as generalizing BERT (due to the bidirectional encoder), GPT (with the left-to-right decoder), and many other more recent pretraining schemes.</p>
-<p>랜덤한 단어가 mask되어 있는 문장을 다시 복원하는 Masked language model과 denoising auto-encoder가 좋은 성능을 보인다. 그 중에서는 분포에 기반하여 span을 정하거나 auto-regressive 하거나 앙상블하는 방법들이 있다.
-Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom text infiiling하는 것이 가장 성능이 좋았다.</p>
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/1_bart.png?raw=true" itemprop="image" width="80%">
-<p>모델은 generalizing BERT (due to the bidirectional encoder), GPT (with the left-to-right decoder)사용</p>
 </div>
 <div class="section" id="model">
 <h2><span class="section-number">3.2. </span>model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
@@ -473,8 +473,8 @@ Bart는 layer개수를 절반만 가지고 달성</p></li>
 such as relative-position embeddings or segment-level recurrence 학습방법만이 성능의 주요요인은 아니다.</p></li>
 </ul>
 </div>
-<div class="section" id="large-scale-pre-training-experimentspermalink">
-<h2><span class="section-number">3.6. </span>Large-scale Pre-training ExperimentsPermalink<a class="headerlink" href="#large-scale-pre-training-experimentspermalink" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="large-scale-pre-training-experiments">
+<h2><span class="section-number">3.6. </span>Large-scale Pre-training Experiments<a class="headerlink" href="#large-scale-pre-training-experiments" title="Permalink to this headline">¶</a></h2>
 <p>최근 연구에서 큰 batch size와 corpora를 사용해 pre-training하는 것이 성능의 향상을 이끌어낸다고 한다. 이를 실험하기 위해 BART를 RoBERTa 모델과 같은 규모로 실험했다.</p>
 <ul class="simple">
 <li><p>Large 모델은 12레이어, 1024 hidden size</p></li>
