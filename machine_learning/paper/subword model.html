@@ -277,6 +277,21 @@ commentsRunWhenDOMLoaded(addUtterances);
    Introduction
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#neural-machine-translation">
+   Neural Machine Translation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bytr-pair-encoding-bpe">
+   Bytr Pair Encoding (BPE)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#result">
+   result
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -292,7 +307,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h1>subword model<a class="headerlink" href="#subword-model" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="neural-machine-translation-of-rare-words-with-subword-units">
 <h2>Neural Machine Translation of Rare Words with Subword Units<a class="headerlink" href="#neural-machine-translation-of-rare-words-with-subword-units" title="Permalink to this headline">¶</a></h2>
-<p>단어보다 작은 subword unit을 사용하여 음운론적이고 형태학적으로 번역함으로써, open-vocabulary NMT모델을 소개한다.</p>
+<p>데이터 압축으로 쓰이던 bpe를 자연어에 쓴 논문이다.
+단어보다 작은 subword unit을 사용하여 음운론적이고 형태학적으로 번역함으로써, open-vocabulary NMT모델을 소개한다.</p>
 </div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -301,10 +317,22 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>subword를 통한 open-vocabulary은 back-off dictionay나 큰 large vocabularies보다 효과적이다.</p></li>
 <li><p>byte pair encoding (BPE)(Gage, 1994)은 가변 길이의 문자열을 고정크기의 어휘를 통해 표현 할수 있기 때문에 인공신경망에서 효과적인 방법이다.</p></li>
 </ul>
-<p>목적<br />
-large vocabulary set 없이도 open vocabulary 상황에서의 번역 성능을 높인다.</p>
-<p>제안방법<br />
-byte pair encoding 기반의 subword model을 도입하여 정해진 vocabulary size 로도 out of vocabulary ( OOV ) 들을 subword 로 표현 가능하다.</p>
+</div>
+<div class="section" id="neural-machine-translation">
+<h2>Neural Machine Translation<a class="headerlink" href="#neural-machine-translation" title="Permalink to this headline">¶</a></h2>
+<p>모델은 Bi-direction GRU 유닛 사용
+subword로 정보를 투영할 때의 장점</p>
+<ul class="simple">
+<li><p>named entities</p></li>
+<li><p>cognates and loanwords(의미 분화 및 외래어)</p></li>
+<li><p>morphologically complex words(복합어)</p></li>
+</ul>
+</div>
+<div class="section" id="bytr-pair-encoding-bpe">
+<h2>Bytr Pair Encoding (BPE)<a class="headerlink" href="#bytr-pair-encoding-bpe" title="Permalink to this headline">¶</a></h2>
+<p>알고리즘은 모든 쌍을 인덱싱하고, 데이터 구조(dictionary)를 점진적으로 업데이트 한다.
+예를 들어 (‘A’, ‘B’)안에서 모든 기호 쌍을 반복적으로 계산해서 가장 빈도가 높은 쌍을 새로운 기호 ‘AB’로 교체한다.
+허프만 인코딩 처럼 하위 단어를 기반으로 새로운 단어를 번역하고 새성한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">collections</span>
@@ -330,77 +358,40 @@ byte pair encoding 기반의 subword model을 도입하여 정해진 vocabulary 
 <span class="n">num_merges</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_merges</span><span class="p">):</span>
     <span class="n">pairs</span> <span class="o">=</span> <span class="n">get_stats</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pairs</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
     <span class="n">best</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">pairs</span><span class="o">.</span><span class="n">get</span><span class="p">)</span> 
     <span class="n">vocab</span> <span class="o">=</span> <span class="n">merge_vocab</span><span class="p">(</span><span class="n">best</span><span class="p">,</span> <span class="n">vocab</span><span class="p">)</span> 
     <span class="nb">print</span><span class="p">(</span><span class="n">best</span><span class="p">)</span>
+    
+    
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;built-in method get of collections.defaultdict object at 0x10bbb9818&gt;
-(&#39;e&#39;, &#39;s&#39;)
-&lt;built-in method get of collections.defaultdict object at 0x10bbb9868&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;e&#39;, &#39;s&#39;)
 (&#39;es&#39;, &#39;t&#39;)
-&lt;built-in method get of collections.defaultdict object at 0x10bbb9818&gt;
 (&#39;est&#39;, &#39;&lt;/w&gt;&#39;)
-&lt;built-in method get of collections.defaultdict object at 0x10bbb9868&gt;
 (&#39;l&#39;, &#39;o&#39;)
-&lt;built-in method get of collections.defaultdict object at 0x10bbb9818&gt;
 (&#39;lo&#39;, &#39;w&#39;)
-&lt;built-in method get of collections.defaultdict object at 0x10bbb9868&gt;
 (&#39;n&#39;, &#39;e&#39;)
-&lt;built-in method get of collections.defaultdict object at 0x10bbb9818&gt;
 (&#39;ne&#39;, &#39;w&#39;)
-&lt;built-in method get of collections.defaultdict object at 0x10bbb9868&gt;
 (&#39;new&#39;, &#39;est&lt;/w&gt;&#39;)
-&lt;built-in method get of collections.defaultdict object at 0x10bbb9818&gt;
 (&#39;low&#39;, &#39;&lt;/w&gt;&#39;)
-&lt;built-in method get of collections.defaultdict object at 0x10bbb9868&gt;
 (&#39;w&#39;, &#39;i&#39;)
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab</span> <span class="o">=</span><span class="p">{</span><span class="s1">&#39;l o w &lt;/w&gt;&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;l o w e r &lt;/w&gt;&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-       <span class="s1">&#39;n e w e s t &lt;/w&gt;&#39;</span> <span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;w i d e s t &lt;/w&gt;&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
-<span class="n">vocab</span>
-<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">symbols</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">symbols</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">pairs</span><span class="p">[</span><span class="n">symbols</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">symbols</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span><span class="n">freq</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">symbols</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">symbols</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
+<p>여기서 lower는 low, er로 분할된다.</p>
+<p>이 논문의 task인 translation에서 bpe의 사용은 2가지가 있다.</p>
+<ul class="simple">
+<li><p>source 어휘와 target 각각의 어휘</p></li>
+<li><p>source와 target의 어휘를 합침(joint BPE)</p></li>
+</ul>
+<p>전자는 어휘 사이즈와, 단어가 더 compact하고 후자는 source와 target segmentation 사이에 일관성이 있다.</p>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>l o
-o w
-w &lt;/w&gt;
-l o
-o w
-w e
-e r
-r &lt;/w&gt;
-n e
-e w
-w e
-e s
-s t
-t &lt;/w&gt;
-w i
-i d
-d e
-e s
-s t
-t &lt;/w&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
+<div class="section" id="result">
+<h2>result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h2>
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/subword/1_result.png?raw=true" itemprop="image" width="60%"><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </pre></div>
