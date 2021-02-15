@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>subword model</title>
+    <title>4. subword model</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -90,6 +90,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../../_static/header_image.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="3. BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension" href="bart.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -129,12 +130,12 @@ commentsRunWhenDOMLoaded(addUtterances);
   Machine Learning
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="../paper.html">
    Paper
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="transformer.html">
      1. Transformer and Bert
@@ -148,6 +149,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    <li class="toctree-l2">
     <a class="reference internal" href="bart.html">
      3. BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     4. subword model
     </a>
    </li>
   </ul>
@@ -194,7 +200,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/machine_learning/paper/subword model.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/machine_learning/paper/subword.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -214,10 +220,10 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/subword model.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/subword.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/subword model.ipynb"><button
+        <a class="edit-button" href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/subword.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -237,7 +243,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/subword model.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/subword.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -245,7 +251,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/subword model.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/subword.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -269,27 +275,27 @@ commentsRunWhenDOMLoaded(addUtterances);
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#neural-machine-translation-of-rare-words-with-subword-units">
-   Neural Machine Translation of Rare Words with Subword Units
+   4.1. Neural Machine Translation of Rare Words with Subword Units
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   Introduction
+   4.2. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#neural-machine-translation">
-   Neural Machine Translation
+   4.3. Neural Machine Translation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bytr-pair-encoding-bpe">
-   Bytr Pair Encoding (BPE)
+   4.4. Bytr Pair Encoding (BPE)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#result">
-   result
+   4.5. result
   </a>
  </li>
 </ul>
@@ -304,14 +310,14 @@ commentsRunWhenDOMLoaded(addUtterances);
               <div>
                 
   <div class="section" id="subword-model">
-<h1>subword model<a class="headerlink" href="#subword-model" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>subword model<a class="headerlink" href="#subword-model" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="neural-machine-translation-of-rare-words-with-subword-units">
-<h2>Neural Machine Translation of Rare Words with Subword Units<a class="headerlink" href="#neural-machine-translation-of-rare-words-with-subword-units" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Neural Machine Translation of Rare Words with Subword Units<a class="headerlink" href="#neural-machine-translation-of-rare-words-with-subword-units" title="Permalink to this headline">¶</a></h2>
 <p>데이터 압축으로 쓰이던 bpe를 자연어에 쓴 논문이다.
 단어보다 작은 subword unit을 사용하여 음운론적이고 형태학적으로 번역함으로써, open-vocabulary NMT모델을 소개한다.</p>
 </div>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>agglutination and compounding 단계가 포합된 언어의 경우, word level에서 하위 수준으로 내려가는 메커니즘이 필요하다.</p>
 <ul class="simple">
 <li><p>subword를 통한 open-vocabulary은 back-off dictionay나 큰 large vocabularies보다 효과적이다.</p></li>
@@ -319,7 +325,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 </div>
 <div class="section" id="neural-machine-translation">
-<h2>Neural Machine Translation<a class="headerlink" href="#neural-machine-translation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Neural Machine Translation<a class="headerlink" href="#neural-machine-translation" title="Permalink to this headline">¶</a></h2>
 <p>모델은 Bi-direction GRU 유닛 사용
 subword로 정보를 투영할 때의 장점</p>
 <ul class="simple">
@@ -329,7 +335,7 @@ subword로 정보를 투영할 때의 장점</p>
 </ul>
 </div>
 <div class="section" id="bytr-pair-encoding-bpe">
-<h2>Bytr Pair Encoding (BPE)<a class="headerlink" href="#bytr-pair-encoding-bpe" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Bytr Pair Encoding (BPE)<a class="headerlink" href="#bytr-pair-encoding-bpe" title="Permalink to this headline">¶</a></h2>
 <p>알고리즘은 모든 쌍을 인덱싱하고, 데이터 구조(dictionary)를 점진적으로 업데이트 한다.
 예를 들어 (‘A’, ‘B’)안에서 모든 기호 쌍을 반복적으로 계산해서 가장 빈도가 높은 쌍을 새로운 기호 ‘AB’로 교체한다.
 허프만 인코딩 처럼 하위 단어를 기반으로 새로운 단어를 번역하고 새성한다.</p>
@@ -390,20 +396,8 @@ subword로 정보를 투영할 때의 장점</p>
 <p>전자는 어휘 사이즈와, 단어가 더 compact하고 후자는 source와 target segmentation 사이에 일관성이 있다.</p>
 </div>
 <div class="section" id="result">
-<h2>result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h2>
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/subword/1_result.png?raw=true" itemprop="image" width="60%"><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;low&lt;/w&gt;&#39;, 5), (&#39;low e r &lt;/w&gt;&#39;, 2), (&#39;newest&lt;/w&gt;&#39;, 6), (&#39;wi d est&lt;/w&gt;&#39;, 3)])
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+<h2><span class="section-number">4.5. </span>result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h2>
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/subword/1_result.png?raw=true" itemprop="image" width="60%"></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -434,6 +428,7 @@ subword로 정보를 투영할 때의 장점</p>
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="bart.html" title="previous page"><span class="section-number">3. </span>BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
