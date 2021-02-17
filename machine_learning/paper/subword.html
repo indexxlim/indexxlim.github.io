@@ -310,6 +310,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    4.2. WordPiece
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentencepiece">
+   4.3. SentencePiece
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -423,23 +428,22 @@ subword로 정보를 투영할 때의 장점</p>
 <li><p>Word: Jet makers feud over seat width with big orders at stake</p></li>
 <li><p>wordpieces: _J et _makers _fe ud _over _seat _width _with _big _orders _at _stake</p></li>
 </ul>
-<p>BPE와 비슷한 방식의<a class="reference external" href="https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/37842.pdf">WordPiece1</a>는 어느 언어에서나 적용될수 있도록 multilingual vocabulary를 위해 처음 제안 됬고 <a class="reference external" href="https://arxiv.org/pdf/1609.08144.pdf">WordPiece2</a>에서는 번역에 적용 했다. WordPiece는 BPE처럼 2개의 units을 꺼내서 합치는 것은 같지만, 그 전에 기본적으로 language model을 만들어 놓고 새로운 유닛들 중 이 LM에서 가장 큰 likelihood를 가진 new unit을 선택한다는 점이다.<br />
+<p>BPE와 비슷한 방식의<a class="reference external" href="https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/37842.pdf">WordPiece1</a>는 음성 인식에서 어느 언어에서나 적용될수 있도록 multilingual vocabulary를 위해 처음 제안 됬고 <a class="reference external" href="https://arxiv.org/pdf/1609.08144.pdf">WordPiece2</a>에서는 번역에 적용 했다. WordPiece는 BPE처럼 2개의 units을 꺼내서 합치는 것은 같지만, 그 전에 기본적으로 language model을 만들어 놓고 새로운 유닛들 중 이 LM에서 가장 큰 likelihood를 가진 new unit을 선택한다는 점이다.<br />
 하지만 모든 쌍을 brute-force 한다면 너무 비효율적이기 때문에 likelihood가 일정 threshold 이상일 때 새로운 단어를 생성한다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/subword/2_wpmresult.png?raw=true&quot;</span> <span class="n">itemprop</span><span class="o">=</span><span class="s2">&quot;image&quot;</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;60%&quot;</span><span class="o">&gt;</span>
-</pre></div>
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/subword/2_wpmresult.png?raw=true" itemprop="image" width="30%">
+<p>vocabulary 32000개 일 때, 성능이 가장 좋다. ~~그 이상은 유의미한 차별성이 없나?~~</p>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-2-e2aa3b198892&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/subword/2_wpmresult.png?raw=true&quot;</span> <span class="n">itemprop</span><span class="o">=</span><span class="s2">&quot;image&quot;</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;60%&quot;</span><span class="o">&gt;</span>
-    <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+<div class="section" id="sentencepiece">
+<h2><span class="section-number">4.3. </span>SentencePiece<a class="headerlink" href="#sentencepiece" title="Permalink to this headline">¶</a></h2>
+<p>WordPiece를 에서 발전 시킨 <a class="reference external" href="https://arxiv.org/pdf/1808.06226.pdf">SentencePiece</a>
+Normalizer, Trainer, Encoder, Decoder로 구성됨</p>
+<ul class="simple">
+<li><p>Normalizer는 유니코드 캐릭터를 정심 폼으로 정규화</p></li>
+<li><p>Trainer는 subword segmentation</p></li>
+<li><p>Encoder는 normalize와 subword sequence로 tokenization</p></li>
+<li><p>Decoder는 subword sequence를 normalized text로 변환</p></li>
+</ul>
+<p>이중 Encoder와 Decoder를 <a class="reference external" href="https://arxiv.org/pdf/1808.06226.pdf">SentencePiece</a>로 부르기로 하는데, 이 때 voca를 id mapping하는 과정도 포함된다.</p>
 </div>
 </div>
 
