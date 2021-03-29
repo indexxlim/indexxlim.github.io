@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Electra</title>
+    <title>5. Electra</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -90,6 +90,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../../_static/header_image.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="4. subword model" href="subword.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -129,12 +130,12 @@ commentsRunWhenDOMLoaded(addUtterances);
   Machine Learning
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="../paper.html">
    Paper
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="transformer.html">
      1. Transformer and Bert
@@ -153,6 +154,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    <li class="toctree-l2">
     <a class="reference internal" href="subword.html">
      4. subword model
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5. Electra
     </a>
    </li>
   </ul>
@@ -268,13 +274,14 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#electra-pre-training-text-encoders-as-discriminators-rather-than-generators">
-   ELECTRA : PRE-TRAINING TEXT ENCODERS AS DISCRIMINATORS RATHER THAN GENERATORS
+   5.1. ELECTRA : PRE-TRAINING TEXT ENCODERS AS DISCRIMINATORS RATHER THAN GENERATORS
   </a>
  </li>
 </ul>
@@ -290,9 +297,9 @@ commentsRunWhenDOMLoaded(addUtterances);
               <div>
                 
   <div class="section" id="electra">
-<h1>Electra<a class="headerlink" href="#electra" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>Electra<a class="headerlink" href="#electra" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="electra-pre-training-text-encoders-as-discriminators-rather-than-generators">
-<h2>ELECTRA : PRE-TRAINING TEXT ENCODERS AS DISCRIMINATORS RATHER THAN GENERATORS<a class="headerlink" href="#electra-pre-training-text-encoders-as-discriminators-rather-than-generators" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>ELECTRA : PRE-TRAINING TEXT ENCODERS AS DISCRIMINATORS RATHER THAN GENERATORS<a class="headerlink" href="#electra-pre-training-text-encoders-as-discriminators-rather-than-generators" title="Permalink to this headline">¶</a></h2>
 <p>Masked language modeling(MLM)들은 일반적으로 많은 양의 계산을 필요로한다. 그에 대한 대안으로 이 논문은 replaced token detection이라고도 하는 pre-training을 효율적으로 하는 것에 의의를 둔다. 입력을 masking 하는 대신 작은 generator 모델을 통해 생성된 토큰으로 대체한다. 그래서 corrupted 토큰들의 원본을 예측하는 대신 이 토큰이 생성된 토큰인지 아닌지를 분별한다.<br />
 그래서 BERT와 똑같은 모델 사이즈, 데이터, 학습양으로 더 뛰어난 성능을 보여지고, RoBERTa나 XLNet 보다 1/4의 계산량으로 비슷한 결과를 보여주고 같은 계산량이면 더 능가한다.</p>
 <img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/electra/compute_budget.png?raw=true" itemprop="image" width="80%">
@@ -325,6 +332,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="subword.html" title="previous page"><span class="section-number">4. </span>subword model</a>
 
         </div>
         
