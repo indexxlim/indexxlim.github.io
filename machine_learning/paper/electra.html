@@ -296,11 +296,6 @@ commentsRunWhenDOMLoaded(addUtterances);
      5.1.2. method..
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-algorithms">
-     5.1.3. Training Algorithms
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -336,18 +331,8 @@ vector representation h(x) 와 embedding e, position t 일 때, generator는 sof
 $<span class="math notranslate nohighlight">\(pG_(x_t|x) =exp(e(x_t)^T hG(x)_t)  / \sum_{x'}exp(e(x′)^T hG(x)_t)\)</span><span class="math notranslate nohighlight">\(
 discriminator는 다음과 같다
 \)</span><span class="math notranslate nohighlight">\(D(x,t)=sigmoid(w^ThD(x)_t)\)</span>$</p>
-<p>추가적으로 genrator와 discriminator 간에 sharing weights를 통해서 효율적으로 학습을 진행한다. 이 때 token과 positional embedding을 공유했다.S
-이 때, discriminator 모델의 크기는 generator 보다 커야 수월하게 구별을 하면서 학습이 된다.
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/electra/compute_budget2.png?raw=true" itemprop="image" width="80%">
-만약 사이즈가 같다면 거의 2배정도 더 학습을 진행해야 한다.</p>
-</div>
-<div class="section" id="training-algorithms">
-<h3><span class="section-number">5.1.3. </span>Training Algorithms<a class="headerlink" href="#training-algorithms" title="Permalink to this headline">¶</a></h3>
-<p>효과적으로 jointly train하는 two-stage 절차이다.</p>
-<ol class="simple">
-<li><p>generator MLM을 n step진행한다.</p></li>
-<li><p>generator의 weights로 discriminator를 Initialize한 후, generator의 weights를 멈춘 후에 discriminator를 n steps 학습한다.</p></li>
-</ol>
+<p>추가적으로 genrator와 discriminator 간에 sharing weights를 통해서 효율적으로 학습을 진행한다. 이 때 token과 positional embeddingdpt
+이 때, discriminator 모델의 크기는 generator 보다 커야 수월하게 구별을 하면서 학습이 된다.</p>
 </div>
 </div>
 </div>
