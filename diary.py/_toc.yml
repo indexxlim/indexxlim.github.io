@@ -9,4 +9,6 @@
     - file: machine_learning/paper/transformer
     - file: machine_learning/paper/bart
     - file: machine_learning/paper/subword
+    - file: machine_learning/paper/electra
+
 
