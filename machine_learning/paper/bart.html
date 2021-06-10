@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</title>
+    <title>BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -79,7 +76,7 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -90,16 +87,16 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../../_static/header_image.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4. subword model" href="subword.html" />
-    <link rel="prev" title="1. Transformer and Bert" href="transformer.html" />
-
+    <link rel="next" title="subword model" href="subword.html" />
+    <link rel="prev" title="Transformer and Bert" href="transformer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -108,66 +105,70 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/logo.png" class="logo" alt="logo">
-  
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../index.html">
    DIARY.PY
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Machine Learning
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../paper.html">
    Paper
   </a>
-  <ul class="current collapse-ul">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="transformer.html">
-     1. Transformer and Bert
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="transformer.html#bert-extention">
-     2. BERT extention
+     Transformer and Bert
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3. BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension
+     BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="subword.html">
-     4. subword model
+     subword model
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="electra.html">
-     5. Electra
+     Electra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="c2f-coref.html">
+     c2f-coref
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -235,12 +236,12 @@ commentsRunWhenDOMLoaded(addUtterances);
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -274,92 +275,90 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   3.1. introduction
+   introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#model">
-   3.2. model
+   model
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#architecture">
-     3.2.1. Architecture
+     Architecture
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pretraining-bart">
-     3.2.2. Pretraining BART
+     Pretraining BART
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fine-tuning-bart">
-   3.3. Fine-tuning BART
+   Fine-tuning BART
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sequence-classification-tasks">
-     3.3.1. Sequence Classification Tasks
+     Sequence Classification Tasks
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#token-classification-tasks">
-     3.3.2. Token Classification Tasks
+     Token Classification Tasks
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sequence-generation-tasks">
-     3.3.3. Sequence Generation Tasks
+     Sequence Generation Tasks
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#machine-translation">
-     3.3.4. Machine Translation
+     Machine Translation
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparing-pre-training-objectives">
-   3.4. Comparing Pre-training Objectives
+   Comparing Pre-training Objectives
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparison-objectives">
-     3.4.1. Comparison Objectives
+     Comparison Objectives
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tasks">
-     3.4.2. Tasks
+     Tasks
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#results">
-   3.5. Results
+   Results
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#large-scale-pre-training-experiments">
-   3.6. Large-scale Pre-training Experiments
+   Large-scale Pre-training Experiments
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -369,12 +368,12 @@ commentsRunWhenDOMLoaded(addUtterances);
               <div>
                 
   <div class="section" id="bart-denoising-sequence-to-sequence-pre-training-for-natural-language-generation-translation-and-comprehension">
-<h1><span class="section-number">3. </span>BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension<a class="headerlink" href="#bart-denoising-sequence-to-sequence-pre-training-for-natural-language-generation-translation-and-comprehension" title="Permalink to this headline">¶</a></h1>
+<h1>BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension<a class="headerlink" href="#bart-denoising-sequence-to-sequence-pre-training-for-natural-language-generation-translation-and-comprehension" title="Permalink to this headline">¶</a></h1>
 <p>We present BART, a denoising autoencoder for pretraining sequence-to-sequence models.<br />
 BART is trained by (1) corrupting text with an arbitrary noising function,<br />
 and (2) learning a model to reconstruct the original text.</p>
 <div class="section" id="introduction">
-<h2><span class="section-number">3.1. </span>introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2>introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Variants of masked language models, which are denoising autoencoders that are trained to reconstruct text where a random subset of the words has been masked out.</p>
 <ul class="simple">
 <li><p>For example improving the distribution of masked tokens(SpanBERT-a geometric distribution)</p></li>
@@ -399,14 +398,14 @@ Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom t
 </ul>
 </div>
 <div class="section" id="model">
-<h2><span class="section-number">3.2. </span>model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<h2>model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="architecture">
-<h3><span class="section-number">3.2.1. </span>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h3>
+<h3>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h3>
 <p>BART의 encoder는 Bert와 동일하게 ReLU activation function을 GeLUs로 변경했다. base model은 6 layer, large model은 12 layer를 사용했다. 다른점은 BERT는 word prediction을 위해 추가로 feed-forward 레이어를 추가했는데 BART는 그렇지 않다.
 디코더는 트랜스포머에서처럼 디코더의 각 레이어에서는 트랜스포머 처럼 인코더의 마지막 hidden layer와 cross-attention을 한다.</p>
 </div>
 <div class="section" id="pretraining-bart">
-<h3><span class="section-number">3.2.2. </span>Pretraining BART<a class="headerlink" href="#pretraining-bart" title="Permalink to this headline">¶</a></h3>
+<h3>Pretraining BART<a class="headerlink" href="#pretraining-bart" title="Permalink to this headline">¶</a></h3>
 <p>specific noising schemes
 구체적인 노이즈 방법은 다음과 같다.</p>
 <p><img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/2_bart_mask.png?raw=true
@@ -421,22 +420,22 @@ Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom t
 </div>
 </div>
 <div class="section" id="fine-tuning-bart">
-<h2><span class="section-number">3.3. </span>Fine-tuning BART<a class="headerlink" href="#fine-tuning-bart" title="Permalink to this headline">¶</a></h2>
+<h2>Fine-tuning BART<a class="headerlink" href="#fine-tuning-bart" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="sequence-classification-tasks">
-<h3><span class="section-number">3.3.1. </span>Sequence Classification Tasks<a class="headerlink" href="#sequence-classification-tasks" title="Permalink to this headline">¶</a></h3>
+<h3>Sequence Classification Tasks<a class="headerlink" href="#sequence-classification-tasks" title="Permalink to this headline">¶</a></h3>
 <img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/3_bart_model_by_task.png?raw=true" itemprop="image" width="60%">
 <p>디코더의 마지막 hidden state vector를 사용하여 linear classifier. 이 때 디코더에 완전한 문장을 표시하기 위하여 end 토큰 추가했다.</p>
 </div>
 <div class="section" id="token-classification-tasks">
-<h3><span class="section-number">3.3.2. </span>Token Classification Tasks<a class="headerlink" href="#token-classification-tasks" title="Permalink to this headline">¶</a></h3>
+<h3>Token Classification Tasks<a class="headerlink" href="#token-classification-tasks" title="Permalink to this headline">¶</a></h3>
 <p>전체 document를 인코더와 디코더에 입력한다. 디코더의 top hidden state를 각 단어에 대한 representation으로 사용한다. 이 representation을 token classification에 사용한다.</p>
 </div>
 <div class="section" id="sequence-generation-tasks">
-<h3><span class="section-number">3.3.3. </span>Sequence Generation Tasks<a class="headerlink" href="#sequence-generation-tasks" title="Permalink to this headline">¶</a></h3>
+<h3>Sequence Generation Tasks<a class="headerlink" href="#sequence-generation-tasks" title="Permalink to this headline">¶</a></h3>
 <p>BART는 autoregressive 디코더로 abstractive question answering이나 summairization에 바로 fine-tuning이 가능하다.</p>
 </div>
 <div class="section" id="machine-translation">
-<h3><span class="section-number">3.3.4. </span>Machine Translation<a class="headerlink" href="#machine-translation" title="Permalink to this headline">¶</a></h3>
+<h3>Machine Translation<a class="headerlink" href="#machine-translation" title="Permalink to this headline">¶</a></h3>
 <p>by adding a new set of encoder parameters that are learned from bitext<br />
 인코더를 하나 더 추가해서 인코더-디코더를 fine-tuning 한다.<br />
 새로운 인코더를 먼저 학습하고 그다음 BART모델을 학습한다.(embedding 2개) 이 때 인코더와 BART의 position embedding, BART 인코더의 첫번째 레이어 self-attention input projection matrix만 학습시킨다.
@@ -444,11 +443,11 @@ Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom t
 </div>
 </div>
 <div class="section" id="comparing-pre-training-objectives">
-<h2><span class="section-number">3.4. </span>Comparing Pre-training Objectives<a class="headerlink" href="#comparing-pre-training-objectives" title="Permalink to this headline">¶</a></h2>
+<h2>Comparing Pre-training Objectives<a class="headerlink" href="#comparing-pre-training-objectives" title="Permalink to this headline">¶</a></h2>
 <p>BART는 더 넓은 범위의 noising schemes를 사용한다.<br />
 combination of books and Wikipedia data 를 사용해 1M steps 으로 Base모델 끼리 비교를 해보자면 (6 encoder and 6 decoder layers, with a hidden size of 768)</p>
 <div class="section" id="comparison-objectives">
-<h3><span class="section-number">3.4.1. </span>Comparison Objectives<a class="headerlink" href="#comparison-objectives" title="Permalink to this headline">¶</a></h3>
+<h3>Comparison Objectives<a class="headerlink" href="#comparison-objectives" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Language Model: GPT와 비슷하다. left-to-right 트랜스포머 모델을 학습시킨다. 이 모델은 cross-attention이 빠진 BART 디코더와 같다.</p></li>
 <li><p>Permuted Language Model: XL-Net을 기반으로 한다. 1/6 토큰을 샘플링하고 이것을 랜덤한 순서로 auto-regressive하게 생성한다.</p></li>
@@ -458,7 +457,7 @@ combination of books and Wikipedia data 를 사용해 1M steps 으로 Base모델
 </ul>
 </div>
 <div class="section" id="tasks">
-<h3><span class="section-number">3.4.2. </span>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h3>
+<h3>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>SQuAD: Extractive QA task. 주어진 document에서 정답을 추출한다. BERT와 유사하게 질문과 document를 concatenate해서 BART 인코더, 디코더 입력으로 준다. Classifier를 포함하는 모델이 정답의 시작과 끝 토큰 인덱스를 예측한다.</p></li>
 <li><p>MNLI: Bitext classification task다. 두 문장의 의미적 관계를 분류하는 task. 두 문장을 concatenate하고, eos 토큰을 추가해서 BART 인코더 디코더에 입력한다. eos 토큰의 representation이 문장의 관계를 예측하는데 사용된다.</p></li>
@@ -470,7 +469,7 @@ combination of books and Wikipedia data 를 사용해 1M steps 으로 Base모델
 </div>
 </div>
 <div class="section" id="results">
-<h2><span class="section-number">3.5. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p><img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/4_result.png?raw=true
 " itemprop="image" width="80%"></p>
 <ul class="simple">
@@ -485,7 +484,7 @@ such as relative-position embeddings or segment-level recurrence 학습방법만
 </ul>
 </div>
 <div class="section" id="large-scale-pre-training-experiments">
-<h2><span class="section-number">3.6. </span>Large-scale Pre-training Experiments<a class="headerlink" href="#large-scale-pre-training-experiments" title="Permalink to this headline">¶</a></h2>
+<h2>Large-scale Pre-training Experiments<a class="headerlink" href="#large-scale-pre-training-experiments" title="Permalink to this headline">¶</a></h2>
 <p>최근 연구에서 큰 batch size와 corpora를 사용해 pre-training하는 것이 성능의 향상을 이끌어낸다고 한다. 이를 실험하기 위해 BART를 RoBERTa 모델과 같은 규모로 실험했다.</p>
 <ul class="simple">
 <li><p>Large 모델은 12레이어, 1024 hidden size</p></li>
@@ -536,8 +535,8 @@ such as relative-position embeddings or segment-level recurrence 학습방법만
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="transformer.html" title="previous page"><span class="section-number">1. </span>Transformer and Bert</a>
-    <a class='right-next' id="next-link" href="subword.html" title="next page"><span class="section-number">4. </span>subword model</a>
+    <a class='left-prev' id="prev-link" href="transformer.html" title="previous page">Transformer and Bert</a>
+    <a class='right-next' id="next-link" href="subword.html" title="next page">subword model</a>
 
         </div>
         
@@ -557,11 +556,9 @@ such as relative-position embeddings or segment-level recurrence 학습방법만
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>
