@@ -84,6 +84,8 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../../_static/header_image.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -289,6 +291,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    개요
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   방법
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -313,10 +320,33 @@ Lee 아저씨가 만든 논문이 가장 유명하며, c2f-coref를 바탕으로
 <div class="section" id="id1">
 <h2>개요<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Identify all mentions that refer to the same entity in the word
-mention이라고 하면 지칭을 의미한다. 문장안에 있는 이 지칭을 찾고 같은 지칭을 표현하는 단어끼리 그룹화한다.(cluster)</p></li>
+<li><p>Identify all mentions that refer to the same entity in the word</p></li>
 </ul>
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/electra/compute_budget.png?raw=true" itemprop="image" width="80%"></div>
+<p>mention이라고 하면 지칭을 의미한다. 문장안에 있는 이 지칭을 찾고 같은 지칭을 표현하는 단어끼리 그룹화한다.(cluster)
+mention의 종류로는 Pronouns, Named entities, Noun phrases 등이 있다. 그 중  pronouns과 noun phrases는 pos 태그와 파서를 이용해서, named entities는 개채명인식을 통해 추출부터 한다.</p>
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/1_mention.png?raw=true" itemprop="image" width="80%">
+<p>이 때 Coreference라고 함은, 2개 이상의 mentions이 같은 entity를 말하고자 하는 것을 의미한다.</p>
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/2_coreference.png?raw=true" itemprop="image" width="80%"></div>
+<div class="section" id="id2">
+<h2>방법<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Rule-based (pronominal anaphora resolution)</p></li>
+<li><p>Mention Pair</p></li>
+<li><p>Mention Ranking</p></li>
+<li><p>Clustering [skipping this year; see Clark and Manning (2016)]</p></li>
+</ul>
+<p>ML 방법이 많이 사용되기 전에는 규칙에 기반한 Hobbs’ naive algorithm(1976)이 많이 쓰였다.<br />
+Mention Pair는 모든 mentions의 쌍이 coreferent인지를 binary classifier로 학습하는 것이다.
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/3_mentionpair.png?raw=true" itemprop="image" width="80%"></p>
+<p>Mention Rank는 j번째 mention을 계산할 때 그 이전에 나온 mention에서 가장 확률이 높은 mention을 택한다.
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/4_mentionranking.png?raw=true" itemprop="image" width="80%"></p>
+<p>Neural Network를 사용하는 최근의 sota에서는 c2f이라고 명명한 End-to-end 논문의 방법이 있다. 이 논문에서는 metion을 span의 attention sum으로
+구한뒤(representations) 각 mention과 coreferenct인지를 다음과 같이 계산한다.
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/5_grepresentation.png?raw=true" itemprop="image" width="80%">
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/6_score.png?raw=true" itemprop="image" width="80%"></p>
+<p>그래서 <span class="math notranslate nohighlight">\(s(i,j)\)</span>에서의 distribution을 학습합니다
+$<span class="math notranslate nohighlight">\(P(y) = \frac{e^{s(x,y)}}{\sum\limits_{y'\in Y(x)} e^{s(x,y')}} \)</span>$</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
