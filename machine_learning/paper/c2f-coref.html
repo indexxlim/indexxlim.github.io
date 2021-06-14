@@ -284,6 +284,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    Coreference Resolution
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   개요
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -300,9 +305,18 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="section" id="coreference-resolution">
 <h2>Coreference Resolution<a class="headerlink" href="#coreference-resolution" title="Permalink to this headline">¶</a></h2>
 <p>Coreferece를 찾는 NLP Task 중 하나로 coreference는 문장 속에서 Entity와 같은 의미로 언급(mention)된 span을 찾는 것을 목적.
-Lee 아저씨가 만든 논문이 가장 유명하며, c2f-coref를 바탕으로 ELMO부터 Bert, Spanbert등의 언어모델을 이용하여 mention의 span을 찾는다.
-https://www.aclweb.org/anthology/N18-2108.pdf</p>
+Lee 아저씨가 만든 논문이 가장 유명하며, c2f-coref를 바탕으로 ELMO부터 Bert, Spanbert등의 언어모델을 이용하여 mention의 span을 찾는다.</p>
+<p><a class="reference external" href="http://web.stanford.edu/class/cs224n/slides/cs224n-2021-lecture13-coref.pdf">cs224n</a><br />
+<a class="reference external" href="https://arxiv.org/pdf/1707.07045.pdf">End-to-end Neural Coreference Resolution</a><br />
+<a class="reference external" href="https://www.aclweb.org/anthology/N18-2108.pdf">Higher-order Coreference Resolution</a></p>
 </div>
+<div class="section" id="id1">
+<h2>개요<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Identify all mentions that refer to the same entity in the word
+mention이라고 하면 지칭을 의미한다. 문장안에 있는 이 지칭을 찾고 같은 지칭을 표현하는 단어끼리 그룹화한다.(cluster)</p></li>
+</ul>
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/electra/compute_budget.png?raw=true" itemprop="image" width="80%"></div>
 </div>
 
     <script type="text/x-thebe-config">
