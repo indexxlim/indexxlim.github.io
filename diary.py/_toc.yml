@@ -6,6 +6,8 @@ parts:
     - file: diary/soso
       sections:
       - file: diary/soso/Jupyter Book으로 github 블로깅
+      - file: diary/soso/Transformers ONNX
+      
       
   - caption: Machine Learning
     chapters:
