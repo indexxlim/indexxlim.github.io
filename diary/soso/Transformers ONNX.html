@@ -359,7 +359,6 @@ https://github.com/huggingface/transformers/blob/master/notebooks/04-onnx-export
 </div>
 <p>그리고 seq2seq 모델중 Conditional Generation으로 유용하게 적용할 수 있는 T5모델도 library로 잘 구현해 놓았더라.<br />
 https://github.com/Ki6an/fastT5</p>
-<p>그리고 onnx에서 <code class="docutils literal notranslate"><span class="pre">quantize</span></code> 함수를 이용해서 quantization을 할 수있는데, 실험 결과 1퍼센트 정도의 정확도를 떨어뜨리지만 모델의 크기를 절반에서 2/3 정도로 줄여줘서 메모리를 조금이라도 아낄 수 있다.</p>
 <p>이 <a class="reference external" href="https://github.com/Ki6an/fastT5">fastT5</a>는 encoder와 decoder 그리고 lm_head로 구성되는데, lm_head는 decoder가 lm_head로 init하기 때문에 필요하다. 그래서 이 3개의 모델로 나뉘어서 저장이 된다</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -383,6 +382,10 @@ https://github.com/Ki6an/fastT5</p>
 </div>
 </div>
 </div>
+<p>추가적으로 fastT5에도 wrap한 quantization이 있다.
+onnx에서 <code class="docutils literal notranslate"><span class="pre">quantize</span></code> 함수를 이용해서 quantization을 할 수있는데, 실험 결과 1퍼센트 정도의 정확도를 떨어뜨리지만 모델의 크기를 절반에서 2/3 정도로 줄여줘서 메모리를 조금이라도 아낄 수 있다.</p>
+<p>추가적으로(2) huggingface 4.6이상에서 돌려야 된다.<br />
+관련이슈는 이곳 https://github.com/huggingface/transformers/pull/10651</p>
 <p>그리고 Xlnet에서는? 입력의 encoder중 1개를 빼야되는데….. 그것은 바로</p>
 </div>
 </div>
