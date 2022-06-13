@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,28 +20,28 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script kind="utterances">
 
@@ -75,14 +77,13 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../../_static/header_image.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -90,10 +91,27 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="next" title="subword model" href="subword.html" />
     <link rel="prev" title="Transformer and Bert" href="transformer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -102,10 +120,15 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
@@ -114,16 +137,17 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../index.html">
-   DIARY.PY
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    DIARY.PY
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Diary
  </span>
@@ -152,7 +176,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Machine Learning
  </span>
@@ -198,117 +222,262 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/machine_learning/paper/bart.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/indexxlim/indexxlim.github.io"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/bart.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/bart.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/bart.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/bart.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/bart.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/bart.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/indexxlim/indexxlim.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/bart.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/bart.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/machine_learning/paper/bart.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
    introduction
@@ -387,22 +556,116 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model">
+   model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#architecture">
+     Architecture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pretraining-bart">
+     Pretraining BART
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fine-tuning-bart">
+   Fine-tuning BART
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-classification-tasks">
+     Sequence Classification Tasks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#token-classification-tasks">
+     Token Classification Tasks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-generation-tasks">
+     Sequence Generation Tasks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-translation">
+     Machine Translation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-pre-training-objectives">
+   Comparing Pre-training Objectives
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-objectives">
+     Comparison Objectives
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks">
+     Tasks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#large-scale-pre-training-experiments">
+   Large-scale Pre-training Experiments
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="bart-denoising-sequence-to-sequence-pre-training-for-natural-language-generation-translation-and-comprehension">
-<h1>BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension<a class="headerlink" href="#bart-denoising-sequence-to-sequence-pre-training-for-natural-language-generation-translation-and-comprehension" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="bart-denoising-sequence-to-sequence-pre-training-for-natural-language-generation-translation-and-comprehension">
+<h1>BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension<a class="headerlink" href="#bart-denoising-sequence-to-sequence-pre-training-for-natural-language-generation-translation-and-comprehension" title="Permalink to this headline">#</a></h1>
 <p>We present BART, a denoising autoencoder for pretraining sequence-to-sequence models.<br />
 BART is trained by (1) corrupting text with an arbitrary noising function,<br />
 and (2) learning a model to reconstruct the original text.</p>
-<div class="section" id="introduction">
-<h2>introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<section id="introduction">
+<h2>introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>Variants of masked language models, which are denoising autoencoders that are trained to reconstruct text where a random subset of the words has been masked out.</p>
 <ul class="simple">
 <li><p>For example improving the distribution of masked tokens(SpanBERT-a geometric distribution)</p></li>
@@ -425,16 +688,16 @@ Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom t
 <li><p>MASS는 BART와 가장 유사한 모델이다. 연속된 span이 masking된 문장을 인코더 입력으로 주고, 디코더에서 masking 되었던 토큰들을 예측한다.</p></li>
 <li><p>XL-Net은 mask된 토큰을 섞인 순서로 auto-regressive하게 예측하도록 BERT를 확장했다.</p></li>
 </ul>
-</div>
-<div class="section" id="model">
-<h2>model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="architecture">
-<h3>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="model">
+<h2>model<a class="headerlink" href="#model" title="Permalink to this headline">#</a></h2>
+<section id="architecture">
+<h3>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">#</a></h3>
 <p>BART의 encoder는 Bert와 동일하게 ReLU activation function을 GeLUs로 변경했다. base model은 6 layer, large model은 12 layer를 사용했다. 다른점은 BERT는 word prediction을 위해 추가로 feed-forward 레이어를 추가했는데 BART는 그렇지 않다.
 디코더는 트랜스포머에서처럼 디코더의 각 레이어에서는 트랜스포머 처럼 인코더의 마지막 hidden layer와 cross-attention을 한다.</p>
-</div>
-<div class="section" id="pretraining-bart">
-<h3>Pretraining BART<a class="headerlink" href="#pretraining-bart" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pretraining-bart">
+<h3>Pretraining BART<a class="headerlink" href="#pretraining-bart" title="Permalink to this headline">#</a></h3>
 <p>specific noising schemes
 구체적인 노이즈 방법은 다음과 같다.</p>
 <p><img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/2_bart_mask.png?raw=true
@@ -446,37 +709,37 @@ Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom t
 <li><p>Sentence Permutaion: Document를 문장 순서 바꿈</p></li>
 <li><p>Document Rotation: 토큰 하나를 정해서 문장이 그 토큰부터 시작하게 한다. 모델이 document의 시작을 찾아야 한다.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="fine-tuning-bart">
-<h2>Fine-tuning BART<a class="headerlink" href="#fine-tuning-bart" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="sequence-classification-tasks">
-<h3>Sequence Classification Tasks<a class="headerlink" href="#sequence-classification-tasks" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="fine-tuning-bart">
+<h2>Fine-tuning BART<a class="headerlink" href="#fine-tuning-bart" title="Permalink to this headline">#</a></h2>
+<section id="sequence-classification-tasks">
+<h3>Sequence Classification Tasks<a class="headerlink" href="#sequence-classification-tasks" title="Permalink to this headline">#</a></h3>
 <img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/3_bart_model_by_task.png?raw=true" itemprop="image" width="60%">
 <p>디코더의 마지막 hidden state vector를 사용하여 linear classifier. 이 때 디코더에 완전한 문장을 표시하기 위하여 end 토큰 추가했다.</p>
-</div>
-<div class="section" id="token-classification-tasks">
-<h3>Token Classification Tasks<a class="headerlink" href="#token-classification-tasks" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="token-classification-tasks">
+<h3>Token Classification Tasks<a class="headerlink" href="#token-classification-tasks" title="Permalink to this headline">#</a></h3>
 <p>전체 document를 인코더와 디코더에 입력한다. 디코더의 top hidden state를 각 단어에 대한 representation으로 사용한다. 이 representation을 token classification에 사용한다.</p>
-</div>
-<div class="section" id="sequence-generation-tasks">
-<h3>Sequence Generation Tasks<a class="headerlink" href="#sequence-generation-tasks" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="sequence-generation-tasks">
+<h3>Sequence Generation Tasks<a class="headerlink" href="#sequence-generation-tasks" title="Permalink to this headline">#</a></h3>
 <p>BART는 autoregressive 디코더로 abstractive question answering이나 summairization에 바로 fine-tuning이 가능하다.</p>
-</div>
-<div class="section" id="machine-translation">
-<h3>Machine Translation<a class="headerlink" href="#machine-translation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="machine-translation">
+<h3>Machine Translation<a class="headerlink" href="#machine-translation" title="Permalink to this headline">#</a></h3>
 <p>by adding a new set of encoder parameters that are learned from bitext<br />
 인코더를 하나 더 추가해서 인코더-디코더를 fine-tuning 한다.<br />
 새로운 인코더를 먼저 학습하고 그다음 BART모델을 학습한다.(embedding 2개) 이 때 인코더와 BART의 position embedding, BART 인코더의 첫번째 레이어 self-attention input projection matrix만 학습시킨다.
 두번째 단계에서는 모든 파라미터를 학습시킨다.</p>
-</div>
-</div>
-<div class="section" id="comparing-pre-training-objectives">
-<h2>Comparing Pre-training Objectives<a class="headerlink" href="#comparing-pre-training-objectives" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="comparing-pre-training-objectives">
+<h2>Comparing Pre-training Objectives<a class="headerlink" href="#comparing-pre-training-objectives" title="Permalink to this headline">#</a></h2>
 <p>BART는 더 넓은 범위의 noising schemes를 사용한다.<br />
 combination of books and Wikipedia data 를 사용해 1M steps 으로 Base모델 끼리 비교를 해보자면 (6 encoder and 6 decoder layers, with a hidden size of 768)</p>
-<div class="section" id="comparison-objectives">
-<h3>Comparison Objectives<a class="headerlink" href="#comparison-objectives" title="Permalink to this headline">¶</a></h3>
+<section id="comparison-objectives">
+<h3>Comparison Objectives<a class="headerlink" href="#comparison-objectives" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Language Model: GPT와 비슷하다. left-to-right 트랜스포머 모델을 학습시킨다. 이 모델은 cross-attention이 빠진 BART 디코더와 같다.</p></li>
 <li><p>Permuted Language Model: XL-Net을 기반으로 한다. 1/6 토큰을 샘플링하고 이것을 랜덤한 순서로 auto-regressive하게 생성한다.</p></li>
@@ -484,9 +747,9 @@ combination of books and Wikipedia data 를 사용해 1M steps 으로 Base모델
 <li><p>Multitask Masked Language Model: UniLM처럼 self-attention mask를 추가해서 masked language model을 학습한다. self-attention mask는 1/6은 left-to-right, 1/6은 rignt-to-left, 1/3은 unmasked로 적용되고, 나머지 1/3은 처음 50% 토큰에는 mask가 없고 나머지 토큰에는 left-to-right mask를 적용한다.</p></li>
 <li><p>Masked Seq-to-Seq: MASS와 비슷하다. 토큰의 50%를 포함하는 span에 mask를 하고 mask된 토큰을 예측하는 seq-to-seq 모델을 학습시킨다. 일반적인 seq-to-seq task처럼 source를 인코더에 주고 target을 디코더 output으로 하는 방법과 source를 디코더 target의 prefix로 주고 target 부분만 loss를 계산하는 방법으로 학습시켰다. 전자의 방법이 BART 모델에 더 잘했고 후자는 나머지 모델에 더 잘했다.</p></li>
 </ul>
-</div>
-<div class="section" id="tasks">
-<h3>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tasks">
+<h3>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>SQuAD: Extractive QA task. 주어진 document에서 정답을 추출한다. BERT와 유사하게 질문과 document를 concatenate해서 BART 인코더, 디코더 입력으로 준다. Classifier를 포함하는 모델이 정답의 시작과 끝 토큰 인덱스를 예측한다.</p></li>
 <li><p>MNLI: Bitext classification task다. 두 문장의 의미적 관계를 분류하는 task. 두 문장을 concatenate하고, eos 토큰을 추가해서 BART 인코더 디코더에 입력한다. eos 토큰의 representation이 문장의 관계를 예측하는데 사용된다.</p></li>
@@ -495,10 +758,10 @@ combination of books and Wikipedia data 를 사용해 1M steps 으로 Base모델
 <li><p>ConvAI2: Persona를 사용하는 대화 생성 task.</p></li>
 <li><p>CNN/DM: 뉴스 요약 task.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h2>
 <p><img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/4_result.png?raw=true
 " itemprop="image" width="80%"></p>
 <ul class="simple">
@@ -511,9 +774,9 @@ Bart는 layer개수를 절반만 가지고 달성</p></li>
 <li><p>The pre-training objective is not the only important factor
 such as relative-position embeddings or segment-level recurrence 학습방법만이 성능의 주요요인은 아니다.</p></li>
 </ul>
-</div>
-<div class="section" id="large-scale-pre-training-experiments">
-<h2>Large-scale Pre-training Experiments<a class="headerlink" href="#large-scale-pre-training-experiments" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="large-scale-pre-training-experiments">
+<h2>Large-scale Pre-training Experiments<a class="headerlink" href="#large-scale-pre-training-experiments" title="Permalink to this headline">#</a></h2>
 <p>최근 연구에서 큰 batch size와 corpora를 사용해 pre-training하는 것이 성능의 향상을 이끌어낸다고 한다. 이를 실험하기 위해 BART를 RoBERTa 모델과 같은 규모로 실험했다.</p>
 <ul class="simple">
 <li><p>Large 모델은 12레이어, 1024 hidden size</p></li>
@@ -536,8 +799,8 @@ such as relative-position embeddings or segment-level recurrence 학습방법만
 " itemprop="image" width="40%">
 <img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/bart/8_result.png?raw=true
 " itemprop="image" width="40%"></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -561,33 +824,47 @@ such as relative-position embeddings or segment-level recurrence 학습방법만
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="transformer.html" title="previous page">Transformer and Bert</a>
-    <a class='right-next' id="next-link" href="subword.html" title="next page">subword model</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="transformer.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Transformer and Bert</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="subword.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">subword model</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By indexxlim<br/>
-        
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By indexxlim<br/>
+  
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>
