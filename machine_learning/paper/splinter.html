@@ -454,12 +454,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-training">
+   Pre-Training
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fine-tuning">
+   Fine-Tuning
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -471,6 +500,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-training">
+   Pre-Training
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fine-tuning">
+   Fine-Tuning
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -484,6 +531,27 @@ title="Print to PDF"
 We propose a new pretraining scheme tailored for question answering: recurring span selection. Given a passage with multiple sets of recurring spans, we mask in each set all recurring spans but one, and ask the model to select the correct span in the passage for each masked span.</p>
 <p>본 논문의 모델인 Splinter(<strong>span-level pointer</strong>)는 question answering에서 새로운 학습 데이터 처리인 <strong>recurring span selection</strong> 을 시도했다. 이 방법은 지문에서 반복되는 정답의 위치를 모두 마스킹 하는 방법이다.</p>
  <img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/splinter/1_base_size_on_SQuAD.png?raw=true" itemprop="image" width="30%">
+few-shot question answering by sampling small training sets from existing question answering benchmarks.
+<section id="pre-training">
+<h2>Pre-Training<a class="headerlink" href="#pre-training" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Tensorflow</p></li>
+<li><p>Adam Optimizer</p></li>
+<li><p>2.4M training steps with batches of 256 sequence of length 512</p></li>
+<li><p>After warming up, max learning rate 10e-4, after which it decays linearly</p></li>
+<li><p>0.1 dropout rate</p></li>
+</ul>
+</section>
+<section id="fine-tuning">
+<h2>Fine-Tuning<a class="headerlink" href="#fine-tuning" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Hyperparameters from the default conﬁguration of the HuggingFace Transformers package</p></li>
+<li><p>Adam Optimizer</p></li>
+<li><p>Fnetuning on 1024 examples or less, train for either 10 epochs or 200 steps</p></li>
+<li><p>For full-size datasets, train for 2 epochs</p></li>
+<li><p>Set the batch size to 12 and use a maximal learning rate of 3 * 10−5, which warms up in the ﬁrst 10% of the step</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
