@@ -18,3 +18,4 @@ parts:
       - file: machine_learning/paper/subword
       - file: machine_learning/paper/electra
       - file: machine_learning/paper/c2f-coref
+      - file: machine_learning/paper/splinter
