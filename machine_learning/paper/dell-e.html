@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>c2f-coref</title>
+    <title>&lt;no title&gt;</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -85,13 +85,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/header_image.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Few-Shot Question Answering by Pretraining Span Selection(Splinter)" href="splinter.html" />
-    <link rel="prev" title="Electra" href="electra.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -183,17 +179,17 @@ const thebe_selector_output = ".output, .cell_output"
   Machine Learning
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../paper.html">
    Paper
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="transformer.html">
      Transformer and Bert
@@ -214,8 +210,8 @@ const thebe_selector_output = ".output, .cell_output"
      Electra
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="c2f-coref.html">
      c2f-coref
     </a>
    </li>
@@ -285,7 +281,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/c2f-coref.ipynb"
+        <a href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/dell-e.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -303,7 +299,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/c2f-coref.ipynb"
+        <a href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/dell-e.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -381,7 +377,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/c2f-coref.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/dell-e.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -398,7 +394,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/c2f-coref.ipynb"
+        <a href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/dell-e.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -426,7 +422,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/machine_learning/paper/c2f-coref.ipynb"
+        <a href="../../_sources/machine_learning/paper/dell-e.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -484,22 +480,7 @@ title="Print to PDF"
         <i class="fas fa-list"></i> Contents
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#coreference-resolution">
-   Coreference Resolution
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   개요
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   방법
-  </a>
- </li>
+        <ul class="simple visible nav section-nav flex-column">
 </ul>
 
     </nav>
@@ -509,7 +490,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>c2f-coref</h1>
+                <h1><no title></h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -518,22 +499,7 @@ title="Print to PDF"
                             <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#coreference-resolution">
-   Coreference Resolution
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   개요
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   방법
-  </a>
- </li>
+                            <ul class="simple visible nav section-nav flex-column">
 </ul>
 
                         </nav>
@@ -544,49 +510,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="c2f-coref">
-<h1>c2f-coref<a class="headerlink" href="#c2f-coref" title="Permalink to this headline">#</a></h1>
-<section id="coreference-resolution">
-<h2>Coreference Resolution<a class="headerlink" href="#coreference-resolution" title="Permalink to this headline">#</a></h2>
-<p>Coreferece를 찾는 NLP Task 중 하나로 coreference는 문장 속에서 Entity와 같은 의미로 언급(mention)된 span을 찾는 것을 목적.
-Lee 아저씨가 만든 논문이 가장 유명하며, c2f-coref를 바탕으로 ELMO부터 Bert, Spanbert등의 언어모델을 이용하여 mention의 span을 찾는다.</p>
-<p><a class="reference external" href="http://web.stanford.edu/class/cs224n/slides/cs224n-2021-lecture13-coref.pdf">cs224n</a><br />
-<a class="reference external" href="https://arxiv.org/pdf/1707.07045.pdf">End-to-end Neural Coreference Resolution</a><br />
-<a class="reference external" href="https://www.aclweb.org/anthology/N18-2108.pdf">Higher-order Coreference Resolution</a></p>
-</section>
-<section id="id1">
-<h2>개요<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Identify all mentions that refer to the same entity in the word</p></li>
-</ul>
-<p>mention이라고 하면 지칭을 의미한다. 문장안에 있는 이 지칭을 찾고 같은 지칭을 표현하는 단어끼리 그룹화한다.(cluster)
-mention의 종류로는 Pronouns, Named entities, Noun phrases 등이 있다. 그 중  pronouns과 noun phrases는 pos 태그와 파서를 이용해서, named entities는 개채명인식을 통해 추출부터 한다.</p>
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/1_mention.png?raw=true" itemprop="image" width="80%">
-<p>이 때 Coreference라고 함은, 2개 이상의 mentions이 같은 entity를 말하고자 하는 것을 의미한다.</p>
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/2_coreference.png?raw=true" itemprop="image" width="80%"></section>
-<section id="id2">
-<h2>방법<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Rule-based (pronominal anaphora resolution)</p></li>
-<li><p>Mention Pair</p></li>
-<li><p>Mention Ranking</p></li>
-<li><p>Clustering [skipping this year; see Clark and Manning (2016)]</p></li>
-</ul>
-<p>ML 방법이 많이 사용되기 전에는 규칙에 기반한 Hobbs’ naive algorithm(1976)이 많이 쓰였다.<br />
-Mention Pair는 모든 mentions의 쌍이 coreferent인지를 binary classifier로 학습하는 것이다.
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/3_mentionpair.png?raw=true" itemprop="image" width="80%"></p>
-<p>Mention Rank는 j번째 mention을 계산할 때 그 이전에 나온 mention에서 가장 확률이 높은 mention을 택한다.
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/4_mentionranking.png?raw=true" itemprop="image" width="80%"></p>
-<p>Neural Network를 사용하는 최근의 sota에서는 c2f이라고 명명한 End-to-end 논문의 방법이 있다. 이 논문에서는 metion을 span의 attention sum으로
-구한뒤(representations) 각 mention과 coreferenct인지를 다음과 같이 계산한다.
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/5_grepresentation.png?raw=true" itemprop="image" width="80%">
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/c2f/6_score.png?raw=true" itemprop="image" width="80%"></p>
-<p>그래서 <span class="math notranslate nohighlight">\(s(i,j)\)</span>에서의 distribution을 학습합니다
-$<span class="math notranslate nohighlight">\(P(y) = \frac{e^{s(x,y)}}{\sum\limits_{y'\in Y(x)} e^{s(x,y')}} \)</span>$</p>
-<p>그외의 extra features는 최근 sota인 <a class="reference external" href="https://arxiv.org/pdf/2009.12013.pdf">Revealing the Myth of Higher-Order Inference in Coreference Resolution</a>을 참고!</p>
-</section>
-</section>
-
+  
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -599,13 +523,13 @@ $<span class="math notranslate nohighlight">\(P(y) = \frac{e^{s(x,y)}}{\sum\limi
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "python38",
             path: "./machine_learning/paper"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'python38'</script>
 
               </div>
               
@@ -614,20 +538,6 @@ $<span class="math notranslate nohighlight">\(P(y) = \frac{e^{s(x,y)}}{\sum\limi
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="electra.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Electra</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="splinter.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Few-Shot Question Answering by Pretraining Span Selection(Splinter)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
