@@ -1,0 +1,927 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Whisper</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "indexxlim/indexxlim.github.io");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'machine_learning/paper/Whisper';</script>
+    <link rel="shortcut icon" href="../../_static/header_image.jpg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    DIARY.PY
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diary/soso.html">soso</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diary/soso/Jupyter%20Book%EC%9C%BC%EB%A1%9C%20github%20%EB%B8%94%EB%A1%9C%EA%B9%85.html">Jupyter Book으로 github 블로깅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diary/soso/Transformers%20ONNX.html">Transformers ONNX</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../paper.html">Paper</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="transformer.html">Transformer and Bert</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="bart.html">BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subword.html">subword model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="electra.html">Electra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c2f-coref.html">c2f-coref</a></li>
+<li class="toctree-l2"><a class="reference internal" href="splinter.html">Few-Shot Question Answering by Pretraining Span Selection(Splinter)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LaMDA.html">LaMDA: Language Models for Dialog Applications</a></li>
+
+
+
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/Whisper.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/Whisper.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/indexxlim/indexxlim.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/Whisper.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/Whisper.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/machine_learning/paper/Whisper.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Whisper</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Whisper</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amount-of-dataset">Amount of dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-language-detector">Audio language detector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added-function">Added function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metric">Metric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-dataset">Test Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments">Experiments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-form-transcription">Long-form Transcription</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#human-performance">Human Performance 비교</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-normalization">Text normalization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-text-standardization">C. Text standardization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-hyperparameter">E. Hyperparameter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-hub-wec-cer">AI Hub 데이터를 이용하여 학습한 wec, cer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planing">Planing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing">Optimizing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#whisper-api">Whisper API</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">실험 내용</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fastapi">Fastapi를 이용한 서버사용</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locust-testing">Locust를 이용한 Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-model">OCR model</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="whisper">
+<h1>Whisper<a class="headerlink" href="#whisper" title="Permalink to this heading">#</a></h1>
+<section id="amount-of-dataset">
+<h2>Amount of dataset<a class="headerlink" href="#amount-of-dataset" title="Permalink to this heading">#</a></h2>
+<p>양과 질을 고려하여 680,000시간 데이터셋을 사용</p>
+</section>
+<section id="preprocessing">
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h2>
+<p>특별한 preprocessing을 진행하지 않음.</p>
+</section>
+<section id="audio-language-detector">
+<h2>Audio language detector<a class="headerlink" href="#audio-language-detector" title="Permalink to this heading">#</a></h2>
+<p>오디오는 VoxLingua107 데이터셋으로 fine-turning해서 구분</p>
+<p>transcript는 CLD2를 사용하여 언어를 감지하여 사용</p>
+</section>
+<section id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h2>
+<p>기성품 세팅사용 - transformer를 사용, 16000 Hz, 80채널 mel-spectogram, -1 ~ 1 사이로 z-score 정규화</p>
+<section id="added-function">
+<h3>Added function<a class="headerlink" href="#added-function" title="Permalink to this heading">#</a></h3>
+<p>voice activity detection, speaker diarization, inverse text normalization 들을 사용하여 성능을 높임</p>
+</section>
+<section id="metric">
+<h3>Metric<a class="headerlink" href="#metric" title="Permalink to this heading">#</a></h3>
+<p>기본적으로 WER를 사용하나, Non-semantic difference를 최소화하기 위하여 standardization을 사용</p>
+</section>
+<section id="test-dataset">
+<h3>Test Dataset<a class="headerlink" href="#test-dataset" title="Permalink to this heading">#</a></h3>
+<p>TED-LIUM3, Meanwhile(The Late Show), Kincaid46, Rev16, Earnings-21, Earnings-22, CORAAL</p>
+</section>
+</section>
+<section id="experiments">
+<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this heading">#</a></h2>
+<section id="long-form-transcription">
+<h3>Long-form Transcription<a class="headerlink" href="#long-form-transcription" title="Permalink to this heading">#</a></h3>
+<p>Whisper 모델의 학습데이터는 기본적으로 30초씩 잘라서 학습한다. 그러나 추론 방법에 따라 긴 시퀀스가 입력으로 들어올 경우에 30초씩 잘라서, 윈도우을 이동해가면서 추론을 진행한다.</p>
+</section>
+<section id="human-performance">
+<h3>Human Performance 비교<a class="headerlink" href="#human-performance" title="Permalink to this heading">#</a></h3>
+<p>WER metrics만을 이용해서는 impovements를 확인하는 것이 어렵기 때문에 Kincaid46 데이터셋을 사용하여 사람이 작성한 human transcription과 직접적으로 WER을 비교 - 결과는 사람이 한것과 유사함</p>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled.png" /></p>
+</section>
+<section id="text-normalization">
+<h3>Text normalization<a class="headerlink" href="#text-normalization" title="Permalink to this heading">#</a></h3>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%201.png" /></p>
+<p>fairspeech’s normalizer 보다 좋다</p>
+</section>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this heading">#</a></h2>
+<section id="c-text-standardization">
+<h3>C. Text standardization<a class="headerlink" href="#c-text-standardization" title="Permalink to this heading">#</a></h3>
+<p>Since Whisper may output any UTF-8 string rather than a restricted set of graphemes, the rules for text standardization need to be more intricate and comprehensive than those defined on e.g. ASCII characters. We perform the following steps to normalize English texts in different styles into a standardized form, which is a best-effort attempt to penalize only when a word error is caused by actually mistranscribing a word, and not by formatting or punctuation differences.</p>
+<ol class="arabic simple">
+<li><p>Remove any phrases between matching brackets ( [, ] ).</p></li>
+<li><p>Remove any phrases between matching parentheses ( (,) ).</p></li>
+<li><p>Remove any of the following words: hmm, mm, mhm, mmm, uh, um</p></li>
+<li><p>Remove whitespace characters that comes before an apostrophe ’</p></li>
+<li><p>Convert standard or informal contracted forms of English into the original form.</p></li>
+<li><p>Remove commas (, ) between digits</p></li>
+<li><p>Remove periods (. ) not followed by numbers</p></li>
+<li><p>Remove symbols as well as diacritics from the text, where symbols are the characters with the Unicode category starting with M, S, or P, except period, percent, and currency symbols that may be detected in the next step.</p></li>
+<li><p>Detect any numeric expressions of numbers and currencies and replace with a form using Arabic numbers, e.g. “Ten thousand dollars” → “$10000”.</p></li>
+<li><p>Convert British spellings into American spellings.</p></li>
+<li><p>Remove remaining symbols that are not part of any numeric expressions.</p></li>
+<li><p>Replace any successive whitespace characters with a space.</p></li>
+</ol>
+<p>A different, language-specific set of transformations would be needed to equivalently normalize non-English text, but due to our lack of linguistic knowledge to build such normalizers for all languages, we resort to the following basic standardization for non-English text:</p>
+<ol class="arabic simple">
+<li><p>Remove any phrases between matching brackets ( [, ] ).</p></li>
+<li><p>Remove any phrases between matching parentheses ( (, )).</p></li>
+<li><p>Replace any markers, symbols, and punctuation characters with a space, i.e. when the Unicode category of each character in the NFKC-normalized string starts with M, S, or P.</p></li>
+<li><p>make the text lowercase.</p></li>
+<li><p>replace any successive whitespace characters with a space.</p></li>
+</ol>
+<p>Additionally, we put a space between every letter for the languages that do not use spaces to separate words, namely Chinese, Japanese, Thai, Lao, and Burmese, effectively measuring the character error rate instead.</p>
+<p>We note that the above is an imperfect solution, and it will sometimes produce unintended and unexpected outputs. We do not claim that the text format resulting from the above is more “correct” in any measure. Rather, the procedures above are designed to better distinguish between innocuous differences in wording and genuine mistranscriptions. Python code for the standardization procedures above is available as part of our code and model release to facilitate future iterations and improvements on text standardization</p>
+</section>
+<section id="e-hyperparameter">
+<h3>E. Hyperparameter<a class="headerlink" href="#e-hyperparameter" title="Permalink to this heading">#</a></h3>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%202.png" /></p>
+</section>
+</section>
+<section id="ai-hub-wec-cer">
+<h2>AI Hub 데이터를 이용하여 학습한 wec, cer<a class="headerlink" href="#ai-hub-wec-cer" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>비대면 진료를 위한 의료진 및 환자 음성</p>
+<p><a class="reference external" href="https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&amp;topMenu=100&amp;aihubDataSe=realm&amp;dataSetSn=208">AI-Hub</a></p>
+</li>
+<li><p>Result</p>
+<p><img alt="Screenshot 2023-05-09 125718.png" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Screenshot_2023-05-09_125718.png" /></p>
+<p><img alt="Screenshot 2023-05-08 140338.png" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Screenshot_2023-05-08_140338.png" /></p>
+</li>
+</ul>
+</section>
+<section id="planing">
+<h2>Planing<a class="headerlink" href="#planing" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>fine-tuning</p></li>
+<li><p>모델의 사이즈 감소 - inference의 효율성 개선</p></li>
+</ol>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%203.png" /></p>
+<ol class="arabic">
+<li><p>Transformers의 구조를 RETRO transformer로 변형 할 수 있으면 진행</p></li>
+<li><p>quantization으로 개선</p></li>
+<li><p>Ctranslate2 사용하여 모델 inference개선</p>
+<ul>
+<li><p>사용 결과</p>
+<ul class="simple">
+<li><p>기본 whisper 모델 불러와서 transcription 했을 경우 - 2.51초</p></li>
+</ul>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%204.png" /></p>
+<ul class="simple">
+<li><p>Ctranslate2 적용된 faster-whisper 사용했을 경우 - 약 1초 (967 ms)</p></li>
+</ul>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%205.png" /></p>
+<ul>
+<li><p>ONNX convert 적용된 경우  - transformers의 Optimum 사용</p>
+<ul>
+<li><p>Base모델이 0.557초 이므로 ~~large모델의 경우 절반 감소하여 1.25초 예상~~  Large model 버그 존재하여 몇초 이상 걸림…(10초까지도..)</p></li>
+<li><p>(TODO : large는 OPTIMUM에 적용 안됨 - 재구현 필)</p></li>
+<li><p>transformer OPTIMUM에 있는  ONNX모델은 transcribe 대신 translate로 구현되어 있는듯 보임<a class="github reference external" href="https://github.com/huggingface/transformers/pull/19525#issuecomment-1421100270">huggingface/transformers#19525</a></p>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%206.png" /></p>
+</li>
+<li><p>Optimum안의 ORTModelForSpeechSeq2Seq나 다른 speech 모델이 업데이트 되거나 fastt5처럼 직접 onnx converter를 구현 시켜줘야 할듯으로 보임</p></li>
+</ul>
+</li>
+<li><p>JAX convert 적용된 경우 - <a class="github reference external" href="https://github.com/sanchit-gandhi/whisper-jax#creating-an-endpoint">sanchit-gandhi/whisper-jax</a></p>
+<ul>
+<li><p>10초 이상 걸림…? 왜이러지?</p>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%207.png" /></p>
+</li>
+<li><p>base</p></li>
+</ul>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%208.png" /></p>
+<ul class="simple">
+<li><p>github issue 에 느리다는 글이 여러개 인걸로 보아, 확실히 이슈 있는듯.</p></li>
+</ul>
+</li>
+<li><p>kernl</p>
+<ul class="simple">
+<li><p>docker내부에서 실험
+docker pull nvidia/cuda:11.3.1-cudnn8-devel-ubuntu20.04 –&gt; nvidia/cuda:kernl</p></li>
+<li><p>docker image 업데이트
+docker commit &lt;&lt;docker_id&gt;&gt; <a class="reference external" href="dockername::tag">dockername::tag</a></p></li>
+<li><p>~~실험 결과 현재 데이터를 장치에 할당하는 “cuda:1” 이 부분에 에러가 발생하여 현재 학습중인 gpu 끝나고 다시 테스트 예정(~~즉 gpu를 선택할 수 없음~~)~~</p></li>
+<li><p>GPU 사용중 일 때 속도 비율</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%209.png" /></p>
+<ul class="simple">
+<li><p>참조  1. - Bloom에서 사용한 방법 : <a class="reference external" href="https://huggingface.co/blog/bloom-inference-optimization">https://huggingface.co/blog/bloom-inference-optimization</a></p>
+<ul>
+<li><p><strong>First inference (PP + Accelerate)</strong></p></li>
+</ul>
+</li>
+<li><p>결론 : Ctranslate2로 wrap된 Faster-Whisper api 테스트</p>
+<ul>
+<li><p>C레벨로 감싼 모델의 gpu할당은 대략 3기가</p></li>
+<li><p>현재  onnx와 jax는 재구현 필요</p></li>
+<li><p>일단 tensorrt를 변환하기 위해서  onnx 먼저 구현</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>단점</p>
+<ul class="simple">
+<li><p>다른 메모리 감소들과 결합 불가로 보임</p>
+<ul>
+<li><p>onnx가 C 기반으로 변환되므로 Ctranslate2와 병행되어 사용불가 하므로 onnx의 함수인 quantization도 사용 불가</p></li>
+<li><p>다른 optimization… 밑으로</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="optimizing">
+<h2>Optimizing<a class="headerlink" href="#optimizing" title="Permalink to this heading">#</a></h2>
+<p>To speedup for inference</p>
+<p>using kernel from ELS-RD/kernel repository</p>
+<p><a class="github reference external" href="https://github.com/ELS-RD/kernl">ELS-RD/kernl</a></p>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%203.png" /></p>
+<p><a class="reference external" href="https://www.notion.so">https://www.notion.so</a></p>
+</section>
+</section>
+<section id="whisper-api">
+<h1>Whisper API<a class="headerlink" href="#whisper-api" title="Permalink to this heading">#</a></h1>
+<p>3가지 경우를 고려하여 call을 보내봄</p>
+<ol class="arabic simple">
+<li><p>시간대별로 응답시간이 다른가? 즉 짧은 발화면 생성속도가 빠를 것인가?</p></li>
+<li><p>비슷한 내용에 뒷부분을 추가한다면 내부에 cache를 써서 중복된 내용은 어느정도 속도가 보장될 것인가?</p></li>
+<li><p>여러번 호출해도 응답이 잘 처리 되는가?</p></li>
+</ol>
+<section id="id1">
+<h2>실험 내용<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>4가지의 데이터를 이용하여 실험, 이 4가지의 데이터는 한 문장의 발화를 각 다른 길이로 자른 것</p></li>
+</ul>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2010.png" /></p>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2011.png" /></p>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2012.png" /></p>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2013.png" /></p>
+<ul class="simple">
+<li><p>가장 짧은 첫번째 데이터(1초짜리 발화)라도 응답속도가 1초가 넘음(</p></li>
+<li><p>평균적으로 1.3초, 같은 데이터나 발화의 일부분이 중복되더라도 시간은 줄지 않음</p></li>
+<li><p>같은 데이터를 같은 시간대에 보내면 응답속도가 비슷함(병렬), 사용량 많아지면 느려질듯..</p></li>
+</ul>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2014.png" /></p>
+</section>
+<section id="fastapi">
+<h2>Fastapi를 이용한 서버사용<a class="headerlink" href="#fastapi" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>a100에서 whisperAPI 가동 실험</p>
+<p><img alt="Screenshot 2023-05-08 102816.png" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Screenshot_2023-05-08_102816.png" /></p>
+</li>
+<li><p>GPU 사용량</p>
+<p><img alt="Screenshot 2023-05-08 103256.png" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Screenshot_2023-05-08_103256.png" /></p>
+</li>
+</ul>
+</section>
+<section id="locust-testing">
+<h2>Locust를 이용한 Testing<a class="headerlink" href="#locust-testing" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>tests_performancs.py ( $ locust -f tests_performance.py –host <a class="reference external" href="http://127.0.0.1:8000/">http://127.0.0.1:8000</a> )</p></li>
+</ul>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2015.png" /></p>
+<p><img alt="Untitled" src="machine_learning/paper/images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2016.png" /></p>
+</section>
+<section id="ocr-model">
+<h2>OCR model<a class="headerlink" href="#ocr-model" title="Permalink to this heading">#</a></h2>
+<p><a class="github reference external" href="https://github.com/kakaobrain/pororo">kakaobrain/pororo</a></p>
+<p><a class="github reference external" href="https://github.com/clovaai/CLEval">clovaai/CLEval</a></p>
+<p><a class="github reference external" href="https://github.com/clovaai/deep-text-recognition-benchmark">clovaai/deep-text-recognition-benchmark</a></p>
+<p>동향 from kakao</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://yongwookha.github.io/MachineLearning/2022-02-08-current-ocrs">https://yongwookha.github.io/MachineLearning/2022-02-08-current-ocrs</a></p></li>
+</ul>
+<p><a class="reference external" href="https://www.notion.so/Whisper-training-5b2e6f19812e47669ebafd987fdb9110?pvs=21">Whisper-training</a></p>
+<p><a class="reference external" href="https://www.notion.so/WhisperX-85d83fe8565c4aceb70c0ef68b91361e?pvs=21">WhisperX</a></p>
+<p><a class="reference external" href="https://www.notion.so/whisper-demostration-6a38238e94334dfbae633692f8bda6a5?pvs=21">whisper demostration</a></p>
+<p><a class="reference external" href="https://www.notion.so/bug-ca804e35e6494a959b2b03cbec617043?pvs=21">bug</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "indexxlim/indexxlim.github.io",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "py38"
+        },
+        kernelOptions: {
+            name: "py38",
+            path: "./machine_learning/paper"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'py38'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Whisper</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amount-of-dataset">Amount of dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-language-detector">Audio language detector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added-function">Added function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metric">Metric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-dataset">Test Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments">Experiments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-form-transcription">Long-form Transcription</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#human-performance">Human Performance 비교</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-normalization">Text normalization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-text-standardization">C. Text standardization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-hyperparameter">E. Hyperparameter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-hub-wec-cer">AI Hub 데이터를 이용하여 학습한 wec, cer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planing">Planing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing">Optimizing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#whisper-api">Whisper API</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">실험 내용</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fastapi">Fastapi를 이용한 서버사용</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locust-testing">Locust를 이용한 Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-model">OCR model</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By indexxlim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
