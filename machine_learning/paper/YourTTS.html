@@ -1,0 +1,779 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>YOURTTS</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "indexxlim/indexxlim.github.io");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'machine_learning/paper/YourTTS';</script>
+    <link rel="shortcut icon" href="../../_static/header_image.jpg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    DIARY.PY
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diary/soso.html">soso</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diary/soso/Jupyter%20Book%EC%9C%BC%EB%A1%9C%20github%20%EB%B8%94%EB%A1%9C%EA%B9%85.html">Jupyter Book으로 github 블로깅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diary/soso/Transformers%20ONNX.html">Transformers ONNX</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../paper.html">Paper</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="transformer.html">Transformer and Bert</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="bart.html">BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subword.html">subword model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="electra.html">Electra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c2f-coref.html">c2f-coref</a></li>
+<li class="toctree-l2"><a class="reference internal" href="splinter.html">Few-Shot Question Answering by Pretraining Span Selection(Splinter)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LaMDA.html">LaMDA: Language Models for Dialog Applications</a></li>
+
+
+
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/YourTTS.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/YourTTS.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/indexxlim/indexxlim.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/YourTTS.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/YourTTS.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/machine_learning/paper/YourTTS.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>YOURTTS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yourtts-model">YourTTS Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments">Experiments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speaker-encoder">3.1 Speaker Encoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-datasets">3.2 Audio datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-setup">3.3 Experimental setup</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-and-discussion">4. Results and Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speaker-consistency-loss">4.4 Speaker Consistency Loss</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-voice-conversion">5. Zero-Shot Voice Conversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intra-lingual-results">5.1. Intra-lingual results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speaker-adaptation">6. Speaker Adaptation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions-limitations-and-future-work">7. Conclusions. limitations and future work</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="yourtts">
+<h1>YOURTTS<a class="headerlink" href="#yourtts" title="Permalink to this heading">#</a></h1>
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h2>
+<p>YOURTTS는 multilingual approach to the task of zero-shot multi-speaker TTS. 이 모델은 VITS[Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech] 기반으로 zero-shot multi-speaker와 multilingual 학습을 위해서 몇몇 수정을 거친 모델이다. 그래서 zero-shot multi-speaker TTS에 sota를 달성했다. 그리도 VCTK 데이터셋에서 zero-shot voice convention 에서도 SOTA를 달성했다. 그리고 single-speaker dataset에서도 promising results이다. 또한 1분 미만의 데이터에서도 voice similarity와 합리적인 퀄리티를 보였다.</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>synthesizing voices for new speakers에 관심이 있어서 zero-shot multi-speaker TTS(ZS-TTS)를 학습한다. 처음에는 DeepVoice 3 방법을 확장했다. 반면에 Tacotron2 는 외부 speakers embeddings을 generalized end-to-end loss(GE2E)를 써서 encoder를 학습시켰다. 이거는 LDE embeddings으로 unseen speakers의 similarity와 naturalness를 향상시켰다. 대조적으로 Attentron은 다양한 래퍼런스 source들과 coarse-grained encode를 통해 detailed styles를 추출하려고 한다. 그 결과 unseen speaker에게서 voice similarity를 높게 뽑았다. ZSM-SS는 트랜스포머 기반으로 normalization과 wev2vec으로 encoder를 추가했다. SC-GlowTTS는 ZS-TTS에서 flow-based models의 첫 응용이다. 퀄리티 유지하면서 voice similarity를 잘 향상시켰다.</p>
+<p>본 논문의 YOURTTS는 정리하자면</p>
+<ul class="simple">
+<li><p>영어에서 SOTA</p></li>
+<li><p>a multilingual  in the zero-shot multi-speaker TTS</p></li>
+<li><p>학습할 때 단지 타켓 언어의 1명 스피커로도 zero-shot multi-speaker TTS과 zero-shot Voice Conversion with promising quality and similarity</p></li>
+<li><p>1분 미만 데이터로도 퀼리티와 충분한 유사도를 얻는다.</p></li>
+</ul>
+</section>
+<section id="yourtts-model">
+<h2>YourTTS Model<a class="headerlink" href="#yourtts-model" title="Permalink to this heading">#</a></h2>
+<p>VITS 기반으로 zero-shot multi-speaker와 multilingual training을 위한 수정을 덧붙였다. 또한 본 논문의 모델은 phonemes 대신 text를 사용했다.</p>
+<p>multilingual training에서 concatenate 4-dimensional trainable language embeddings into the embeddings of each input character. 또한 transformer block이 10개, hidden chanel은 196. 디코더에서는 4 affine coupling layers를 사용했고 각 레이어는 4 <a class="reference external" href="https://www.researchgate.net/figure/Residual-block-of-Wavenet-Architecture_fig1_336871762">WaveNet residual blocks</a>을 VITS 모델안에 넣었다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Density Estimation using Real NVP</span>
+<span class="c1">#https://github.com/paultsw/nice_pytorch/blob/15cfc543fc3dc81ee70398b8dfc37b67269ede95/nice/layers.py#L109</span>
+<span class="k">class</span> <span class="nc">_BaseCouplingLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">partition</span><span class="p">,</span> <span class="n">nonlinearity</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Base coupling layer that handles the permutation of the inputs and wraps</span>
+<span class="sd">        an instance of torch.nn.Module.</span>
+
+<span class="sd">        Usage:</span>
+<span class="sd">        &gt;&gt; layer = AdditiveCouplingLayer(1000, &#39;even&#39;, nn.Sequential(...))</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        * dim: dimension of the inputs.</span>
+<span class="sd">        * partition: str, &#39;even&#39; or &#39;odd&#39;. If &#39;even&#39;, the even-valued columns are sent to</span>
+<span class="sd">        pass through the activation module.</span>
+<span class="sd">        * nonlinearity: an instance of torch.nn.Module.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">_BaseCouplingLayer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># store input dimension of incoming values:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
+        <span class="c1"># store partition choice and make shorthands for 1st and second partitions:</span>
+        <span class="k">assert</span> <span class="p">(</span><span class="n">partition</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;even&#39;</span><span class="p">,</span> <span class="s1">&#39;odd&#39;</span><span class="p">]),</span> <span class="s2">&quot;[_BaseCouplingLayer] Partition type must be `even` or `odd`!&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">partition</span> <span class="o">=</span> <span class="n">partition</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">partition</span> <span class="o">==</span> <span class="s1">&#39;even&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_first</span> <span class="o">=</span> <span class="n">_get_even</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_second</span> <span class="o">=</span> <span class="n">_get_odd</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_first</span> <span class="o">=</span> <span class="n">_get_odd</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_second</span> <span class="o">=</span> <span class="n">_get_even</span>
+        <span class="c1"># store nonlinear function module:</span>
+        <span class="c1"># (n.b. this can be a complex instance of torch.nn.Module, for ex. a deep ReLU network)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;nonlinearity&#39;</span><span class="p">,</span> <span class="n">nonlinearity</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">AffineCouplingLayer</span><span class="p">(</span><span class="n">_BaseCouplingLayer</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot;Layer with coupling law g(a;b) := a .* b1 + b2, where (b1,b2) is a partition of b.&quot;&quot;&quot;</span>
+	<span class="k">def</span> <span class="nf">coupling_law</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+		<span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_second</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Vocoder 는 HiFi-GAN version 1로 VITS에서 쓰던 것과 똑같다. 게다가 효과적인 e2e 학습을 위해 VAE를 이용하여 연결했다. VITS는 posterior encoder도 소개를 했는데 본 논문에서도 쓴다. 이 posterior encoder는 16 non-causal WaveNet residual blocks으로 이루어저 있다. 입력으로 posterior encoder는 linear spectogram을 받고, vocoder에서 사용할 a latent variable을 예측한다. 그래서 mel-spectogram 같은 intermediate representation이 전혀 쓰이지 않는다. 위의 방법은 intermediate representation 을 배울 수 있고, vocoder와 TTS model의 따로 학습하는 superior results를 얻는다. 게다가  입력 텍스트로 음성을 합성하여 stochastic duration predictor를 사용한다.</p>
+<p>아래 그림에서 빨간 연결선은 no gradient이고, dashed connections(점선?)은 옵션, Hifi-GAN discriminator는 그림에서 간략화를 위해 빠져있다…</p>
+<p>model zero-shot multi-speaker generation를 위해  all affine coupling layers of the flow-based decoder, the posterior encoder, and the vocoder on external speaker embeddings 들을 조정한다. 또한 the text encoder output and the decoder output를 이용해서 the external speaker embeddings 합쳤다. linear projection layers은  element-wise summations하기 전에 차원수를 맞추기 위해서 사용했다.</p>
+<p><img alt="Untitled" src="machine_learning/paper/images/YOURTTS%20911674f1e8274f51be1cc9d966e5134a/Untitled.png" /></p>
+<p>Speaker Consistency Loss(SCL)을 마지막 Loss에 사용한는데, 이 경우에 사전학습된 speech encoder가  유사도를 최대화할 때 생성된 오디오와 ground truth의 speaker embedding을 추출하기 위해 사용된다. 마지막으로 $\phi$는 스피커의 embedding을 뽑아내고 $cos_sin$ 는 코사인 유사도, $a$는 상수값 $n$는 배치사이즈로 scl수식은 다음과 같다.</p>
+<p>$$
+L_{scl} = \frac{-a}{n}\cdot\sum_{i}^n cos_sim(\phi (g_i), \phi(h_i)),
+$$</p>
+<p>$g$와 $h$는 생성된 음성 오디오와 ground truth의 represent이다.</p>
+<p>학습동안 Posterior Encoder는 입력으로 linear spectrograms and speaker embeddings을 받고 latent variable $z$를 예측한다. 이 $z$ 는 vocoder의 입력으로 들어가서 waveform 을 생성하다. 효과적인 vocoder 학습을 위해 z에서 임의로 상수길이만큼 추출한다. Flow-based 디코더는 $z$의 형태와 사전확률 $P_{Z_{p}}$에 관련된 speaker embeddings를 목표로 한다. text encoder의 output으로 $P_{Z_{p}}$ 사전확률 분포에 맞추기 위해 **Monotonic Alightment Search(MAS)**를 사용한다. <strong>The stochastic duration predictor</strong>는 입력으로 speaker embeddings, language embeddings  그리고 MAS를 통해서 얻은 duration 을 받는다.  사람 같은 음성 리듬을 생성하기 위해 stochastric duration predictor는 다양한 낮은 phoneme(pseudo-phoneme) duration의 log-likelihood를 낮춘다(<strong>Evidence lower bound)</strong>.</p>
+<p>Inference에서 MAS는 사용 안하고 대신, text encoder로 예측된 $P_{Z_{p}}$ 분포가 사용되고 duration은 정수로 바꾼 stochastic duration predictor를 통해서 duration이 sampled 된다. 이 때 $z_{p}$는  $P_{Z_{p}}$ 분포에서 sampled 된다.  그래서 입력으로 이 $z_{p}$와 speaker embeddings을 inverted Flow-based decoder가 받아서 vocoder에서 waveform을 생성한다.</p>
+</section>
+<section id="experiments">
+<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this heading">#</a></h2>
+<section id="speaker-encoder">
+<h3>3.1 Speaker Encoder<a class="headerlink" href="#speaker-encoder" title="Permalink to this heading">#</a></h3>
+<p>Speaker Encoder로 H/ASP model을 사용한다. 이 모델은 VoxCeleb2 데이터셋에서 prototypical angular plus softmax loss function를 사용해서 학습되었다.  이 모델은 VoxCeb 1 test에서 SOTA라서 썻다. 추가적으로 Multilingual LibriSpeech(MLS) 을 test subset으로 사용했다. 그래서 Equal Error Rate(EER)을 평균 1.967를달성했다. SC-GlowTTS는 EER이 5.244라고한다.</p>
+</section>
+<section id="audio-datasets">
+<h3>3.2 Audio datasets<a class="headerlink" href="#audio-datasets" title="Permalink to this heading">#</a></h3>
+<p>3개의 언어를 조사했는데 언어 하나당 1개 데이터셋을 사용했다. 모든 언어에서 pre-processing은 침묵이 긴 주기를 제거하고 비슷한 소리크기를 비슷하게 맞추기 위해 사용했다.  모든 오디오는 16Khz 이고 Webrtevad toolkit을 이용하여 VAD적용했다. 추가적으로 python ffmpeg-normalize안에 있는 RMS-based normalization -27DB 적용했다.</p>
+<p><strong>English:</strong> VCTK dataset, 109speaker의 44시간 speech</p>
+<p><strong>Portuguese:</strong> TTS-Portuguese Corpus</p>
+<p><strong>Frence:</strong> M-AILABS dataset안에 있는 fr_FR , 이 데이터는 LibriVox 기반으로 2 female과 3 male speakers가 71시간</p>
+</section>
+<section id="experimental-setup">
+<h3>3.3 Experimental setup<a class="headerlink" href="#experimental-setup" title="Permalink to this heading">#</a></h3>
+<p>Experiment 1: VCTK dataset (monoligual)</p>
+<p>Experiment 2: VCTK dataset and TTS-Portuguese datasets(bilingual)</p>
+<p>Experiment 3: VCTK dataset and TTS-Portuguese datasetsand AILABS french datasets(tilingual)</p>
+<p>Experiment 4: experiment 3 add 1151 additional English speakers from LibriTTS train-clean-100 and train-clean-360</p>
+</section>
+</section>
+<section id="results-and-discussion">
+<h2>4. Results and Discussion<a class="headerlink" href="#results-and-discussion" title="Permalink to this heading">#</a></h2>
+<p>Mean Opnion Score(MOS)로 음성 퀄리티를 평가했다. 유사도를 비교하기 위해서는 Speaker Encoder Cosine Similarity(SECS)를 -1과 1사이로 계산했다. 이전 연구에서 Resemblyzer의 encoder를 사용했길래 우리도 사용했다. 따라서 Similarity MOS(Sim-MOS) 보고한다.</p>
+<p>3언어에도 불구하고 MOS metrics이 너무 high cost라서 오직 2개 언어만 이 메트릭으로 계산한다.영어(가장 많은 스피커), 포르투칼어(가장 적은 스피커). 또한 학습때 없던 스피커도 메트릭으로 비교한다.</p>
+<p>MOS는 엄격한 클라우드소싱으로 얻었고, MOS와 Sim-MOS를 영어에서 비교하기 위해 276과 200 네이티브 영어 contributors로, 포르투칼은 90</p>
+<p>VCTK 50문장 사용</p>
+<p>MOS, SECS, Sim-MOS을 LbriTTS에서 위해 20단어 이상 55문장을 임의로 뽑았다.</p>
+<p><img alt="Untitled" src="machine_learning/paper/images/YOURTTS%20911674f1e8274f51be1cc9d966e5134a/Untitled%201.png" /></p>
+<section id="speaker-consistency-loss">
+<h3>4.4 Speaker Consistency Loss<a class="headerlink" href="#speaker-consistency-loss" title="Permalink to this heading">#</a></h3>
+<p>Speaker Consistency Loss(SCL)은 SECS로 측정된 유사도를 향상시킨다. 반면에 Sim-MOS는 결론이 모호하다. 그럼에 불구하고 우리는 SCL이 training에 안보인 특성에 관하여 일반화하는데 도움준다고 믿는다.  실험 1에서 SCL 덕분에 SECS와 SIM-MOS가 향상됬다. 반면에 이것은 SCL이 약간 생성한 오디오의 퀼리티를 감소시킨다.</p>
+</section>
+</section>
+<section id="zero-shot-voice-conversion">
+<h2>5. Zero-Shot Voice Conversion<a class="headerlink" href="#zero-shot-voice-conversion" title="Permalink to this heading">#</a></h2>
+<p>GC-GlowTTs모델에서 했던것처럼 본 논문 역시 스피커 id를 encoder에 넣지 않았다. 그래서 encoder의 분포는 speaker에 독립적이다. 그래서 YourTTS는 모델의 Posterior Encoder와 HiFi-Gan을 이용하여 변환할 수 있다. external speaker embeddings으로 안본 스피커도 모방할 수 있다.</p>
+<p>MOS와 Sim-MOS를 AutoVC(Zero-Shot Voice Style Transfer with Only Autoencoder Loss) 와 NoiseVC모델에서 결과를 봤다.</p>
+<section id="intra-lingual-results">
+<h3>5.1. Intra-lingual results<a class="headerlink" href="#intra-lingual-results" title="Permalink to this heading">#</a></h3>
+<p>학습하지 않은 10 VCTK speakers로 영어와 포르투갈 transferring도 확인했다.</p>
+<p><img alt="Untitled" src="machine_learning/paper/images/YOURTTS%20911674f1e8274f51be1cc9d966e5134a/Untitled%202.png" /></p>
+<p>low quality 때문에 포르투갈 남성에서 영어 여자 MOS score는 떨어졌다(pt-en). 일반적으로는 위에서 보이듯이 여자 스피커 데이터의 부족으로 여자 스피커로 변환되는 성능이 떨어졌다.</p>
+<p>영어에서 변환하는 동안 스피커의 성별은 모델의 성능에 많은 영향을 끼치지 않았다. 그러나 포르투갈은 여자 음성의 부족으로 일반화를 방해했다.</p>
+</section>
+</section>
+<section id="speaker-adaptation">
+<h2>6. Speaker Adaptation<a class="headerlink" href="#speaker-adaptation" title="Permalink to this heading">#</a></h2>
+<p>다른 녹음 조건은 zero-shot multi-speaker TTS에서 도전이다. 그러나 우리의 모델에서 잠재력을 봤다(IM/IF). Weighted random sampling는 1/4 배치에서 나타난 스피커를 샘플하는 것을 보장한다.</p>
+<p><img alt="Untitled" src="machine_learning/paper/images/YOURTTS%20911674f1e8274f51be1cc9d966e5134a/Untitled%203.png" /></p>
+</section>
+<section id="conclusions-limitations-and-future-work">
+<h2>7. Conclusions. limitations and future work<a class="headerlink" href="#conclusions-limitations-and-future-work" title="Permalink to this heading">#</a></h2>
+<p>zero-shot multi-speaker TTS와 VCTK 데이터셋에서 zero-shot voice conversion에서 소타다. 또한 싱글 스피커 데이터셋으로 타겟 언어에 유망한 결과를 달성한다. 추가적으로 우리는 음성과 기록상태 둘다 가진 스피커를 학습 안해도 1분 미만의 음성으로 조정가능하다.</p>
+<p>그러나 몇몇 스피커와 문장으로 부자연스러운 기간때문에 stochastic duration predictor가 견고하지 못하다. 또한 포르투갈어는 몇몇 단어에서 잘못된 발음한다. 음성학 스크립트를 쓰지 않아서 그런 것일 수도 있다. 특정 성별 비율때문에 모델에 영향이 있다. Speaker Adaption에서는 20초 음성으로 특성을 뽑아냈지만 45초면 더 좋을 것이다.</p>
+<p>미래엔 우리는 duration predictor성능을 높일거고, 음성인식으로 데이터 증강할것이다.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "indexxlim/indexxlim.github.io",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "py38"
+        },
+        kernelOptions: {
+            name: "py38",
+            path: "./machine_learning/paper"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'py38'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yourtts-model">YourTTS Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments">Experiments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speaker-encoder">3.1 Speaker Encoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-datasets">3.2 Audio datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-setup">3.3 Experimental setup</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-and-discussion">4. Results and Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speaker-consistency-loss">4.4 Speaker Consistency Loss</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-voice-conversion">5. Zero-Shot Voice Conversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intra-lingual-results">5.1. Intra-lingual results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#speaker-adaptation">6. Speaker Adaptation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions-limitations-and-future-work">7. Conclusions. limitations and future work</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By indexxlim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

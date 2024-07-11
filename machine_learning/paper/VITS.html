@@ -1,0 +1,807 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>VITS</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "indexxlim/indexxlim.github.io");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'machine_learning/paper/VITS';</script>
+    <link rel="shortcut icon" href="../../_static/header_image.jpg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    DIARY.PY
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diary/soso.html">soso</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diary/soso/Jupyter%20Book%EC%9C%BC%EB%A1%9C%20github%20%EB%B8%94%EB%A1%9C%EA%B9%85.html">Jupyter Book으로 github 블로깅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diary/soso/Transformers%20ONNX.html">Transformers ONNX</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../paper.html">Paper</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="transformer.html">Transformer and Bert</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="bart.html">BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subword.html">subword model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="electra.html">Electra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c2f-coref.html">c2f-coref</a></li>
+<li class="toctree-l2"><a class="reference internal" href="splinter.html">Few-Shot Question Answering by Pretraining Span Selection(Splinter)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LaMDA.html">LaMDA: Language Models for Dialog Applications</a></li>
+
+
+
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/indexxlim/indexxlim.github.io/main?urlpath=lab/tree/blog/machine_learning/paper/VITS.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/indexxlim/indexxlim.github.io/blob/main/blog/machine_learning/paper/VITS.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/indexxlim/indexxlim.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/indexxlim/indexxlim.github.io/edit/main/blog/machine_learning/paper/VITS.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/indexxlim/indexxlim.github.io/issues/new?title=Issue%20on%20page%20%2Fmachine_learning/paper/VITS.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/machine_learning/paper/VITS.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>VITS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">VITS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-variational-autoencoder-with-adversarial-learning-for-end-to-end-text-to-speech">Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">2. Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-inference">2.1 Variational Inference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruction-loss">2.1.2 <strong>Reconstruction Loss</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kl-divergence">2.1.3 KL-DIVERGENCE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alignment-estimation">2.2 Alignment Estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monotonic-alignment-search">2.2.1. Monotonic alignment search</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duration-prediction-from-text">2.2.2. Duration Prediction From Text</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adversarial-training">2.3. Adversarial Training</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-loss">2.4. Final Loss</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-architecture">2.5. Model Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-encoder">2.5.1. Posterior Encoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-encoder">2.5.2. Prior Encoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decoder">2.5.3. Decoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminator">2.5.4. Discriminator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-duration-predictor">2.5.5. Stochastic Duration Predictor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments">3. Experiments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#result">4. Result</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="vits">
+<h1>VITS<a class="headerlink" href="#vits" title="Permalink to this heading">#</a></h1>
+<p><strong>Variational Inference with adversarial learning for end-to-end Text-to-Speech (VITS).</strong></p>
+</section>
+<section id="conditional-variational-autoencoder-with-adversarial-learning-for-end-to-end-text-to-speech">
+<h1>Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech<a class="headerlink" href="#conditional-variational-autoencoder-with-adversarial-learning-for-end-to-end-text-to-speech" title="Permalink to this heading">#</a></h1>
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h2>
+<p>최근 TTS모델은 single-stage 학습과 병렬 sampling이 목적이었다. 그러나</p>
+<p>sample 질은 2개 stage TTS 와 맞지 않다. 이 작업에서 two-stage 모델보다 우리는 자연스럽게 들리는 오디오를 병렬과 end-to-end TTS 모델을 준비했다. 우리의 방법은 노말라이징 flow와 adversarial 학습을 통해 증강된 적응된 variational inference이다. 또한 stochastic duration predictor를 사용해서 입력 문장과  다양한 리듬에 합성하는 것을 제안한다. 1대다 관계에서 다른 pitches와 리듬에 여러 방법으로 말할 수 있는 텍스트를 표현한다. LJ speech 에서 한 발화자 데이터셋에서 우리의 방법이 MOS 메트릭으로 측정했을 때 가장 좋다.</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>TTS는 text normalization과 phonemization와 별도로 two-stage generation modeling 으로 단순화됐다. 첫번째는 mel-spectrogram이나 linguistic feature 같은 중간 speech representations이고 두 번째 단계는 중간 representations에서 raw waveforms 을 생성하는 것이다. 모델은 독립적으로 개발되었다.</p>
+<p>기존에 병렬 processor 활용 제한을 극복하고 합성 속도를 향상시키기 위해, 몇몇 non-autoregressive 방법론들이 제안됬다. text-to-spectrogram 생성 단계에서 학습된 autoregressive teacher network에서 attention map을 추출은 텍스트와 스펙트로그램의 align의 어려움을 감소시켰다. 더 최근에는 likelihood-based 방법론들이 대상 mel-spectrogram의 likelihood를 최대화하면서 외부 aligner에서 종속을 제거했다.</p>
+<p>FasteSpeech 2s나 EATS는 전체 waveforms보단 짧은 audio clips 학습을 제안했고 length mismatch를 줄여서 특별한 스펙트로그램 loss를 설계했다. 그러나 two-stage systems 보단 합성 퀼리티가 느리다? 별로다.</p>
+<p>본 논문에선 병렬 E2E TTS방법으로 현재 two-stage 모델보다 자연스러운 소리를 생성한다. Variational autoencoder(VAE) 시스템을 사용하고 latent를 효과적으로 E2E 학습하는 2가지 모듈을 연결했다. normalizaing flows를 상태 사전확률 분포에 적용했고, 적대적 학습을 waveform domain에 적용했다. one-to-many 문제에선 입력 텍스트의 다양한 문장과 음성에 합성하기위해 stochastic duration predictor를  제안한다.</p>
+</section>
+<section id="method">
+<h2>2. Method<a class="headerlink" href="#method" title="Permalink to this heading">#</a></h2>
+<p><img alt="Untitled" src="machine_learning/paper/images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled.png" /></p>
+<section id="variational-inference">
+<h3>2.1 Variational Inference<a class="headerlink" href="#variational-inference" title="Permalink to this heading">#</a></h3>
+<p>conditional VAE에서 variational lower bound (ELBO)는 marginal log-likelihood $log p_{\theta}(x|c)$의 ELBO를 계산한다.</p>
+<p>$$
+\log p_{\theta}(x \mid c) \geq \mathbb{E}{q{\phi}(z \mid x)}\left[\log p_{\theta}(x \mid z)-\log \frac{q_{\phi}(z \mid x)}{p_{\theta}(z \mid c)}\right]
+$$</p>
+<p>$p_{\theta}(z|c)$가 latent variable $z$에 대한 ($c$ conditional) prior distribution 일때  $p_{\theta}(x|z)$는 데이터 $x$에 대한 likelihood function 이다.</p>
+<p>$q_{\phi}(z|x)$는 approximate posterior distribution.</p>
+<p>training loss는 negative ELBO인 와 KL divergence $\log q_{\theta}(z|x) - \log p_{\theta}(z|c)$ 의 reconstruction loss 합과 KL divergence $\log q_{\phi}(z|x) - \log p_(\theta)(z|c)$</p>
+</section>
+<section id="reconstruction-loss">
+<h3>2.1.2 <strong>Reconstruction Loss</strong><a class="headerlink" href="#reconstruction-loss" title="Permalink to this heading">#</a></h3>
+<p>reconstruction loss의 목적 데이터로는 raw wav보다 mel-spec을 사용한다($X_{mel}$).  latent variable $z$를 디코더를 통해 웨이브폼 $\hat{y}$으로 업샘플링하고, 이걸 $\hat{x}_{mel}$로 변환한다. 그리고 이 값의 $L_1$ 로스를 reconstruction loss로 사용한다. 이 msel-scale을 사용하는 loss로 perceptual 퀄리티를 높인다.</p>
+</section>
+<section id="kl-divergence">
+<h3>2.1.3 KL-DIVERGENCE<a class="headerlink" href="#kl-divergence" title="Permalink to this heading">#</a></h3>
+<p>prior encoder c는  텍스트에서 추출한 phonemes $c_{text}$ 와 phonemes와 latent variables의 alignment A로 구성된다. alignment는 hard monotonic attention matrix $|c_{text} \times |z|$로 각 phoneme이 speech에 어떻게 매칭이 되는지를 나타낸다.  posterior encoder에게 더욱 높은 resolution을 갖는 정보를 제공하기 위해  타겟 스피치 $x_{lin}$의 mel-spec 보다 linear-scale 스펙트로그램을 사용했다.</p>
+<p>$$
+\begin{array}{c}L_{k l}=\log q_{\phi}\left(z \mid x_{\text {lin }}\right)-\log p_{\theta}\left(z \mid c_{\text {text }}, A\right) \z \sim q_{\phi}\left(z \mid x_{l i n}\right)=N\left(z ; \mu_{\phi}\left(x_{\text {lin }}\right), \sigma_{\phi}\left(x_{\text {lin }}\right)\right)\end{array}
+$$</p>
+<p>factorized normal distribution에 normalizing flow $f_{\theta}$ 라는 prior encoder와 posterior encoder을 사용했다. 변환을 가해 더 복잡한 모양의 distribution으로 만들어서 사용한다면 prior distribution expressiveness가 증가된다.</p>
+<p>$$
+\begin{aligned}p_{\theta}(z \mid c) &amp; =N\left(f_{\theta}(z) ; \mu_{\theta}(c), \sigma_{\theta}(c)\right)\left|\operatorname{det} \frac{\partial f_{\theta}(z)}{\partial z}\right| \c &amp; =\left[c_{\text {text }}, A\right]\end{aligned}
+$$</p>
+</section>
+<section id="alignment-estimation">
+<h3>2.2 Alignment Estimation<a class="headerlink" href="#alignment-estimation" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="monotonic-alignment-search">
+<h3>2.2.1. Monotonic alignment search<a class="headerlink" href="#monotonic-alignment-search" title="Permalink to this heading">#</a></h3>
+<p>텍스트와 음성 align을 위해 Monotonic alignment Search(MAS)를 사용한다. VAE의 목적함수인 ELBO에서는 정확한 log-likelihood가 없어서 원 논문에서 사용하는 dynamic programming을 바로 이용하기는 어렵다. 그래서 ELBO를 최대화 하는 것으로 재정의했다.</p>
+<p>ASIS:</p>
+<p>$$
+\begin{aligned}A &amp; =\underset{\hat{A}}{\arg \max } \log p\left(x \mid c_{\text {text }}, \hat{A}\right) \&amp; =\underset{\hat{A}}{\arg \max } \log N\left(f(x) ; \mu\left(c_{\text {text }}, \hat{A}\right), \sigma\left(c_{\text {text }}, \hat{A}\right)\right)\end{aligned}
+$$</p>
+<p>TOBE:</p>
+<p>$$
+\begin{array}{l}\underset{\hat{A}}{\arg \max } \log p_{\theta}\left(x_{\text {mel }} \mid z\right)-\log \frac{q_{\phi}\left(z \mid x_{\text {lin }}\right)}{p_{\theta}\left(z \mid c_{\text {text }}, \hat{A}\right)} \=\underset{\hat{A}}{\arg \max } \log p_{\theta}\left(z \mid c_{\text {text }}, \hat{A}\right) \quad=\log N\left(f_{\theta}(z) ; \mu_{\theta}\left(c_{\text {text }}, \hat{A}\right), \sigma_{\theta}\left(c_{\text {text }}, \hat{A}\right)\right)\end{array}
+$$</p>
+</section>
+<section id="duration-prediction-from-text">
+<h3>2.2.2. Duration Prediction From Text<a class="headerlink" href="#duration-prediction-from-text" title="Permalink to this heading">#</a></h3>
+<p>alignment $\Sigma_{j}A_{i,j}$ 로 입력 토큰 $d_{i}$ 의 길이를 구할수 있다. 그러나 사람같은 리듬으로 생성하기 위해서 flow-based generative model로 MLE 기반하여 학습하는 stochastic duction predictor를 사용한다.  그러나 입력 phoneme들의 길이가 정수이고 스칼라 값이기 때문임. 사실 이를 해결하기 위한 방법 variational dequantization와 variational data augmentation이 있다.</p>
+<p>구체적으로  랜덤 변수 $u$와 $v$ 가 있다. 이는 duration sequence d와 같은 차원을 갖는 동시간 resolution과 dimension이다.  $u$의 범위는 $[0, 1)$로 한정을 하여 $d - u$가 항상 양의 실수가 되게 하고, 더 높은 차원의 latent representation을 위해 $v$를 $d$와 concat한다. 이 두 변수는 posterior distribution $p_{\phi}(u, v | d, c_{text})$에서 나온다.</p>
+<p>phoneme duration의 log-likelihood의 ELBO 목적함수</p>
+<p>$$
+\begin{array}{l}
+\log p_{\theta}\left(d \mid c_{\text {text }}\right) \geq \
+\mathbb{E}{q{\phi}\left(u, \nu \mid d, c_{\text {text }}\right)}\left[\log \frac{p_{\theta}\left(d-u, \nu \mid c_{\text {text }}\right)}{q_{\phi}\left(u, \nu \mid d, c_{\text {text }}\right)}\right]
+\end{array}
+$$</p>
+<p>이때 다른 모듈에 영향끼치지 않도록 stop gradient operator를 적용했다.</p>
+</section>
+<section id="adversarial-training">
+<h3>2.3. Adversarial Training<a class="headerlink" href="#adversarial-training" title="Permalink to this heading">#</a></h3>
+<p>discriminator D, decoder G로 적대적 학습을 넣었다. $T$는 discriminator 레이어 수이고, $D^{l}$은 L 번째 레이어의 feature map 출력값이다. $N_{l}$개의 features로 discriminator가 구성된다.</p>
+<p>$$
+\begin{aligned}L_{a d v}(D) &amp; =\mathbb{E}<em>{(y, z)}\left[(D(y)-1)^{2}+(D(G(z)))^{2}\right] \L</em>{a d v}(G) &amp; =\mathbb{E}<em>{z}\left[(D(G(z))-1)^{2}\right] \L</em>{f m}(G) &amp; =\mathbb{E}<em>{(y, z)}\left[\sum</em>{l=1}^{T} \frac{1}{N_{l}}\left|D^{l}(y)-D^{l}(G(z))\right|_{1}\right]\end{aligned}
+$$</p>
+<p>feature-matching loss도 구성되어 있다.</p>
+</section>
+<section id="final-loss">
+<h3>2.4. Final Loss<a class="headerlink" href="#final-loss" title="Permalink to this heading">#</a></h3>
+<p>VAE와 GAN학습으로 섞여있다.</p>
+<p>$$
+L_{v a e}=L_{\text {recon }}+L_{k l}+L_{d u r}+L_{a d v}(G)+L_{f m}(G)
+$$</p>
+</section>
+<section id="model-architecture">
+<h3>2.5. Model Architecture<a class="headerlink" href="#model-architecture" title="Permalink to this heading">#</a></h3>
+<p>모델은 a posterior encoder, prior encoder, decoder, discriminator, and stochastic duration predictor으로 구성된다.</p>
+</section>
+<section id="posterior-encoder">
+<h3>2.5.1. Posterior Encoder<a class="headerlink" href="#posterior-encoder" title="Permalink to this heading">#</a></h3>
+<p>WaveGlow와 Glow-TTS에서 사용한 non-causal WaveNet residual block을 사용한다. 이 block위에 linear projection layer를 추가해 normal posterior distribution의 파라미터를 생성한다.</p>
+<p>multi-speaker의 경우에는 residual block안에 speaker embedding을 더해서 global conditioning을 이용한다.</p>
+</section>
+<section id="prior-encoder">
+<h3>2.5.2. Prior Encoder<a class="headerlink" href="#prior-encoder" title="Permalink to this heading">#</a></h3>
+<p>text encoder를 통한 입력 phonemes $c_{text}$와 사전 분포의 유연성을 증가시키기 위한 normalizing flow $f_{\theta}$ 로 구성된다. 이 때$c_{text}$ 에 대한 $h_{text}$를 얻고, 여기에 linear projection layer를 더해 prior distribution의 파라미터를 생성한다. normalizing flow은 WaveNet residual block을 쌓아서 구성된 affine coupling layer를 이다.</p>
+<p>multi-speaker setting에서도 residual block에다가 speaker embedding을 더해서 사용함.</p>
+</section>
+<section id="decoder">
+<h3>2.5.3. Decoder<a class="headerlink" href="#decoder" title="Permalink to this heading">#</a></h3>
+<p>decoder는 HiFi-GAN V1. transposed convolution과 multi-receptive field fusion (MRF) 모듈로 구성된다.</p>
+<p>multi-speaker의 경우에 speaker embedding을 변형한 linear layer와 input latent variable $z$를 더한다.</p>
+</section>
+<section id="discriminator">
+<h3>2.5.4. Discriminator<a class="headerlink" href="#discriminator" title="Permalink to this heading">#</a></h3>
+<p>discriminator는 HiFi-GAN에서 제안된 multi-period discriminator를 사용한다. 입력 waveforms의 다른 주기적 패턴에 따라 작용하는 Markovian window-based sub-discriminators이다</p>
+</section>
+<section id="stochastic-duration-predictor">
+<h3>2.5.5. Stochastic Duration Predictor<a class="headerlink" href="#stochastic-duration-predictor" title="Permalink to this heading">#</a></h3>
+<p>conditional input $h_{text}$에서 나온 phoneme 길이의 분포를 추정한다. 효과적인 parameterization을 위해 dilated and depth-seperable conv레이어를 쌓아 구성한다. 또한 neural spline flows를 적용했는데, 이는 비슷한 숫자의 파라미터로도 더 좋은 transformation expressiveness를 나타낼 수 있다. multi-speaker의 경우 speaker embedding을 변형하여 input $h_{text}$ 에다가 더한다.</p>
+<p><img alt="Untitled" src="machine_learning/paper/images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled%201.png" /></p>
+</section>
+</section>
+<section id="experiments">
+<h2>3. Experiments<a class="headerlink" href="#experiments" title="Permalink to this heading">#</a></h2>
+<p><strong>Dataset:</strong> LJ Sppech dataset(single speaker 13100 short audio)과 VCTK데이터셋 (109 English 44000 short audio clips), total 44hours, 16-bit pcm, 22kHz</p>
+<p><strong>Preprocessing:</strong> posterior encoder 입력으로는 FFT사이즈가 1024, 1024, 256으로 STFT를 이용한 linear spectrogram. reconstruction loss에서는 80 bands mael-scale. prior encoder 입력은 International Phonetic Alphabet (IPA).</p>
+<p><strong>Training:</strong> 전체 latent 대신 32 window size로 decoder에 넣음</p>
+</section>
+<section id="result">
+<h2>4. Result<a class="headerlink" href="#result" title="Permalink to this heading">#</a></h2>
+<p>DDP는 stochastic duration predictor 대신 the same deterministic duration predictor architecture used in GlowTTS</p>
+<p><strong>Speech Synthesis Quality</strong></p>
+<p><strong>Generalization to Multi-Speaker Text-to-Speech</strong></p>
+<p><img alt="Untitled" src="machine_learning/paper/images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled%202.png" /></p>
+<p><strong>ablation studies</strong> 에서 FLOW를 빼니 확실히 성능이 떨어진다.</p>
+<p><img alt="Untitled" src="machine_learning/paper/images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled%203.png" /></p>
+<p><strong>Speech Variation</strong></p>
+<p>모델별, speaker 별 duration</p>
+<p><img alt="Untitled" src="machine_learning/paper/images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled%204.png" /></p>
+<p><strong>Synthesis Speed</strong></p>
+<p>single NVIDIA V100 GPU에서 합성 속도</p>
+<p>not require modules for generating predefined intermediate representations라서 속도가 빠르다.</p>
+<p><img alt="Untitled" src="machine_learning/paper/images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled%205.png" /></p>
+<p><strong>Duration Prediction in Non-Autoregressive Text-to-Speech</strong></p>
+<p>병렬모델은 대상 음소 길이나 전체 음성 길이를 예측해야되는데 음성 리듬의 joint 분포를 포착하기 어렵다. 그래서 flow-based stochastic duration predictor가 joint 분포를 병렬적으로 합성하기 좋다.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "indexxlim/indexxlim.github.io",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "py38"
+        },
+        kernelOptions: {
+            name: "py38",
+            path: "./machine_learning/paper"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'py38'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">VITS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-variational-autoencoder-with-adversarial-learning-for-end-to-end-text-to-speech">Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method">2. Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-inference">2.1 Variational Inference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruction-loss">2.1.2 <strong>Reconstruction Loss</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kl-divergence">2.1.3 KL-DIVERGENCE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alignment-estimation">2.2 Alignment Estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monotonic-alignment-search">2.2.1. Monotonic alignment search</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duration-prediction-from-text">2.2.2. Duration Prediction From Text</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adversarial-training">2.3. Adversarial Training</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-loss">2.4. Final Loss</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-architecture">2.5. Model Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-encoder">2.5.1. Posterior Encoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-encoder">2.5.2. Prior Encoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decoder">2.5.3. Decoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminator">2.5.4. Discriminator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-duration-predictor">2.5.5. Stochastic Duration Predictor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments">3. Experiments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#result">4. Result</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By indexxlim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
