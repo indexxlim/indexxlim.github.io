@@ -7,6 +7,12 @@ parts:
       sections:
       - file: diary/soso/Jupyter Book으로 github 블로깅
       - file: diary/soso/Transformers ONNX
+
+  - caption: Cuda
+    chapters:
+    - file: cuda
+      sections:
+      - file: cuda/tensorRT
       
       
   - caption: Machine Learning
