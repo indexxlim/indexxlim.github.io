@@ -482,7 +482,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -498,6 +500,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Efficient Memory Management for Large LanguageModel Serving with PagedAttention</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kv-cache">기타 - KV cache</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -698,6 +710,15 @@ Byung-Gon Chun의 연구는 2022년 ‘Orca: A Distributed Serving System for Tr
 마지막으로, 저우 제 등은 2022년에 ‘PetS: A Unified Framework for Parameter-Efficient Transformers Serving’을 발표하였다.</p></li>
 </ol>
 </section>
+<section id="kv-cache">
+<h1>기타 - KV cache<a class="headerlink" href="#kv-cache" title="Permalink to this heading">#</a></h1>
+<p>transformer model의 추론에서 샘플링 과정은 먼저 주어진 프롬프트 또는 컨텍스트를 처리하는 단계가 이루어지며, 그런 다음 추가 토큰을 하나씩 샘플링하면서 (= autoregressive) 트랜스포머는 self-attention을 수행한다. 이 self-attention을 위해 현재 시퀀스에 있는 각 항목의 key-value 값을 필요로 하며, 이러한 벡터들은 KV Cache 또는 Past Cache라고 불리는 행렬로 제공된다. Past Cache는 다음과 같은 형태를 가진다: [batch_size, 2, num_heads, seq_len, features].</p>
+<p>토큰을 샘플링할 때마다 이러한 벡터들에 대한 중복계산을 피하는 것이 이것의 목적이다. 이미 계산된 k, v 값이 있다면, 우리는 약간의 저장 비용으로 상당한 양의 계산 비용을 절약할 수 있다.</p>
+<p>토큰마다 우리가 새롭게 저장하는 bytes는 2 X 2 X n_layers X n_heads X d_head이다. 가장 앞의 팩터 2는 k, v의 두 벡터의 수를 의미하고, 각 레이어마다의 k, v값을 저장한다. 이 때 k, v 행렬은 n_heads X d_head 행렬이고, 2번째 팩터 2는 bytes의 수를 의미한다. (16-bit 포맷이라고 가정)</p>
+<p>이 때 절약할 수 있는 flops는 2 X 2 X n_layer X d_model^2이다. token embedding t_e를 W_k로 곱해야 되며, 여기에 2 X d_model^2 flops가 소요된다. 우리는 k와 v에 대해서 한번씩 계산해야 하므로 2를 곱해주고, 이러한 과정을 n_layer만큼 반복해야 한다.</p>
+<p>OPT-30B 모델이 있고, seq_len = 1024, batch_size = 128일 때, KV cache에 소요되는 메모리는 다음과 같다:</p>
+<p><code class="docutils literal notranslate"><span class="pre">batch_size(128)</span> <span class="pre">X</span> <span class="pre">2</span> <span class="pre">X</span> <span class="pre">48(n_layers)</span> <span class="pre">X</span> <span class="pre">7168</span> <span class="pre">(d_model)</span> <span class="pre">X</span> <span class="pre">1024(seq_len)</span> <span class="pre">=</span> <span class="pre">180</span> <span class="pre">GB</span></code></p>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -735,6 +756,22 @@ Byung-Gon Chun의 연구는 2022년 ‘Orca: A Distributed Serving System for Tr
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Efficient Memory Management for Large LanguageModel Serving with PagedAttention</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kv-cache">기타 - KV cache</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
