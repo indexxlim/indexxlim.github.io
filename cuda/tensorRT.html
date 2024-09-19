@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt;</title>
+    <title>TensorRT</title>
   
   
   
@@ -495,7 +495,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>TensorRT</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -504,9 +504,9 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">TensorRT 변환 흐름과 최적화</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -517,7 +517,62 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  
+  <section id="tensorrt">
+<h1>TensorRT<a class="headerlink" href="#tensorrt" title="Permalink to this heading">#</a></h1>
+<section id="id1">
+<h2>TensorRT 변환 흐름과 최적화<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Torch to TensorRT</p>
+<ol class="arabic simple">
+<li><p>ONNX grpah 변환</p></li>
+<li><p>ONNX 모델을 tensorRT 그래프로 변환</p></li>
+</ol>
+</li>
+</ol>
+<ul class="simple">
+<li><p>nvinfer1::ICudaEngine *engine; : 학습한 Network를 Inference할 TRT engine 입니다.</p>
+<ul>
+<li><p>‘네트워크 정의’와 ‘학습된 파라미터’들이 정의된 엔진입니다.</p></li>
+<li><p>엔진은 작업이 끝날 때까지 반납되어서는 안됩니다.</p></li>
+</ul>
+</li>
+<li><p>nvinfer1::IExecutionContext* context[L]; : CUDA context는 CPU thread와 같이 작업 단위입니다.</p>
+<ul>
+<li><p>미리 정의된 환경에서 실행하기 위한 환경입니다. Inference중간에 생기는 activation 값들 또한 이 Context에서 관리된다고 생각하시면 됩니다.</p></li>
+<li><p>1개의 engine을 위한 여러개의 context가 존재할 수 있으며, 이는 동일한 네트워크를 동시에 여러개의 Input에 대해서 실행하는 경우(여러개 Batch와 같은) 활용이 가능합니다. 이때, weight는 공유되어 쓰일 수 있다고 합니다.**</p></li>
+<li><p>1개의 Context에 대한 2개 이상의 kernel processing은 concurrently 실행이 불가하지만, 여러개 context에 대한 kernel들은 concurrently 실행이 가능합니다.</p></li>
+</ul>
+</li>
+<li><p>cudaStream_t stream[L]; : 일반적인 cuda stream으로 inference kernel이 쌓일 Queue입니다.</p>
+<ul>
+<li><p>Resource가 충분해지면, 메모리 복사와 Kernel 실행이 모두 진행됩니디다.</p></li>
+<li><p>두개 이상의 stream은 가능하지만, 두개 이상의 stream을 가지면 unordered형태로 overlap 가능합니다.</p></li>
+<li><p>‘Consecutive’ computation in device</p></li>
+<li><p>Can work with other streams concurrently</p></li>
+</ul>
+</li>
+<li><p>float *CPUinput, CPUoutput : input과 output을 담을 CPU memory</p></li>
+<li><p>void *GPUinput, GPUoutput : input과 output을 담을 GPU memory</p>
+<ul>
+<li><p>GPU는 input과 output은 하나의 버퍼로 선언한 뒤 “engine-&gt; getBindingIndex(“input:0”)” 함수를 통해 해당 buffer의 인덱스를 얻어내 사용하는 경우도 있습니다.</p></li>
+</ul>
+</li>
+<li><p>nvinfer1::iLogger gLogger : logging을 위한 모든 class instance들을 담기 위한 오브젝트</p></li>
+<li><p>nvinfer1::iRuntime : serialized 된 nvinfer1::ICudaEngine을 deserialize 한 오브젝트입니다.</p>
+<ul>
+<li><p>setDLAcore() : 사용할 DLA 코어의 개수를 명시할 수 있습니다.</p></li>
+<li><ul>
+<li><p>왜 serialize하고 나서 deserialize하는가? Inference를 위해서 꼭 serialize &amp; deserialize를 해야만 하는 것은 아닙니다. 하지만 빌드되는 시간을 줄이기 위해 바로 사용하지 않는 경우 deserialize해 저장해두는 것이 유리하기 때문에 주로 serialize 해 저장해두곤 합니다.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="[Engine-Context-Stream 관계]" src="https://blog.kakaocdn.net/dn/0xMdK/btrUb476xpx/9Xi9N5ckZ9XIqY8t6It9c1/img.png" /></p>
+<p>[Engine-Context-Stream 관계]</p>
+</section>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -527,16 +582,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "py38"
         },
         kernelOptions: {
-            name: "python3",
+            name: "py38",
             path: "./cuda"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'py38'</script>
 
                 </article>
               
@@ -562,9 +617,9 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">TensorRT 변환 흐름과 최적화</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
