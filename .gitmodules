@@ -2,3 +2,6 @@
 	path = public
 	url = https://github.com/indexxlim/indexxlim.github.io.git
 	branch = gh-pages
+[submodule "themes/PaperMod"]
+	path = themes/PaperMod
+	url = https://github.com/AmazingRise/hugo-theme-diary.git
