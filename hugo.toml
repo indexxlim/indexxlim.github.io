@@ -1,6 +1,7 @@
-baseURL: "https://indexxlim.github.io/"
+baseURL= "https://indexxlim.github.io/"
 languageCode = 'en-us'
 title = 'My New Hugo Site'
+theme= Diary
 
 [caches]
   [caches.images]
