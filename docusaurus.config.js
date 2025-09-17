@@ -29,7 +29,6 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'indexxlim', // Usually your GitHub org/user name.
   projectName: 'indexxlim.github.io', // Usually your repo name.
-  deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
