@@ -4,6 +4,8 @@
 
 # Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech
 
+<!-- truncate -->
+
 ### Abstract
 
 최근 TTS모델은 single-stage 학습과 병렬 sampling이 목적이었다. 그러나 
@@ -22,7 +24,7 @@ FasteSpeech 2s나 EATS는 전체 waveforms보단 짧은 audio clips 학습을 �
 
 ## 2. Method
 
-![Untitled](images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled.png)
+![Untitled](./Untitled.png)
 
 ### 2.1 Variational Inference
 
@@ -139,7 +141,7 @@ multi-speaker의 경우에 speaker embedding을 변형한 linear layer와 input 
 
 conditional input $h_{text}$에서 나온 phoneme 길이의 분포를 추정한다. 효과적인 parameterization을 위해 dilated and depth-seperable conv레이어를 쌓아 구성한다. 또한 neural spline flows를 적용했는데, 이는 비슷한 숫자의 파라미터로도 더 좋은 transformation expressiveness를 나타낼 수 있다. multi-speaker의 경우 speaker embedding을 변형하여 input $h_{text}$ 에다가 더한다.
 
-![Untitled](images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled%201.png)
+![Untitled](./Untitled%201.png)
 
 ## 3. Experiments
 
@@ -157,17 +159,17 @@ DDP는 stochastic duration predictor 대신 the same deterministic duration pred
 
 **Generalization to Multi-Speaker Text-to-Speech**
 
-![Untitled](images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled%202.png)
+![Untitled](./Untitled%202.png)
 
 **ablation studies** 에서 FLOW를 빼니 확실히 성능이 떨어진다.
 
-![Untitled](images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled%203.png)
+![Untitled](./Untitled%203.png)
 
 **Speech Variation**
 
 모델별, speaker 별 duration
 
-![Untitled](images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled%204.png)
+![Untitled](./Untitled%204.png)
 
 **Synthesis Speed**
 
@@ -175,7 +177,7 @@ single NVIDIA V100 GPU에서 합성 속도
 
 not require modules for generating predefined intermediate representations라서 속도가 빠르다.
 
-![Untitled](images/VITS%2002b910b7202a402ea02b0f2c255770a3/Untitled%205.png)
+![Untitled](./Untitled%205.png)
 
 **Duration Prediction in Non-Autoregressive Text-to-Speech**
 

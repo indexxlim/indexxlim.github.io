@@ -4,6 +4,8 @@
 
 LM은 적은 수의 예제와 텍스트 지침을 이용해서 몇 태스크에 뛰어난 성과였다. 
 
+<!-- truncate -->
+
 teach themselves to use external tools via simple APIs and achieve the best of both worlds
 
 how to best incorporate the results into future token prediction
@@ -36,11 +38,11 @@ we let a LM annotate a huge language modeling dataset with potential API calls. 
 
 API는 text sequences를 나타내고 special tokens의 시작과 끝(QA처럼 API 토큰이 들어갈 시작과 끝) 을 잘 나타낸다.
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled.png)
+![Untitled](./Untitled.png)
 
 <API>와 </API>는 special tokens으로 C는 데이터셋으로 구성된다.
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%201.png)
+![Untitled](./Untitled%201.png)
 
 ### Sampling API Calls
 
@@ -70,9 +72,9 @@ text sequences로 5가지 툴을 사용
 
  **a machine translation system**
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%202.png)
+![Untitled](./Untitled%202.png)
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%203.png)
+![Untitled](./Untitled%203.png)
 
 ## 4. Experiments
 
@@ -99,37 +101,37 @@ decoding strategy를  사용, API 토큰이 포함되어 있으면 k를 10으로
 
 LAMA의 subset인 SQuAD, Google-RE, T_REx 데이터 사용하여 평가
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%204.png)
+![Untitled](./Untitled%204.png)
 
 **4.2.2 Math Dataset**
 
 ASDiv, SVAMP, MAWPS사용했고, zero-shot setup
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%205.png)
+![Untitled](./Untitled%205.png)
 
 **4.2.3 Question Answering**
 
 metric is the percentage of times the model’s generation, capped at 10 words, contains the correct answer.
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%206.png)
+![Untitled](./Untitled%206.png)
 
 **4.2.4 Multilingual Question Answering**
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%207.png)
+![Untitled](./Untitled%207.png)
 
 **4.2.5 Temporal Datasets**
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%208.png)
+![Untitled](./Untitled%208.png)
 
 ## 4.3 Language Modeling
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%209.png)
+![Untitled](./Untitled%209.png)
 
 ## 4.4 Scaling Laws
 
 smaller models achieve similar performance both with and without tools
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%2010.png)
+![Untitled](./Untitled%2010.png)
 
 ## 5. Analysis
 
@@ -137,13 +139,13 @@ smaller models achieve similar performance both with and without tools
 
 k value(API가 생성될때를 찾는 K) 에 따른 성능 비교, k가 10일 때 98.1% to 100%
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%2011.png)
+![Untitled](./Untitled%2011.png)
 
 **Data Quality**
 
-Filtering에 사용된 L_{i}^{-} - L_{i}^{+}를 이용하여 데이터 useful 측정
+Filtering에 사용된 $$L_i^- - L_i^+$$를 이용하여 데이터 useful 측정
 
-![Untitled](images/Toolformer%20Language%20Models%20Can%20Teach%20Themselves%20to%208c69f1f7534948da8930224ef58c1947/Untitled%2012.png)
+![Untitled](./Untitled%2012.png)
 
 ## 7. Limitations
 

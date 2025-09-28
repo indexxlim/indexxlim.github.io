@@ -4,6 +4,8 @@
 
 양과 질을 고려하여 680,000시간 데이터셋을 사용
 
+<!-- truncate -->
+
 ### Preprocessing
 
 특별한 preprocessing을 진행하지 않음.
@@ -42,11 +44,11 @@ Whisper 모델의 학습데이터는 기본적으로 30초씩 잘라서 학습�
 
 WER metrics만을 이용해서는 impovements를 확인하는 것이 어렵기 때문에 Kincaid46 데이터셋을 사용하여 사람이 작성한 human transcription과 직접적으로 WER을 비교 - 결과는 사람이 한것과 유사함
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled.png)
+![Untitled](./Untitled.png)
 
 ### Text normalization
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%201.png)
+![Untitled](./Untitled%201.png)
 
 fairspeech’s normalizer 보다 좋다
 
@@ -87,7 +89,7 @@ We note that the above is an imperfect solution, and it will sometimes produce u
 
 ### E. Hyperparameter
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%202.png)
+![Untitled](./Untitled%202.png)
 
 ## AI Hub 데이터를 이용하여 학습한 wec, cer
 
@@ -97,9 +99,9 @@ We note that the above is an imperfect solution, and it will sometimes produce u
     
 - Result
     
-    ![Screenshot 2023-05-09 125718.png](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Screenshot_2023-05-09_125718.png)
+    ![Screenshot 2023-05-09 125718.png](./Screenshot_2023-05-09_125718.png)
     
-    ![Screenshot 2023-05-08 140338.png](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Screenshot_2023-05-08_140338.png)
+    ![Screenshot 2023-05-08 140338.png](./Screenshot_2023-05-08_140338.png)
     
 
 ## Planing
@@ -107,7 +109,7 @@ We note that the above is an imperfect solution, and it will sometimes produce u
 1. fine-tuning
 2. 모델의 사이즈 감소 - inference의 효율성 개선
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%203.png)
+![Untitled](./Untitled%203.png)
 
 1. Transformers의 구조를 RETRO transformer로 변형 할 수 있으면 진행 
 2. quantization으로 개선
@@ -115,29 +117,29 @@ We note that the above is an imperfect solution, and it will sometimes produce u
     - 사용 결과
         - 기본 whisper 모델 불러와서 transcription 했을 경우 - 2.51초
         
-        ![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%204.png)
+        ![Untitled](./Untitled%204.png)
         
         - Ctranslate2 적용된 faster-whisper 사용했을 경우 - 약 1초 (967 ms)
         
-        ![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%205.png)
+        ![Untitled](./Untitled%205.png)
         
         - ONNX convert 적용된 경우  - transformers의 Optimum 사용
             - Base모델이 0.557초 이므로 ~~large모델의 경우 절반 감소하여 1.25초 예상~~  Large model 버그 존재하여 몇초 이상 걸림…(10초까지도..)
             - (TODO : large는 OPTIMUM에 적용 안됨 - 재구현 필)
             - transformer OPTIMUM에 있는  ONNX모델은 transcribe 대신 translate로 구현되어 있는듯 보임[https://github.com/huggingface/transformers/pull/19525#issuecomment-1421100270](https://github.com/huggingface/transformers/pull/19525#issuecomment-1421100270)
                 
-                ![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%206.png)
+                ![Untitled](./Untitled%206.png)
                 
             - Optimum안의 ORTModelForSpeechSeq2Seq나 다른 speech 모델이 업데이트 되거나 fastt5처럼 직접 onnx converter를 구현 시켜줘야 할듯으로 보임
         
         - JAX convert 적용된 경우 - [https://github.com/sanchit-gandhi/whisper-jax#creating-an-endpoint](https://github.com/sanchit-gandhi/whisper-jax#creating-an-endpoint)
             - 10초 이상 걸림…? 왜이러지?
                 
-                ![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%207.png)
+                ![Untitled](./Untitled%207.png)
                 
             - base
             
-            ![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%208.png)
+            ![Untitled](./Untitled%208.png)
             
             - github issue 에 느리다는 글이 여러개 인걸로 보아, 확실히 이슈 있는듯.
             
@@ -149,7 +151,7 @@ We note that the above is an imperfect solution, and it will sometimes produce u
             - ~~실험 결과 현재 데이터를 장치에 할당하는 "cuda:1" 이 부분에 에러가 발생하여 현재 학습중인 gpu 끝나고 다시 테스트 예정(~~즉 gpu를 선택할 수 없음~~)~~
             - GPU 사용중 일 때 속도 비율
         
-        ![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%209.png)
+        ![Untitled](./Untitled%209.png)
         
         - 참조  1. - Bloom에서 사용한 방법 : [https://huggingface.co/blog/bloom-inference-optimization](https://huggingface.co/blog/bloom-inference-optimization)
             - **First inference (PP + Accelerate)**
@@ -172,7 +174,7 @@ using kernel from ELS-RD/kernel repository
 
 [https://github.com/ELS-RD/kernl](https://github.com/ELS-RD/kernl)
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%203.png)
+![Untitled](./Untitled%203.png)
 
 [https://www.notion.so](https://www.notion.so)
 
@@ -188,38 +190,38 @@ using kernel from ELS-RD/kernel repository
 
 - 4가지의 데이터를 이용하여 실험, 이 4가지의 데이터는 한 문장의 발화를 각 다른 길이로 자른 것
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2010.png)
+![Untitled](./Untitled%2010.png)
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2011.png)
+![Untitled](./Untitled%2011.png)
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2012.png)
+![Untitled](./Untitled%2012.png)
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2013.png)
+![Untitled](./Untitled%2013.png)
 
 - 가장 짧은 첫번째 데이터(1초짜리 발화)라도 응답속도가 1초가 넘음(
 - 평균적으로 1.3초, 같은 데이터나 발화의 일부분이 중복되더라도 시간은 줄지 않음
 - 같은 데이터를 같은 시간대에 보내면 응답속도가 비슷함(병렬), 사용량 많아지면 느려질듯..
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2014.png)
+![Untitled](./Untitled%2014.png)
 
 ### Fastapi를 이용한 서버사용
 
 - a100에서 whisperAPI 가동 실험
     
-    ![Screenshot 2023-05-08 102816.png](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Screenshot_2023-05-08_102816.png)
+    ![Screenshot 2023-05-08 102816.png](./Screenshot_2023-05-08_102816.png)
     
 - GPU 사용량
     
-    ![Screenshot 2023-05-08 103256.png](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Screenshot_2023-05-08_103256.png)
+    ![Screenshot 2023-05-08 103256.png](./Screenshot_2023-05-08_103256.png)
     
 
 ### Locust를 이용한 Testing
 
 - tests_performancs.py ( $ locust -f tests_performance.py --host [http://127.0.0.1:8000](http://127.0.0.1:8000/) )
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2015.png)
+![Untitled](./Untitled%2015.png)
 
-![Untitled](images/Whisper%20b2b2042ba3f547c198eeffb127e3fa51/Untitled%2016.png)
+![Untitled](./Untitled%2016.png)
 
 ### OCR model
 

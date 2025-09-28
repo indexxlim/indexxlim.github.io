@@ -2,8 +2,9 @@
 
 ## Neural Machine Translation of Rare Words with Subword Units
 데이터 압축으로 쓰이던 bpe를 자연어에 쓴 논문이다.
-단어보다 작은 subword unit을 사용하여 음운론적이고 형태학적으로 번역함으로써, open-vocabulary NMT모델을 소개한다.  
+단어보다 작은 subword unit을 사용하여 음운론적이고 형태학적으로 번역함으로써, open-vocabulary NMT모델을 소개한다.
 
+<!-- truncate -->
 
 ### Introduction
 agglutination and compounding 단계가 포합된 언어의 경우, word level에서 하위 수준으로 내려가는 메커니즘이 필요하다.
@@ -57,7 +58,7 @@ for i in range(num_merges):
 
     ('e', 's')
     ('es', 't')
-    ('est', '</w>')
+    ('est', '&lt;/w&gt;')
     ('l', 'o')
     ('lo', 'w')
     ('n', 'e')
@@ -78,7 +79,7 @@ for i in range(num_merges):
 전자는 어휘 사이즈와, 단어가 더 compact하고 후자는 source와 target segmentation 사이에 일관성이 있다.
 
 ### result
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/subword/1_result.png?raw=true" itemprop="image" width="60%">
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./1_result.png?raw=true" itemprop="image" width="60%" />
 
 word 단위인 Wunk와 Character 단위보다 더 나은 결과를 보여준다.
 
@@ -96,7 +97,7 @@ word 단위인 Wunk와 Character 단위보다 더 나은 결과를 보여준다.
 BPE와 비슷한 방식의[WordPiece1]는 음성 인식에서 어느 언어에서나 적용될수 있도록(language-agnostic) multilingual vocabulary를 위해 처음 제안 됬고 [WordPiece2]에서는 번역에 적용 했다. WordPiece는 BPE처럼 2개의 units을 꺼내서 합치는 것은 같지만, 그 전에 기본적으로 language model을 만들어 놓고 새로운 유닛들 중 이 LM에서 가장 큰 likelihood를 가진 new unit을 선택한다는 점이다.  
 하지만 모든 쌍을 brute-force 한다면 너무 비효율적이기 때문에 likelihood가 일정 threshold 이상일 때 새로운 단어를 생성한다.
 
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/subword/2_wpmresult.png?raw=true" itemprop="image" width="30%">
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./2_wpmresult.png?raw=true" itemprop="image" width="30%" />
 
 vocabulary 32000개 일 때, 성능이 가장 좋다. ~~그 이상은 유의미한 차별성이 없나?~~
 

@@ -4,6 +4,8 @@
 
 YOURTTS는 multilingual approach to the task of zero-shot multi-speaker TTS. 이 모델은 VITS[Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech] 기반으로 zero-shot multi-speaker와 multilingual 학습을 위해서 몇몇 수정을 거친 모델이다. 그래서 zero-shot multi-speaker TTS에 sota를 달성했다. 그리도 VCTK 데이터셋에서 zero-shot voice convention 에서도 SOTA를 달성했다. 그리고 single-speaker dataset에서도 promising results이다. 또한 1분 미만의 데이터에서도 voice similarity와 합리적인 퀄리티를 보였다. 
 
+<!-- truncate -->
+
 ### Introduction
 
 synthesizing voices for new speakers에 관심이 있어서 zero-shot multi-speaker TTS(ZS-TTS)를 학습한다. 처음에는 DeepVoice 3 방법을 확장했다. 반면에 Tacotron2 는 외부 speakers embeddings을 generalized end-to-end loss(GE2E)를 써서 encoder를 학습시켰다. 이거는 LDE embeddings으로 unseen speakers의 similarity와 naturalness를 향상시켰다. 대조적으로 Attentron은 다양한 래퍼런스 source들과 coarse-grained encode를 통해 detailed styles를 추출하려고 한다. 그 결과 unseen speaker에게서 voice similarity를 높게 뽑았다. ZSM-SS는 트랜스포머 기반으로 normalization과 wev2vec으로 encoder를 추가했다. SC-GlowTTS는 ZS-TTS에서 flow-based models의 첫 응용이다. 퀄리티 유지하면서 voice similarity를 잘 향상시켰다.
@@ -66,7 +68,7 @@ Vocoder 는 HiFi-GAN version 1로 VITS에서 쓰던 것과 똑같다. 게다가 
 
 model zero-shot multi-speaker generation를 위해  all affine coupling layers of the flow-based decoder, the posterior encoder, and the vocoder on external speaker embeddings 들을 조정한다. 또한 the text encoder output and the decoder output를 이용해서 the external speaker embeddings 합쳤다. linear projection layers은  element-wise summations하기 전에 차원수를 맞추기 위해서 사용했다.
 
-![Untitled](images/YOURTTS%20911674f1e8274f51be1cc9d966e5134a/Untitled.png)
+![Untitled](./Untitled.png)
 
 Speaker Consistency Loss(SCL)을 마지막 Loss에 사용한는데, 이 경우에 사전학습된 speech encoder가  유사도를 최대화할 때 생성된 오디오와 ground truth의 speaker embedding을 추출하기 위해 사용된다. 마지막으로 $\phi$는 스피커의 embedding을 뽑아내고 $cos\_sin$ 는 코사인 유사도, $a$는 상수값 $n$는 배치사이즈로 scl수식은 다음과 같다.   
 
@@ -118,7 +120,7 @@ VCTK 50문장 사용
 
 MOS, SECS, Sim-MOS을 LbriTTS에서 위해 20단어 이상 55문장을 임의로 뽑았다.
 
-![Untitled](images/YOURTTS%20911674f1e8274f51be1cc9d966e5134a/Untitled%201.png)
+![Untitled](./Untitled%201.png)
 
 ### 4.4 Speaker Consistency Loss
 
@@ -134,7 +136,7 @@ MOS와 Sim-MOS를 AutoVC(Zero-Shot Voice Style Transfer with Only Autoencoder Lo
 
 학습하지 않은 10 VCTK speakers로 영어와 포르투갈 transferring도 확인했다.
 
-![Untitled](images/YOURTTS%20911674f1e8274f51be1cc9d966e5134a/Untitled%202.png)
+![Untitled](./Untitled%202.png)
 
 low quality 때문에 포르투갈 남성에서 영어 여자 MOS score는 떨어졌다(pt-en). 일반적으로는 위에서 보이듯이 여자 스피커 데이터의 부족으로 여자 스피커로 변환되는 성능이 떨어졌다. 
 
@@ -144,7 +146,7 @@ low quality 때문에 포르투갈 남성에서 영어 여자 MOS score는 떨�
 
 다른 녹음 조건은 zero-shot multi-speaker TTS에서 도전이다. 그러나 우리의 모델에서 잠재력을 봤다(IM/IF). Weighted random sampling는 1/4 배치에서 나타난 스피커를 샘플하는 것을 보장한다. 
 
-![Untitled](images/YOURTTS%20911674f1e8274f51be1cc9d966e5134a/Untitled%203.png)
+![Untitled](./Untitled%203.png)
 
 ## 7. Conclusions. limitations and future work
 

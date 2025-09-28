@@ -4,6 +4,8 @@
 
 in terms of memory size and bandwidth, pose significant deployment challenges.
 
+<!-- truncate -->
+
 그래서 본 논문에서는 Activation-aware Weight Quantization(AWQ)를 제안한다. AWQ는 하드웨어 친화적으로 low-bit weight-only quantization, 낮은 비트 가중치만 양자화하는 방법이다.
 
  backpropagation 이나 reconstruction 관련은 아니지만 overfitting 없이 LLMs’ generalization ability on different domains and modalities를 보존했다. 더 나은 생성으로 인해 instruction-tuned LM과 multi-modal LM에 좋은 성능을 나타냈다.
@@ -20,15 +22,15 @@ salient 가중치를 찾기위해 가중치 분포보다는 activation 분포를
 salient channels 를 확장하여 양자화 오류를 줄였다
 
 
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/awq/1_RTN.png?raw=true" itemprop="image" width="80%">
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/awq/2_salient_weight.png?raw=true" itemprop="image" width="80%">
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./1_RTN.png?raw=true" itemprop="image" width="80%" />
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./2_salient_weight.png?raw=true" itemprop="image" width="80%" />
 FP16 인 weight 값을 int3 으로 RTN quantization 할 경우 성능이 떨어지는데, 1~2% 정도의 salient weight부르는 일부분 가중치들을 FP16으로 유지하면 성능을 유지 할 수 있다.
 그래서 이 salient weightd를 어떻게 결정하고, 어떻게 구현하나?
 mixed precision으로 찾거나 구현한다면 너무 효율이 떨어지므로 per-channel scaling라는 방식으로
 
 **salient channel 을 scaling factor 로 곱한 다음에 양자화 하고, 실제 activation 계산 시에는 마지막에 다시 scaling factor로 나눔**
 
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/images/awq/3_per_channel_sacling.png?raw=true" itemprop="image" width="80%">
+<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./3_per_channel_sacling.png?raw=true" itemprop="image" width="80%" />
 
 
 
