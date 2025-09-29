@@ -60,6 +60,7 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          postsPerPage: 'ALL',
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
