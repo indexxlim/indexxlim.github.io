@@ -1,3 +1,259 @@
+# AI/ML Tags
+NLP:
+  label: Natural Language Processing
+  permalink: /nlp
+  description: Natural Language Processing related posts
+
+machine-translation:
+  label: Machine Translation
+  permalink: /machine-translation
+  description: Machine Translation related posts
+
+subword:
+  label: Subword
+  permalink: /subword
+  description: Subword tokenization related posts
+
+BPE:
+  label: Byte Pair Encoding
+  permalink: /bpe
+  description: Byte Pair Encoding related posts
+
+transformer:
+  label: Transformer
+  permalink: /transformer
+  description: Transformer architecture related posts
+
+BERT:
+  label: BERT
+  permalink: /bert
+  description: BERT model related posts
+
+attention:
+  label: Attention Mechanism
+  permalink: /attention
+  description: Attention mechanism related posts
+
+pre-training:
+  label: Pre-training
+  permalink: /pre-training
+  description: Model pre-training related posts
+
+sequence-to-sequence:
+  label: Sequence-to-Sequence
+  permalink: /seq2seq
+  description: Sequence-to-sequence models
+
+BART:
+  label: BART
+  permalink: /bart
+  description: BART model related posts
+
+ELECTRA:
+  label: ELECTRA
+  permalink: /electra
+  description: ELECTRA model related posts
+
+discriminator:
+  label: Discriminator
+  permalink: /discriminator
+  description: Discriminator models
+
+coreference-resolution:
+  label: Coreference Resolution
+  permalink: /coreference
+  description: Coreference resolution related posts
+
+neural-networks:
+  label: Neural Networks
+  permalink: /neural-networks
+  description: Neural networks related posts
+
+language-models:
+  label: Language Models
+  permalink: /language-models
+  description: Language models related posts
+
+tools:
+  label: Tools
+  permalink: /tools
+  description: AI tools and APIs
+
+API:
+  label: API
+  permalink: /api
+  description: API related posts
+
+question-answering:
+  label: Question Answering
+  permalink: /qa
+  description: Question answering related posts
+
+few-shot:
+  label: Few-shot Learning
+  permalink: /few-shot
+  description: Few-shot learning related posts
+
+span-selection:
+  label: Span Selection
+  permalink: /span-selection
+  description: Span selection related posts
+
+dialog:
+  label: Dialog Systems
+  permalink: /dialog
+  description: Dialog systems related posts
+
+LaMDA:
+  label: LaMDA
+  permalink: /lamda
+  description: LaMDA model related posts
+
+Google:
+  label: Google
+  permalink: /google
+  description: Google research related posts
+
+# Speech/Audio Tags
+TTS:
+  label: Text-to-Speech
+  permalink: /tts
+  description: Text-to-speech related posts
+
+speech-synthesis:
+  label: Speech Synthesis
+  permalink: /speech-synthesis
+  description: Speech synthesis related posts
+
+VAE:
+  label: Variational Autoencoder
+  permalink: /vae
+  description: VAE related posts
+
+adversarial-learning:
+  label: Adversarial Learning
+  permalink: /adversarial
+  description: Adversarial learning related posts
+
+voice-conversion:
+  label: Voice Conversion
+  permalink: /voice-conversion
+  description: Voice conversion related posts
+
+zero-shot:
+  label: Zero-shot Learning
+  permalink: /zero-shot
+  description: Zero-shot learning related posts
+
+multi-speaker:
+  label: Multi-speaker
+  permalink: /multi-speaker
+  description: Multi-speaker systems
+
+speech-recognition:
+  label: Speech Recognition
+  permalink: /speech-recognition
+  description: Speech recognition related posts
+
+ASR:
+  label: Automatic Speech Recognition
+  permalink: /asr
+  description: ASR related posts
+
+weak-supervision:
+  label: Weak Supervision
+  permalink: /weak-supervision
+  description: Weak supervision related posts
+
+Whisper:
+  label: Whisper
+  permalink: /whisper
+  description: Whisper model related posts
+
+multilingual:
+  label: Multilingual
+  permalink: /multilingual
+  description: Multilingual systems
+
+USM:
+  label: Universal Speech Model
+  permalink: /usm
+  description: Universal Speech Model related posts
+
+# Computer Vision Tags
+computer-vision:
+  label: Computer Vision
+  permalink: /computer-vision
+  description: Computer vision related posts
+
+text-to-image:
+  label: Text-to-Image
+  permalink: /text-to-image
+  description: Text-to-image generation
+
+DALL-E:
+  label: DALL-E
+  permalink: /dalle
+  description: DALL-E model related posts
+
+generative-AI:
+  label: Generative AI
+  permalink: /generative-ai
+  description: Generative AI related posts
+
+# Technical/Infrastructure Tags
+quantization:
+  label: Model Quantization
+  permalink: /quantization
+  description: Model quantization techniques
+
+LLM:
+  label: Large Language Models
+  permalink: /llm
+  description: Large Language Models
+
+compression:
+  label: Model Compression
+  permalink: /compression
+  description: Model compression techniques
+
+acceleration:
+  label: Model Acceleration
+  permalink: /acceleration
+  description: Model acceleration techniques
+
+memory-management:
+  label: Memory Management
+  permalink: /memory-management
+  description: Memory management techniques
+
+PagedAttention:
+  label: PagedAttention
+  permalink: /paged-attention
+  description: PagedAttention algorithm
+
+vLLM:
+  label: vLLM
+  permalink: /vllm
+  description: vLLM inference engine
+
+# Music/Audio Tags
+music:
+  label: Music
+  permalink: /music
+  description: Music related AI posts
+
+deep-learning:
+  label: Deep Learning
+  permalink: /deep-learning
+  description: Deep learning related posts
+
+hierarchical:
+  label: Hierarchical Models
+  permalink: /hierarchical
+  description: Hierarchical model architectures
+
+# Original tags
 facebook:
   label: Facebook
   permalink: /facebook
