@@ -1,3 +1,10 @@
+---
+title: "VITS: Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech"
+authors: [indexxlim]
+tags: [TTS, speech-synthesis, VAE, adversarial-learning]
+date: 2021-06-11
+---
+
 # VITS
 
 **Variational Inference with adversarial learning for end-to-end Text-to-Speech (VITS).**
@@ -28,7 +35,7 @@ FasteSpeech 2s나 EATS는 전체 waveforms보단 짧은 audio clips 학습을 �
 
 ### 2.1 Variational Inference
 
-conditional VAE에서 variational lower bound (ELBO)는 marginal log-likelihood $log p_{\theta}(x|c)$의 ELBO를 계산한다.
+conditional VAE에서 variational lower bound (ELBO)는 marginal log-likelihood $\log p_{\theta}(x|c)$의 ELBO를 계산한다.
 
 $$
 \log p_{\theta}(x \mid c) \geq \mathbb{E}{q{\phi}(z \mid x)}\left[\log p_{\theta}(x \mid z)-\log \frac{q_{\phi}(z \mid x)}{p_{\theta}(z \mid c)}\right]
@@ -38,7 +45,7 @@ $$
 
 $q_{\phi}(z|x)$는 approximate posterior distribution.
 
-training loss는 negative ELBO인 와 KL divergence $\log q_{\theta}(z|x) - \log p_{\theta}(z|c)$ 의 reconstruction loss 합과 KL divergence $\log q_{\phi}(z|x) - \log p_(\theta)(z|c)$
+training loss는 negative ELBO인 와 KL divergence $\log q_{\theta}(z|x) - \log p_{\theta}(z|c)$ 의 reconstruction loss 합과 KL divergence $\log q_{\phi}(z|x) - \log p_{\theta}(z|c)$
 
 ### 2.1.2 **Reconstruction Loss**
 

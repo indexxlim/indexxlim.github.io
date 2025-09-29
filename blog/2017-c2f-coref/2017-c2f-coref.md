@@ -1,3 +1,10 @@
+---
+title: "End-to-End Neural Coreference Resolution"
+authors: [indexxlim]
+tags: [NLP, coreference-resolution, neural-networks]
+date: 2017-07-26
+---
+
 # c2f-coref
 
 ## Coreference Resolution

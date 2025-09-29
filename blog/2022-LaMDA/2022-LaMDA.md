@@ -1,3 +1,10 @@
+---
+title: "LaMDA: Language Models for Dialog Applications"
+authors: [indexxlim]
+tags: [NLP, dialog, language-models, LaMDA, Google]
+date: 2022-01-20
+---
+
 # LaMDA: Language Models for Dialog Applications
     
 

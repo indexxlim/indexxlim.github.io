@@ -1,4 +1,9 @@
-# Google USM
+---
+title: "Google USM: Scaling Automatic Speech Recognition Beyond 100 Languages"
+authors: [indexxlim]
+tags: [speech-recognition, multilingual, Google, USM]
+date: 2023-03-06
+---
 
 # Google USM
 

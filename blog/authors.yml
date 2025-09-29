@@ -23,3 +23,14 @@ slorber:
     linkedin: sebastienlorber
     github: slorber
     newsletter: https://thisweekinreact.com
+
+indexxlim:
+  name: Jisu Lim
+  title: AI Engineer
+  url: https://indexxlim.github.io
+  image_url: https://github.com/indexxlim.png
+  page:
+    # customize the url of the author page at /blog/authors/<permalink>
+    permalink: '/all-jisu-lim-articles'
+  socials:
+    github: indexxlim

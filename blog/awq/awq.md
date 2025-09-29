@@ -1,3 +1,10 @@
+---
+title: "AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration"
+authors: [indexxlim]
+tags: [quantization, LLM, compression, acceleration]
+date: 2023-06-01
+---
+
 # AWQ
 
 ### **Abstractact**

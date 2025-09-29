@@ -1,3 +1,10 @@
+---
+title: "MusicVAE: A Hierarchical Latent Vector Model for Learning Long-Term Structure in Music"
+authors: [indexxlim]
+tags: [music, VAE, deep-learning, hierarchical]
+date: 2018-03-27
+---
+
 # MusicVAE - A Hierarchical Latent Vector Model for Learning Long-Term Structure in Music
 VAE(Variational Auto-Encoder)는 seqeunces를 사용하는 long-term 구조에 사용하기어렵다.  
 그래서 outputs의 embeddings을 각 subsequence 에 독립적으로 생성하기 위하여 사용하는 hierarchical decoder 구조를 제안한다.

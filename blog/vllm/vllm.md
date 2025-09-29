@@ -1,3 +1,10 @@
+---
+title: "Efficient Memory Management for Large Language Model Serving with PagedAttention"
+authors: [indexxlim]
+tags: [LLM, memory-management, PagedAttention, vLLM]
+date: 2023-06-20
+---
+
 # Efficient Memory Management for Large LanguageModel Serving with PagedAttention
 
 ```대형 언어 모델(LLM) 성능 향상을 위한 저메모리 솔루션인 vLLM에 대한 심층적인 설명을 제공합니다. 특히 PagedAttention 알고리즘을 활용하여 메모리 관리의 비효율성을 극복하고 자원을 최적화하며, 처리량을 2-4배 향상시킬 수 있는 방법을 알아볼 수 있습니다. 이를 통해 LLM 서비스의 운영 비용을 줄이고 효율성을 높이는 방법을 배울 수 있으며, 최신 기술적 접근 방식에 대한 통찰을 제공합니다.```

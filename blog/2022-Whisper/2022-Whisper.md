@@ -1,3 +1,10 @@
+---
+title: "Robust Speech Recognition via Large-Scale Weak Supervision (Whisper)"
+authors: [indexxlim]
+tags: [speech-recognition, ASR, weak-supervision, Whisper]
+date: 2022-12-06
+---
+
 # Whisper
 
 ### Amount of dataset
@@ -147,7 +154,7 @@ We note that the above is an imperfect solution, and it will sometimes produce u
             - docker내부에서 실험
             docker pull nvidia/cuda:11.3.1-cudnn8-devel-ubuntu20.04 --> nvidia/cuda:kernl
             - docker image 업데이트
-            docker commit <<docker_id>> <dockername::tag>
+            `docker commit <<docker_id>> <dockername::tag>`
             - ~~실험 결과 현재 데이터를 장치에 할당하는 "cuda:1" 이 부분에 에러가 발생하여 현재 학습중인 gpu 끝나고 다시 테스트 예정(~~즉 gpu를 선택할 수 없음~~)~~
             - GPU 사용중 일 때 속도 비율
         

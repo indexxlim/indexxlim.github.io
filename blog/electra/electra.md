@@ -1,3 +1,10 @@
+---
+title: "ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators"
+authors: [indexxlim]
+tags: [NLP, pre-training, ELECTRA, discriminator]
+date: 2020-03-23
+---
+
 # Electra
 
 ## ELECTRA : PRE-TRAINING TEXT ENCODERS AS DISCRIMINATORS RATHER THAN GENERATORS

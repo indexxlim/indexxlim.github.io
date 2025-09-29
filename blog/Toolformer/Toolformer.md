@@ -1,3 +1,10 @@
+---
+title: "Toolformer: Language Models Can Teach Themselves to Use Tools"
+authors: [indexxlim]
+tags: [NLP, language-models, tools, API]
+date: 2023-02-09
+---
+
 # Toolformer: Language Models Can Teach Themselves to Use Tools
 
 ## Abstract
@@ -40,7 +47,7 @@ API는 text sequences를 나타내고 special tokens의 시작과 끝(QA처럼 A
 
 ![Untitled](./Untitled.png)
 
-<API>와 </API>는 special tokens으로 C는 데이터셋으로 구성된다.
+`<API>`와 `</API>`는 special tokens으로 C는 데이터셋으로 구성된다.
 
 ![Untitled](./Untitled%201.png)
 

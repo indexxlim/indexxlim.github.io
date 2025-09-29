@@ -1,3 +1,10 @@
+---
+title: "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension"
+authors: [indexxlim]
+tags: [NLP, pre-training, sequence-to-sequence, BART]
+date: 2023-01-01
+---
+
 # BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension
 
 
@@ -24,7 +31,7 @@ BART uses a standard Tranformer-based neural machine translation architecture wh
 랜덤한 단어가 mask되어 있는 문장을 다시 복원하는 Masked language model과 denoising auto-encoder가 좋은 성능을 보인다. 그 중에서는 분포에 기반하여 span을 정하거나 auto-regressive 하거나 앙상블하는 방법들이 있다. 
 Bart는 masked 방법 중 랜덤하게 순서를 석고, SpanBERT 처럼 radom text infiiling하는 것이 가장 성능이 좋았다.
 
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./1_bart.png?raw=true" itemprop="image" width="80%" />
+![BART Architecture](./1_bart.png)
 
 모델은 generalizing BERT (due to the bidirectional encoder), GPT (with the left-to-right decoder)사용
 
@@ -48,8 +55,7 @@ BART의 encoder는 Bert와 동일하게 ReLU activation function을 GeLUs로 변
 specific noising schemes
 구체적인 노이즈 방법은 다음과 같다.
 
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./2_bart_mask.png?raw=true
-" itemprop="image" width="60%">
+![BART Masking](./2_bart_mask.png)
 
 - Token Masking: BERT처럼 랜덤 토큰을 [MASK]로 masking  
 - Token Deletion: 랜덤 토큰을 삭제. 삭제된 문장을 찾는다.
@@ -62,7 +68,7 @@ specific noising schemes
 
 ### Sequence Classification Tasks
 
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./3_bart_model_by_task.png?raw=true" itemprop="image" width="60%" />
+![BART Model by Task](./3_bart_model_by_task.png)
 
 디코더의 마지막 hidden state vector를 사용하여 linear classifier. 이 때 디코더에 완전한 문장을 표시하기 위하여 end 토큰 추가했다.
 
@@ -102,8 +108,7 @@ combination of books and Wikipedia data 를 사용해 1M steps 으로 Base모델
 
 ## Results
 
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./4_result.png?raw=true
-" itemprop="image" width="80%">
+![Results 4](./4_result.png)
 
 - Performance of pre-training methods varies significantly across tasks
 - Token masking is crucial
@@ -127,16 +132,14 @@ such as relative-position embeddings or segment-level recurrence 학습방법만
 - RoBERTa와 같은 160Gb 데이터 사용
 
 
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./5_result.png?raw=true
-" itemprop="image" width="80%">
+![Results 5](./5_result.png)
 
 - Generation에서 빔사이즈는 5, 이 때, 중복된 trigram은 삭제
 - 번역쓰이는 첫번째 encoder는 6-layer transformer source encoder to map Romanian into a representation
 - Xsum에서 첫번째 문장 삭제
 
 
-<img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./6_result.png?raw=true
-" itemprop="image" width="60%">
+![Results 6](./6_result.png)
 ![Result 7](./7_result.png)
 ![Result 8](./8_result.png)
 

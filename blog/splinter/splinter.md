@@ -1,3 +1,10 @@
+---
+title: "Few-Shot Question Answering by Pretraining Span Selection (Splinter)"
+authors: [indexxlim]
+tags: [NLP, question-answering, few-shot, span-selection]
+date: 2021-01-01
+---
+
 # Few-Shot Question Answering by Pretraining Span Selection(Splinter)
 
  We explore the more realistic few-shot setting, where only a few hundred training examples are available, and observe that standard models perform poorly, highlighting the discrepancy between current pretraining objectives and question answering.  

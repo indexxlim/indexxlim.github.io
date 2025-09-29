@@ -1,3 +1,10 @@
+---
+title: "Transformer and BERT"
+authors: [indexxlim]
+tags: [NLP, transformer, BERT, attention]
+date: 2017-12-06
+---
+
 # Transformer and Bert
 
 2018년 당시에 [뉴옥 타임지]에서 `Oren Etzioni, chief executive of the Allen Institute for Artificial Intelligence`가 말하길,  
@@ -68,7 +75,7 @@ positional encoding에는 여러 방법이 있지만 여기서는 입력 문장�
 각 위치 pos와 dimension i에 대한 positional encoding값은 다음과 같이 구한다.
 
 $${PE}_{(pos,2i)}=sin⁡(pos/10000^{2i/d_{model}})
-\{PE}_{(pos,2i+1)}=cos⁡(pos/10000^{2i/{d}_{model} })$$
+{PE}_{(pos,2i+1)}=cos⁡(pos/10000^{2i/{d}_{model} })$$
 
 
 ```python

@@ -1,3 +1,10 @@
+---
+title: "Neural Machine Translation of Rare Words with Subword Units"
+authors: [indexxlim]
+tags: [NLP, machine-translation, subword, BPE]
+date: 2016-08-31
+---
+
 # subword model
 
 ## Neural Machine Translation of Rare Words with Subword Units
@@ -63,8 +70,8 @@ for i in range(num_merges):
     ('lo', 'w')
     ('n', 'e')
     ('ne', 'w')
-    ('new', 'est</w>')
-    ('low', '</w>')
+    ('new', 'est&lt;/w&gt;')
+    ('low', '&lt;/w&gt;')
     ('w', 'i')
 
 
