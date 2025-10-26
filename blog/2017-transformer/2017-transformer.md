@@ -78,8 +78,8 @@ seaborn.set_context(context="talk")
 positional encoding에는 여러 방법이 있지만 여기서는 입력 문장길이에 대한 제약사항을 줄이리 위해 sin, cos 함수를 사용해서 정형파로 구현해서 사용했다.
 각 위치 pos와 dimension i에 대한 positional encoding값은 다음과 같이 구한다.
 
-$${PE}_{(pos,2i)}=sin⁡(pos/10000^{2i/d_{model}})
-{PE}_{(pos,2i+1)}=cos⁡(pos/10000^{2i/{d}_{model} })$$
+$${PE}_{(pos,2i)}=\sin(pos/10000^{2i/d_{model}})
+{PE}_{(pos,2i+1)}=\cos(pos/10000^{2i/{d}_{model} })$$
 
 
 ```python

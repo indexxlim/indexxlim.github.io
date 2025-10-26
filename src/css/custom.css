@@ -6,27 +6,256 @@
 
 @import 'katex/dist/katex.min.css';
 
-/* You can override the default Infima variables here. */
+/* Logbook-inspired minimalist color scheme */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Primary colors - neutral and subtle */
+  --ifm-color-primary: #1a1a1a;
+  --ifm-color-primary-dark: #0d0d0d;
+  --ifm-color-primary-darker: #000000;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #2d2d2d;
+  --ifm-color-primary-lighter: #404040;
+  --ifm-color-primary-lightest: #595959;
+
+  /* Accent color for links and highlights */
+  --ifm-link-color: #2563eb;
+  --ifm-link-hover-color: #1d4ed8;
+
+  /* Background colors - clean white */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #fafafa;
+
+  /* Text colors - high contrast for readability */
+  --ifm-font-color-base: #1a1a1a;
+  --ifm-heading-color: #0d0d0d;
+
+  /* Borders and dividers - subtle */
+  --ifm-color-emphasis-100: #f5f5f5;
+  --ifm-color-emphasis-200: #e5e5e5;
+  --ifm-color-emphasis-300: #d4d4d4;
+  --ifm-color-emphasis-400: #a3a3a3;
+
+  /* Code blocks */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
+
+  /* Navbar */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  /* Footer */
+  --ifm-footer-background-color: #1a1a1a;
+  --ifm-footer-color: #d4d4d4;
+  --ifm-footer-link-color: #ffffff;
+  --ifm-footer-link-hover-color: #2563eb;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode - subtle and elegant */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #e5e5e5;
+  --ifm-color-primary-dark: #d4d4d4;
+  --ifm-color-primary-darker: #c4c4c4;
+  --ifm-color-primary-darkest: #a3a3a3;
+  --ifm-color-primary-light: #f5f5f5;
+  --ifm-color-primary-lighter: #fafafa;
+  --ifm-color-primary-lightest: #ffffff;
+
+  --ifm-link-color: #60a5fa;
+  --ifm-link-hover-color: #93c5fd;
+
+  --ifm-background-color: #0d0d0d;
+  --ifm-background-surface-color: #1a1a1a;
+
+  --ifm-font-color-base: #e5e5e5;
+  --ifm-heading-color: #f5f5f5;
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+
+  --ifm-navbar-background-color: #1a1a1a;
+  --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+
+  --ifm-footer-background-color: #0d0d0d;
+}
+
+/* ============================================
+   Typography - Editorial/Magazine Style
+   ============================================ */
+
+/* System font stack for clean, professional look */
+:root {
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --ifm-font-family-monospace: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas,
+    'Courier New', monospace;
+
+  /* Font sizes - clear hierarchy */
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 2rem;
+  --ifm-h3-font-size: 1.5rem;
+  --ifm-h4-font-size: 1.25rem;
+  --ifm-h5-font-size: 1.125rem;
+  --ifm-h6-font-size: 1rem;
+
+  /* Line heights for readability */
+  --ifm-line-height-base: 1.7;
+  --ifm-heading-line-height: 1.3;
+
+  /* Letter spacing */
+  --ifm-heading-letter-spacing: -0.02em;
+
+  /* Font weights */
+  --ifm-font-weight-normal: 400;
+  --ifm-font-weight-semibold: 600;
+  --ifm-font-weight-bold: 700;
+}
+
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--ifm-font-weight-bold);
+  line-height: var(--ifm-heading-line-height);
+  letter-spacing: var(--ifm-heading-letter-spacing);
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+/* Body text optimization */
+article {
+  font-size: 1.0625rem;
+  line-height: var(--ifm-line-height-base);
+}
+
+/* Better paragraph spacing */
+p {
+  margin-bottom: 1.25em;
+}
+
+/* Links with subtle hover effect */
+a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ============================================
+   Layout Improvements
+   ============================================ */
+
+/* Container max-width for better readability */
+.container {
+  max-width: 1200px;
+}
+
+/* Better spacing for main content */
+main {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+/* Card-style elements with subtle shadows */
+.card {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Navbar Refinements
+   ============================================ */
+
+.navbar {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.navbar__title {
+  font-weight: var(--ifm-font-weight-bold);
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.navbar__link {
+  font-weight: var(--ifm-font-weight-semibold);
+  font-size: 0.9375rem;
+}
+
+/* ============================================
+   Blog List Improvements
+   ============================================ */
+
+/* Blog post card styling */
+.margin-bottom--xl {
+  margin-bottom: 2rem !important;
+}
+
+article.margin-bottom--xl {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+article.margin-bottom--xl:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Footer Styling
+   ============================================ */
+
+.footer {
+  padding: 3rem 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.footer__title {
+  font-weight: var(--ifm-font-weight-bold);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.footer__link-item {
+  font-size: 0.9375rem;
+  line-height: 2;
+}
+
+/* ============================================
+   Responsive Typography
+   ============================================ */
+
+@media screen and (max-width: 996px) {
+  :root {
+    --ifm-h1-font-size: 2rem;
+    --ifm-h2-font-size: 1.75rem;
+    --ifm-h3-font-size: 1.375rem;
+  }
+
+  article {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --ifm-h1-font-size: 1.75rem;
+    --ifm-h2-font-size: 1.5rem;
+    --ifm-h3-font-size: 1.25rem;
+  }
 }
