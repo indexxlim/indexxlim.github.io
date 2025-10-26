@@ -80,7 +80,7 @@ model zero-shot multi-speaker generation를 위해  all affine coupling layers o
 Speaker Consistency Loss(SCL)을 마지막 Loss에 사용한는데, 이 경우에 사전학습된 speech encoder가  유사도를 최대화할 때 생성된 오디오와 ground truth의 speaker embedding을 추출하기 위해 사용된다. 마지막으로 $\phi$는 스피커의 embedding을 뽑아내고 $cos\_sin$ 는 코사인 유사도, $a$는 상수값 $n$는 배치사이즈로 scl수식은 다음과 같다.   
 
 $$
-L_{scl} = \frac{-a}{n}\cdot\sum_{i}^n cos\_sim(\phi (g_i), \phi(h_i)),
+L_{scl} = \frac{-a}{n}\cdot\sum_{i}^n \text{cos\_sim}(\phi(g_i), \phi(h_i))
 $$
 
 $g$와 $h$는 생성된 음성 오디오와 ground truth의 represent이다.

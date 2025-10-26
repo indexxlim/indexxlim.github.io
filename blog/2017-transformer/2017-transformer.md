@@ -33,10 +33,14 @@ date: 2017-12-06
 
 <img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./4_2_transformer.png?raw=true" itemprop="image" width="60%" />
 
-$$score(s_t, h_i )= s_t^T h_i 
-\\e^t=[s_t^T h_1,…,s_t^T h_N]
-\\a^t=softmax(e^t)
-\\c_t = \sum_{i=1}^{N}a_i^t  h_i$$
+$$
+\begin{aligned}
+score(s_t, h_i) &= s_t^T h_i \\
+e^t &= [s_t^T h_1,\ldots,s_t^T h_N] \\
+a^t &= softmax(e^t) \\
+c_t &= \sum_{i=1}^{N}a_i^t h_i
+\end{aligned}
+$$
 
 원 논문에서는 t를 현재시점이라고 할 때, 인코더 출력벡터(s)와 은닉 상태 벡터(h)를 내적한 후에 소프트맥스(softmax)를 한다면 이를 어텐션 분포(attention distribution), 각각의 값을 어텐션 가중치(attention weight)라고 합니다. 이 가중치를 모두 더한다면 최종 출력 어텐션 값(attention value)이자 `문맥 벡터(context vector)`라고 정의한다. 그 후 실제 예측을 위해 어텐션 벡터와 인코더 출력벡터를 결합(concatenate)시켜 예측한다.
 
@@ -228,7 +232,7 @@ class SublayerConnection(nn.Module):
 비유를 하자면, query는 연구하고 있는 주제를 가지고 있는 메모라고 한다면, key는 캐비닛 안에 있는 폴더의 태그라고 할 때, 
 태그를 스티커 메모와 일치시키면, 폴더의 내용은 value. 이 떄, 하나의 값만 찾는 것이 아니라 폴더의 혼합된 값의 조합을 찾은 후 query 벡터와 각 키 vector를 곱한 값이 각 폴더의 점수이다.  
 즉, 하나의 query에 대해 모든 key들과 내적을 한 뒤 각 값을 k의 차원수인 $\sqrt{d}_{k}$로 나눠주면서 스케일링한다. 그리고 소프트맥스 함수를 씌운 후 마지막으로 값을 곱합다.
-$\  Attension(Q, K, V)=softmax(\frac{(QK^T)}{√(d_k)})V$
+$$\text{Attention}(Q, K, V)=\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
 <img src="https://github.com/indexxlim/indexxlim.github.io/blob/main/diary.py/machine_learning/paper/./6_3_transformer.png?raw=true" itemprop="image" width="50%" />
 
@@ -250,7 +254,7 @@ $$MultiHead(Q,K,V)=Concat(head_1,…,head_h)W^o
 
 어텐션 하위 계층에서 fully connected feed-forward network로 진행하는 과정이고 두개의 선형 회귀으로 구성되어 있다.
 
-$\ FFN(x)=max⁡(0,xW1+b1)W2+b2FFN(x)=max⁡(0,xW1+b1)W2+b2$
+$$\text{FFN}(x)=\max(0,xW_1+b_1)W_2+b_2$$
 
 두 레이어 사이에 Trasformer는 ReLU 함수를 Bert는 erf off [GELU]를 사용한다.
 

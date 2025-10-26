@@ -28,11 +28,11 @@ Masked language modeling(MLM)들은 일반적으로 많은 양의 계산을 필�
 ### method..
 2개의 신경망을 학습사는데 generator G와 discriminator D를 학습한다.
 vector representation h(x) 와 embedding e, position t 일 때, generator는 softmax layer를 통해 다음과 같이 출력된다
-$$pG\_(x_t|x) =exp(e(x_t)^T hG(x)_t)  / \sum_{x'}exp(e(x′)^T hG(x)_t)$$
+$$p_G(x_t|x) = \frac{\exp(e(x_t)^T h_G(x)_t)}{\sum_{x'}\exp(e(x')^T h_G(x)_t)}$$
 
 discriminator는 다음과 같다
 
-$$D(x,t)=sigmoid(w^ThD(x)_t)$$
+$$D(x,t)=\text{sigmoid}(w^T h_D(x)_t)$$
 
 추가적으로 genrator와 discriminator 간에 sharing weights를 통해서 효율적으로 학습을 진행한다. 이 때 token과 positional embedding을 공유했다.S
 이 때, discriminator 모델의 크기는 generator 보다 커야 수월하게 구별을 하면서 학습이 된다.

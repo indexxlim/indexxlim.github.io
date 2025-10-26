@@ -85,10 +85,10 @@ const config = {
 
   stylesheets: [
     {
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css',
       type: 'text/css',
       integrity:
-        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+        'sha384-L8Z6YMvD6RSD9dDVmQOjyx3ljVdOGdlvN3L1LTjMfTEksvlTsC7W/KjEzOTpBLdR',
       crossorigin: 'anonymous',
     },
   ],
