@@ -12,8 +12,8 @@ import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'IndexxLim Blog',
+  tagline: 'ML/NLP Research & Paper Reviews',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -104,70 +104,75 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'IndexxLim',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'IndexxLim Logo',
           src: 'img/logo.svg',
         },
         items: [
+          {to: '/blog', label: 'Blog', position: 'left'},
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/indexxlim',
             label: 'GitHub',
             position: 'right',
           },
         ],
+        hideOnScroll: false,
       },
       footer: {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
+            title: 'Content',
             items: [
               {
                 label: 'Blog',
                 to: '/blog',
               },
               {
+                label: 'Docs',
+                to: '/docs/intro',
+              },
+            ],
+          },
+          {
+            title: 'Social',
+            items: [
+              {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/indexxlim',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/indexxlim',
+              },
+            ],
+          },
+          {
+            title: 'Topics',
+            items: [
+              {
+                label: 'Machine Learning',
+                to: '/blog/tags/machine-learning',
+              },
+              {
+                label: 'NLP',
+                to: '/blog/tags/nlp',
+              },
+              {
+                label: 'Transformers',
+                to: '/blog/tags/transformers',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} IndexxLim. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
