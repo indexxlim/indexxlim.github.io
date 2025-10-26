@@ -3,6 +3,7 @@ title: "VITS: Conditional Variational Autoencoder with Adversarial Learning for 
 authors: [indexxlim]
 tags: [TTS, speech-synthesis, VAE, adversarial-learning]
 date: 2021-06-11
+description: "End-to-end text-to-speech model using variational inference with adversarial learning"
 ---
 
 # VITS

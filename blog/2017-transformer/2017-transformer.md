@@ -3,6 +3,8 @@ title: "Transformer and BERT"
 authors: [indexxlim]
 tags: [NLP, transformer, BERT, attention]
 date: 2017-12-06
+image: ./1_1_bert_transformer.png
+description: "Understanding Transformer architecture and BERT model with attention mechanism"
 ---
 
 # Transformer and Bert

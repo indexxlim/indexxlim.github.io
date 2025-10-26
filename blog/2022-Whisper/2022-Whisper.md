@@ -3,6 +3,7 @@ title: "Robust Speech Recognition via Large-Scale Weak Supervision (Whisper)"
 authors: [indexxlim]
 tags: [speech-recognition, ASR, weak-supervision, Whisper]
 date: 2022-12-06
+description: "OpenAI's Whisper model for robust speech recognition using 680,000 hours of weak supervision data"
 ---
 
 # Whisper

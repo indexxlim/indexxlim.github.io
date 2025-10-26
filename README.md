@@ -10,15 +10,16 @@ Redesigning the site to match the Logbook Hugo theme aesthetic - a clean, editor
 
 - [x] Update color scheme to neutral/minimalist (white background, dark text)
 - [x] Update typography to clean sans-serif with clear hierarchy
-- [ ] Customize navbar - horizontal layout with logo on left
-- [ ] Create custom blog post card layout with large featured images
-- [ ] Add post metadata display (author, date, categories, tags)
-- [ ] Implement grid/card-based blog listing layout
+- [x] Customize navbar - Blog-first layout with clean branding
+- [x] Redesign footer with multi-column layout (Content, Social, Topics)
+- [x] Create custom blog post card layout with enhanced styling
+- [x] Add post metadata display (author, date, tags with pill styling)
+- [x] Implement card-based blog listing with hover effects
+- [x] Fix blog page width to match main/docs pages (1400px)
+- [x] Add featured images and descriptions to blog posts
 - [ ] Add sidebar with search, author bio, categories, tags, latest posts
-- [ ] Redesign footer with multi-column layout (logo, links, social, newsletter)
-- [ ] Add featured images support for blog posts
 - [ ] Implement author bio section for blog posts
-- [ ] Add social media links and sharing buttons
+- [ ] Add social media sharing buttons
 - [ ] Test responsive design on mobile and tablet
 
 ### Design Reference
