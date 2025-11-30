@@ -17,10 +17,18 @@ Redesigning the site to match the Logbook Hugo theme aesthetic - a clean, editor
 - [x] Implement card-based blog listing with hover effects
 - [x] Fix blog page width to match main/docs pages (1400px)
 - [x] Add featured images and descriptions to blog posts
-- [ ] Add sidebar with search, author bio, categories, tags, latest posts
-- [ ] Implement author bio section for blog posts
-- [ ] Add social media sharing buttons
+- [x] Add sidebar with search, author bio, categories, tags, latest posts
+- [x] Implement author bio section for blog posts
+- [x] Add social media sharing buttons
 - [ ] Test responsive design on mobile and tablet
+- [ ] Improve blog post card hover effects and animations
+- [ ] Add reading time estimates to blog posts
+- [ ] Implement table of contents for long blog posts
+- [ ] Add dark mode toggle with smooth transitions
+- [ ] Optimize featured image loading and sizing
+- [ ] Add breadcrumb navigation
+- [ ] Implement related posts section
+- [ ] Add newsletter subscription form
 
 ### Design Reference
 
