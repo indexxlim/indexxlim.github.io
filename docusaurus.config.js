@@ -158,16 +158,16 @@ const config = {
             title: 'Topics',
             items: [
               {
-                label: 'Machine Learning',
-                to: '/blog/tags/machine-learning',
-              },
-              {
                 label: 'NLP',
                 to: '/blog/tags/nlp',
               },
               {
-                label: 'Transformers',
-                to: '/blog/tags/transformers',
+                label: 'Transformer',
+                to: '/blog/tags/transformer',
+              },
+              {
+                label: 'Deep Learning',
+                to: '/blog/tags/deep-learning',
               },
             ],
           },

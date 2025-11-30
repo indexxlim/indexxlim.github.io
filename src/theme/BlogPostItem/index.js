@@ -6,6 +6,8 @@ import BlogPostItemHeaderInfo from '@theme/BlogPostItem/Header/Info';
 import BlogPostItemHeaderAuthors from '@theme/BlogPostItem/Header/Authors';
 import BlogPostItemContent from '@theme/BlogPostItem/Content';
 import BlogPostItemFooter from '@theme/BlogPostItem/Footer';
+import AuthorBio from '@site/src/components/AuthorBio';
+import SocialShare from '@site/src/components/SocialShare';
 import styles from './styles.module.css';
 
 export default function BlogPostItem({children, className}) {
@@ -50,6 +52,9 @@ export default function BlogPostItem({children, className}) {
   }
 
   // Full page layout for individual blog post
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://indexxlim.github.io';
+  const fullUrl = `${baseUrl}${permalink}`;
+
   return (
     <article className={clsx('margin-bottom--xl', className)}>
       <BlogPostItemHeaderTitle />
@@ -57,6 +62,8 @@ export default function BlogPostItem({children, className}) {
       <BlogPostItemHeaderAuthors />
       <BlogPostItemContent>{children}</BlogPostItemContent>
       <BlogPostItemFooter />
+      <SocialShare url={fullUrl} title={title} />
+      <AuthorBio author={authors?.[0]} />
     </article>
   );
 }

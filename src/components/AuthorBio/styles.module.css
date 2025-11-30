@@ -1,0 +1,101 @@
+.authorBio {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 3rem 0;
+}
+
+.authorHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.authorImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--ifm-color-emphasis-200);
+}
+
+.authorInfo {
+  flex: 1;
+}
+
+.authorName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: var(--ifm-heading-color);
+}
+
+.authorTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0;
+}
+
+.authorDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-base);
+  margin: 0 0 1.5rem 0;
+}
+
+.authorSocials {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  padding: 0.5rem 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.socialLink:hover {
+  background: var(--ifm-link-color);
+  color: white;
+  border-color: var(--ifm-link-color);
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+  .authorBio {
+    padding: 1.5rem;
+  }
+
+  .authorHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .authorImage {
+    width: 64px;
+    height: 64px;
+  }
+
+  .authorName {
+    font-size: 1.25rem;
+  }
+
+  .authorDescription {
+    font-size: 0.9375rem;
+  }
+
+  .authorSocials {
+    justify-content: center;
+  }
+}
