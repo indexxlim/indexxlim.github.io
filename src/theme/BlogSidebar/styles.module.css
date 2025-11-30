@@ -1,27 +1,29 @@
 .sidebar {
-  background: var(--ifm-background-surface-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 12px;
-  padding: 0;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .sidebarSection {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
   padding: 1.5rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
 }
 
-.sidebarSection:last-child {
-  border-bottom: none;
+.sidebarSection:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
 
 .sidebarTitle {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0 0 1rem 0;
-  color: var(--ifm-color-emphasis-700);
+  letter-spacing: 0.08em;
+  margin: 0 0 1.25rem 0;
+  color: var(--ifm-heading-color);
 }
 
 /* Search Box */
@@ -31,19 +33,21 @@
 
 .searchInput {
   width: 100%;
-  padding: 0.625rem 1rem;
+  padding: 0.75rem 1rem;
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 8px;
-  font-size: 0.9375rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
   background: var(--ifm-background-color);
   color: var(--ifm-font-color-base);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .searchInput:focus {
   outline: none;
   border-color: var(--ifm-link-color);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+  cursor: text;
 }
 
 .searchInput::placeholder {
