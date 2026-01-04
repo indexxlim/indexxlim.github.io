@@ -28,6 +28,9 @@
     "@docusaurus/module-type-aliases": "^3.9.2",
     "@docusaurus/types": "^3.9.2"
   },
+  "resolutions": {
+    "qs": "^6.14.1"
+  },
   "browserslist": {
     "production": [
       ">0.5%",
@@ -41,6 +44,6 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.0"
   }
 }

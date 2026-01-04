@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import {useAllPluginInstancesData} from '@docusaurus/useGlobalData';
+import blogPostListProp from '@generated/docusaurus-plugin-content-blog/default/blog-post-list-prop-default.json';
 import styles from './index.module.css';
 
 const FALLBACK_AUTOROTATE_MS = 6500;
@@ -53,6 +53,17 @@ const getExcerpt = (value, maxLength = 160) => {
   return `${cleaned.slice(0, maxLength).trim()}...`;
 };
 
+let blogMetadataContext;
+try {
+  blogMetadataContext = require.context(
+    '@generated/docusaurus-plugin-content-blog/default',
+    false,
+    /site-blog-.*\.json$/,
+  );
+} catch (error) {
+  blogMetadataContext = null;
+}
+
 function MetaLine({author, date, tags, readingTime}) {
   const tagLabel = tags?.length ? tags.join(', ') : '';
   const formattedDate = formatDate(date);
@@ -76,29 +87,42 @@ function MetaLine({author, date, tags, readingTime}) {
 }
 
 export default function Home() {
-  const blogInstances = useAllPluginInstancesData('docusaurus-plugin-content-blog');
-  const blogPosts = blogInstances?.default?.blogPosts ?? [];
+  const blogPosts = blogPostListProp?.items ?? [];
+  const metadataByPermalink = useMemo(() => {
+    if (!blogMetadataContext) {
+      return {};
+    }
+    const entries = {};
+    blogMetadataContext.keys().forEach((key) => {
+      const entry = blogMetadataContext(key);
+      if (entry?.permalink) {
+        entries[entry.permalink] = entry;
+      }
+    });
+    return entries;
+  }, []);
 
   const normalizedPosts = useMemo(
     () =>
       blogPosts.map((post) => {
-        const {metadata, content} = post;
+        const metadata = metadataByPermalink[post.permalink];
         const frontMatter = metadata?.frontMatter ?? {};
         const tags = metadata?.tags?.map((tag) => tag.label) ?? [];
+        const description = metadata?.description || frontMatter.description || '';
 
         return {
-          id: post.id,
-          title: metadata?.title ?? 'Untitled',
-          permalink: metadata?.permalink ?? '/blog',
-          date: metadata?.date,
+          id: post.permalink,
+          title: post.title ?? 'Untitled',
+          permalink: post.permalink ?? '/blog',
+          date: post.date,
           author: metadata?.authors?.[0]?.name ?? '',
           tags,
           readingTime: metadata?.readingTime,
           image: frontMatter.image || frontMatter.cover_image || '',
-          excerpt: getExcerpt(metadata?.description || content || ''),
+          excerpt: getExcerpt(description),
         };
       }),
-    [blogPosts],
+    [blogPosts, metadataByPermalink],
   );
 
   const featuredPosts = normalizedPosts.slice(0, 3);
@@ -208,7 +232,9 @@ export default function Home() {
                       tags={activePost?.tags}
                       readingTime={activePost?.readingTime}
                     />
-                    <p className={styles.heroExcerpt}>{activePost?.excerpt}</p>
+                    {activePost?.excerpt ? (
+                      <p className={styles.heroExcerpt}>{activePost.excerpt}</p>
+                    ) : null}
                     <Link className={styles.heroLink} to={activePost?.permalink || '/blog'}>
                       Continue reading →
                     </Link>
@@ -296,7 +322,9 @@ export default function Home() {
                         tags={post.tags}
                         readingTime={post.readingTime}
                       />
-                      <p className={styles.postExcerpt}>{post.excerpt}</p>
+                      {post.excerpt ? (
+                        <p className={styles.postExcerpt}>{post.excerpt}</p>
+                      ) : null}
                       <Link className={styles.postLink} to={post.permalink}>
                         Continue Reading →
                       </Link>
