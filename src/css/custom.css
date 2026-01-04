@@ -5,6 +5,7 @@
  */
 
 @import 'katex/dist/katex.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap');
 
 /* Logbook-inspired minimalist color scheme */
 :root {
@@ -18,8 +19,8 @@
   --ifm-color-primary-lightest: #595959;
 
   /* Accent color for links and highlights */
-  --ifm-link-color: #2563eb;
-  --ifm-link-hover-color: #1d4ed8;
+  --ifm-link-color: #c46a3b;
+  --ifm-link-hover-color: #a4552d;
 
   /* Background colors - clean white */
   --ifm-background-color: #ffffff;
@@ -60,8 +61,8 @@
   --ifm-color-primary-lighter: #fafafa;
   --ifm-color-primary-lightest: #ffffff;
 
-  --ifm-link-color: #60a5fa;
-  --ifm-link-hover-color: #93c5fd;
+  --ifm-link-color: #f0a06d;
+  --ifm-link-hover-color: #f7b78c;
 
   --ifm-background-color: #0d0d0d;
   --ifm-background-surface-color: #1a1a1a;
@@ -83,8 +84,8 @@
 
 /* System font stack for clean, professional look */
 :root {
-  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --ifm-font-family-base: 'Source Sans 3', 'Helvetica Neue', 'Segoe UI', sans-serif;
+  --ifm-heading-font-family: 'Playfair Display', 'Times New Roman', serif;
   --ifm-font-family-monospace: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas,
     'Courier New', monospace;
 
