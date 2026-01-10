@@ -189,12 +189,12 @@ export default function Home() {
   const canSlide = featuredPosts.length > 1;
 
   return (
-    <Layout title="Logbook" description="A calm, journal-style homepage layout">
+    <Layout title="Indexxlim" description="A calm, journal-style homepage layout">
       <main>
         <div className={styles.page}>
           <header className={styles.heroSection}>
             <div className={styles.heroIntro}>
-              <span className={styles.heroKicker}>The Logbook</span>
+              <span className={styles.heroKicker}>Indexxlim</span>
               <Heading as="h1" className={styles.heroTitle}>
                 Notes from a slow studio, collected every week.
               </Heading>

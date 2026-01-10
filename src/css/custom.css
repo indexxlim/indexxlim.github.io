@@ -23,7 +23,7 @@
   --ifm-link-hover-color: #a4552d;
 
   /* Background colors - clean white */
-  --ifm-background-color: #ffffff;
+  --ifm-background-color: #fcfaf6;
   --ifm-background-surface-color: #fafafa;
 
   /* Text colors - high contrast for readability */
@@ -41,7 +41,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
 
   /* Navbar */
-  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-background-color: #fcfaf6;
   --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
   /* Footer */
