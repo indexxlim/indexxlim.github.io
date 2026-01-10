@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
+// 홈페이지에 표시할 주요 기능 목록
 const FeatureList = [
   {
     title: 'Easy to Use',
@@ -35,6 +36,7 @@ const FeatureList = [
   },
 ];
 
+// 개별 기능 카드를 렌더링하는 컴포넌트
 function Feature({Svg, title, description}) {
   return (
     <div className={clsx('col col--4')}>
@@ -49,6 +51,7 @@ function Feature({Svg, title, description}) {
   );
 }
 
+// 홈페이지 기능 섹션 메인 컴포넌트
 export default function HomepageFeatures() {
   return (
     <section className={styles.features}>

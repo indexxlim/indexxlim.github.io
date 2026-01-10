@@ -6,8 +6,10 @@ import Heading from '@theme/Heading';
 import blogPostListProp from '@generated/docusaurus-plugin-content-blog/default/blog-post-list-prop-default.json';
 import styles from './index.module.css';
 
+// 슬라이더 자동 회전 간격 (밀리초)
 const FALLBACK_AUTOROTATE_MS = 6500;
 
+// 날짜 문자열을 읽기 쉬운 형식으로 변환 (예: "January 10, 2026")
 const formatDate = (dateString) => {
   if (!dateString) {
     return '';
@@ -23,6 +25,7 @@ const formatDate = (dateString) => {
   }).format(date);
 };
 
+// 읽기 시간을 분 단위로 포맷팅 (최소 1분)
 const formatReadingTime = (readingTime) => {
   if (!readingTime) {
     return '';
@@ -31,6 +34,7 @@ const formatReadingTime = (readingTime) => {
   return `${minutes} min read`;
 };
 
+// 마크다운 문법을 제거하고 순수 텍스트만 추출
 const stripMarkdown = (value) =>
   value
     .replace(/```[\s\S]*?```/g, ' ')
@@ -42,6 +46,7 @@ const stripMarkdown = (value) =>
     .replace(/\s+/g, ' ')
     .trim();
 
+// 텍스트에서 요약문 추출 (최대 길이 제한하고 말줄임표 추가)
 const getExcerpt = (value, maxLength = 160) => {
   if (!value) {
     return '';
@@ -53,6 +58,7 @@ const getExcerpt = (value, maxLength = 160) => {
   return `${cleaned.slice(0, maxLength).trim()}...`;
 };
 
+// 블로그 메타데이터 JSON 파일들을 동적으로 로드하기 위한 컨텍스트
 let blogMetadataContext;
 try {
   blogMetadataContext = require.context(
@@ -64,6 +70,7 @@ try {
   blogMetadataContext = null;
 }
 
+// 작성자, 날짜, 태그, 읽기시간을 한 줄로 표시하는 메타 정보 컴포넌트
 function MetaLine({author, date, tags, readingTime}) {
   const tagLabel = tags?.length ? tags.join(', ') : '';
   const formattedDate = formatDate(date);
@@ -86,8 +93,11 @@ function MetaLine({author, date, tags, readingTime}) {
   );
 }
 
+// 메인 홈페이지 컴포넌트 - LogBook 스타일의 저널형 레이아웃
 export default function Home() {
+  // 블로그 포스트 목록 가져오기
   const blogPosts = blogPostListProp?.items ?? [];
+  // permalink를 키로 하는 메타데이터 맵 생성 (성능 최적화를 위해 useMemo 사용)
   const metadataByPermalink = useMemo(() => {
     if (!blogMetadataContext) {
       return {};
@@ -102,6 +112,7 @@ export default function Home() {
     return entries;
   }, []);
 
+  // 블로그 포스트를 표준화된 형식으로 변환 (이미지, 태그, 설명 등 추가)
   const normalizedPosts = useMemo(
     () =>
       blogPosts.map((post) => {
@@ -125,40 +136,54 @@ export default function Home() {
     [blogPosts, metadataByPermalink],
   );
 
+  // 히어로 슬라이더에 표시할 추천 포스트 (최대 3개)
   const featuredPosts = normalizedPosts.slice(0, 3);
+  // 포스트 그리드에 표시할 목록 (첫 번째 제외하고 최대 5개)
   const listPosts = normalizedPosts.slice(featuredPosts.length ? 1 : 0, 5);
+  // 사이드바 최근 포스트 목록 (최대 3개)
   const recentPosts = normalizedPosts.slice(0, 3);
+  // 모든 태그를 중복 없이 추출
   const uniqueTags = Array.from(
     new Set(normalizedPosts.flatMap((post) => post.tags)),
   );
+  // 사이드바 카테고리 목록 (최대 5개)
   const categories = uniqueTags.slice(0, 5);
+  // 사이드바 태그 칩 목록 (최대 8개)
   const tagList = uniqueTags.slice(0, 8);
 
+  // 현재 활성화된 슬라이드 인덱스 상태
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // 슬라이드 자동 회전 효과 (접근성 고려: prefers-reduced-motion 체크)
   useEffect(() => {
+    // 슬라이드가 1개 이하면 자동 회전 불필요
     if (featuredPosts.length <= 1) {
       return undefined;
     }
+    // 서버 사이드 렌더링에서는 실행 안함
     if (typeof window === 'undefined') {
       return undefined;
     }
+    // 사용자가 애니메이션 감소를 선호하면 자동 회전 비활성화
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mediaQuery.matches) {
       return undefined;
     }
+    // 일정 시간마다 다음 슬라이드로 자동 전환
     const id = window.setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % featuredPosts.length);
     }, FALLBACK_AUTOROTATE_MS);
     return () => window.clearInterval(id);
   }, [featuredPosts.length]);
 
+  // 활성 인덱스가 범위를 벗어나면 0으로 리셋
   useEffect(() => {
     if (activeIndex > featuredPosts.length - 1) {
       setActiveIndex(0);
     }
   }, [activeIndex, featuredPosts.length]);
 
+  // 현재 활성화된 포스트와 슬라이드 가능 여부
   const activePost = featuredPosts[activeIndex];
   const hasSlides = featuredPosts.length > 0;
   const canSlide = featuredPosts.length > 1;

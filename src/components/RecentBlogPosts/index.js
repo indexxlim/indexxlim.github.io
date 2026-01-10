@@ -8,6 +8,7 @@ import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
+// 최근 블로그 포스트를 표시하는 컴포넌트 (플레이스홀더)
 export default function RecentBlogPosts() {
   return (
     <section className={styles.blogSection}>

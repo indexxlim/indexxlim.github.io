@@ -10,6 +10,7 @@ import rehypeKatex from 'rehype-katex';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+// Docusaurus 사이트 전체 설정
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'IndexxLim Blog',
