@@ -387,7 +387,7 @@ article a[href*="blog"]:not(.blog-tags-container a)::after {
    Responsive Typography
    ============================================ */
 
-@media screen and (max-width: 996px) {
+@media screen and (max-width: 1024px) {
   :root {
     --ifm-h1-font-size: 2rem;
     --ifm-h2-font-size: 1.75rem;

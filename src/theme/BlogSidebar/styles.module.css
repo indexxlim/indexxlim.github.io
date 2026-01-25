@@ -231,7 +231,7 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1024px) {
   .sidebar {
     margin-bottom: 2rem;
   }
